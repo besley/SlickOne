@@ -741,15 +741,14 @@ namespace SlickOne.Data
         /// <typeparam name="T"></typeparam>
         /// <param name="ids"></param>
         /// <returns></returns>
-        public bool DeleteBatch<T>(IDbConnection conn, IEnumerable<dynamic> ids, IDbTransaction transaction = null) where T : class
+        public int DeleteBatch<T>(IDbConnection conn, IEnumerable<dynamic> ids, IDbTransaction transaction = null) where T : class
         {
-            bool isOk = false;
-            foreach (var id in ids)
-            {
-                Delete<T>(id, conn, transaction);
-            }
-            isOk = true;
-            return isOk;
+            var tblName = GetTableName<T>();
+            var idsin = string.Join(",", ids.ToArray<dynamic>());
+            var sql = string.Format("DELETE FROM dbo.{0} WHERE ID in (@ids)", tblName);
+            var result = SqlMapper.Execute(conn, sql, new { ids = idsin });
+
+            return result;
         }
     }
 }

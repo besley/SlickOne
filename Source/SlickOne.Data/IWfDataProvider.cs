@@ -26,7 +26,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Slickflow.Data
+namespace SlickOne.Data
 {
     /// <summary>
     /// 流程数据SQL接口
