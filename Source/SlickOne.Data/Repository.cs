@@ -31,6 +31,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using DapperExtensions;
+using System.Data.SqlClient;
+using DapperExtensions.Sql;
 
 namespace SlickOne.Data
 {
@@ -716,6 +718,34 @@ namespace SlickOne.Data
             //    }
             //    bulkCopy.WriteToServer(table);
             //}
+            #region 补全 过滤Ignore字段(可以过滤mapping类里面设置的ignore)
+            var tblName = string.Format("dbo.{0}", typeof(T).Name);
+            var tran = (SqlTransaction)transaction;
+            using (var bulkCopy = new SqlBulkCopy(conn as SqlConnection, SqlBulkCopyOptions.TableLock, tran))
+            {
+                bulkCopy.BatchSize = entityList.Count();
+                bulkCopy.DestinationTableName = tblName;
+                var table = new DataTable();
+                DapperExtensions.Sql.ISqlGenerator sqlGenerator = new SqlGeneratorImpl(new DapperExtensionsConfiguration());
+                var classMap = sqlGenerator.Configuration.GetMap<T>();
+                var props = classMap.Properties.Where(x => x.Ignored == false).ToArray();
+                foreach (var propertyInfo in props)
+                {
+                    bulkCopy.ColumnMappings.Add(propertyInfo.Name, propertyInfo.Name);
+                    table.Columns.Add(propertyInfo.Name, Nullable.GetUnderlyingType(propertyInfo.PropertyInfo.PropertyType) ?? propertyInfo.PropertyInfo.PropertyType);
+                }
+                var values = new object[props.Count()];
+                foreach (var itemm in entityList)
+                {
+                    for (var i = 0; i < values.Length; i++)
+                    {
+                        values[i] = props[i].PropertyInfo.GetValue(itemm, null);
+                    }
+                    table.Rows.Add(values);
+                }
+                bulkCopy.WriteToServer(table);
+            }
+            #endregion
         }
 
         /// <summary>
