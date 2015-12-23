@@ -29,6 +29,8 @@
         jshelper.ajaxPost("/soneweb/api/product/query", JSON.stringify(query), function (result) {
             if (result.Status == 1) {
                 fillData(result.Entity);
+
+                $("#modelProductQueryForm").modal("hide");
             } else {
                 $.msgBox({
                     title: "Product / Query",

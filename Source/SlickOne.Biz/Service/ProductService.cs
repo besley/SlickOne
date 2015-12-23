@@ -8,6 +8,9 @@ using SlickOne.Biz.Entity;
 
 namespace SlickOne.Biz.Service
 {
+    /// <summary>
+    /// 产品接口服务实现
+    /// </summary>
     public class ProductService : IProductService
     {
         #region 基本属性

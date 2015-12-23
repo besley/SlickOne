@@ -139,7 +139,6 @@
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.zh-CN.js" />
     <Content Include="Scripts\jquery\jquery.msgBox.js" />
     <Content Include="Content\bootstrap\bootstrap.css" />
-    <Content Include="Content\bootstrap\bootstrap3.0.0.min.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
     <Content Include="Content\jquery-ui\images\2.png" />
     <Content Include="Content\jquery-ui\images\ajax-loader.gif" />
@@ -158,7 +157,6 @@
     <Content Include="Content\jquery-ui\images\confirm.png" />
     <Content Include="Content\jquery-ui\images\datagrid_title_bg.png" />
     <Content Include="Content\jquery-ui\images\dd.html" />
-    <Content Include="Content\jquery-ui\images\delete.png" />
     <Content Include="Content\jquery-ui\images\empty.png" />
     <Content Include="Content\jquery-ui\images\error.png" />
     <Content Include="Content\jquery-ui\images\exit.png" />
@@ -184,7 +182,6 @@
     <Content Include="Content\jquery-ui\images\relogin.png" />
     <Content Include="Content\jquery-ui\images\relogin1.png" />
     <Content Include="Content\jquery-ui\images\search.png" />
-    <Content Include="Content\jquery-ui\images\sprite.png" />
     <Content Include="Content\jquery-ui\images\tick.png" />
     <Content Include="Content\jquery-ui\images\tick2.png" />
     <Content Include="Content\jquery-ui\images\toolbarwin7.png" />
