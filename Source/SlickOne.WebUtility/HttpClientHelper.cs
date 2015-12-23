@@ -101,9 +101,9 @@ namespace SlickOne.WebUtility
         /// <typeparam name="T2"></typeparam>
         /// <param name="t"></param>
         /// <returns></returns>
-        public T2 Post<T1, T2>(T1 t) 
-            where T1: class
-            where T2: class
+        public T2 Post<T1, T2>(T1 t)
+            where T1 : class
+            where T2 : class
         {
             string jsonValue = JsonSerializer.SerializeToString<T1>(t);
             StringContent content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
@@ -112,6 +112,38 @@ namespace SlickOne.WebUtility
             var result = JsonSerializer.DeserializeFromString<T2>(message);
 
             return result;
+        }
+
+        /// <summary>
+        /// Post获取分页数据
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public List<T2> Query<T1, T2>(T1 t)
+            where T1 : class
+            where T2 : class
+        {
+            string jsonValue = JsonSerializer.SerializeToString<T1>(t);
+            StringContent content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
+            var resp = HttpClient.PostAsync("", content);
+            try
+            {
+                var response = resp.Result;
+                var message = response.Content.ReadAsStringAsync().Result;
+                var result = JsonSerializer.DeserializeFromString<ResponseResult<List<T2>>>(message);
+
+                return result.Entity;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                HttpClient.Dispose();
+            }
         }
 
         /// <summary>
@@ -192,7 +224,7 @@ namespace SlickOne.WebUtility
                 System.Text.Encoding.UTF8.GetBytes(
                     string.Format("{0}:{1}", user.UserName, hashString)));
 
-            this.HttpClient.DefaultRequestHeaders.Add(WebApiRequestHeaderNameHashed, authenticationValue);      
+            this.HttpClient.DefaultRequestHeaders.Add(WebApiRequestHeaderNameHashed, authenticationValue);
         }
     }
 }
