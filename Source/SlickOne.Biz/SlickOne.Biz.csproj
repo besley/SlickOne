@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\ProductQuery.cs" />
     <Compile Include="Entity\QueryBase.cs" />
     <Compile Include="Entity\Table.cs" />
     <Compile Include="Service\IProductService.cs" />

@@ -14,6 +14,7 @@ namespace SlickOne.Biz.Service
     {
         ProductEntity Get(int id);
         List<ProductEntity> GetProductList();
+        List<ProductEntity> Query(ProductQuery query);
         ProductEntity Save(ProductEntity entity);
         void Delete(int id);
     }

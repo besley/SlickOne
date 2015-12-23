@@ -30,7 +30,7 @@
         <div class="row-fluid">
             <a href="~/product/edit/" data-toggle="modal" data-target="#modelProductEditForm" role="dialog" class="btn btn-info"><i class="icon-white icon-file"></i> 新建</a>
             <a href="~/product/edit/" data-toggle="modal" data-target="#modelProductEditForm" role="dialog" class="btn btn-info"><i class="icon-white icon-file"></i> 编辑</a>
-            <a href="#" class="btn btn-info" onclick="productlist.query();"><i class="icon-white icon-search"></i> 查询</a>
+            <a href="#" data-toggle="modal" data-target="#modelProductQueryForm" role="dialog" class="btn btn-info"><i class="icon-white icon-search"></i> 查询</a>
             <a href="#" class="btn btn-info" onclick="productlist.delete();"><i class="icon-white icon-th"></i> 删除</a>
         </div>
     </div>
@@ -46,6 +46,35 @@
             <!-- Modal -->
             <div class="modal-body" style="max-height:460px;">
                 <!-- Content will be loaded here from "remote.php" file -->
+            </div>
+        </div>
+    </div>
+
+    <div id="modelProductQueryForm" class="modal hide eavModalDialog" style="width:500px;height:200px;">
+        <div class="modal-dialog">
+            <!-- Modal -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h3 id="myModalLabel">产品查询条件输入</h3>
+            </div>
+            <div class="modal-body" style="max-height:460px;">
+                <!-- Content will be loaded here from "remote.php" file -->
+                <p>
+                    <span class="a_tit">产品类型:</span>
+                    <select id="ddlProductTypeQuery" style="width:280px;">
+                        <option value="default" disabled selected>--请选择--</option>
+                        <option value="手机">手机</option>
+                        <option value="苹果">苹果</option>
+                        <option value="小汽车">小汽车</option>
+                        <option value="电脑">电脑</option>
+                        <option value="飞机">飞机</option>
+                        <option value="轮船">轮船</option>
+                    </select>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="productlist.query();">确定</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
             </div>
         </div>
     </div>

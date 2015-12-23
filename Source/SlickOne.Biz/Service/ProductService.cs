@@ -38,14 +38,27 @@ namespace SlickOne.Biz.Service
         /// <returns></returns>
         public List<ProductEntity> GetProductList()
         {
-            var sql = @"SELECT ID, 
-                            ProductName, 
-                            ProductCode, 
-                            ProductType, 
-                            UnitPrice, 
-                            CreatedDate 
-                        FROM PrdProduct";
+            var sql = @"SELECT TOP 1000 
+                            *
+                        FROM PrdProduct
+                        ORDER BY ID DESC";
             var list = QuickRepository.Query<ProductEntity>(sql, null)
+                        .ToList();
+            return list;
+        }
+
+        /// <summary>
+        /// 产品数据查询
+        /// </summary>
+        /// <param name="query">查询实体</param>
+        /// <returns>产品列表</returns>
+        public List<ProductEntity> Query(ProductQuery query)
+        {
+            var sql = @"SELECT TOP 1000 
+                            *
+                        FROM PrdProduct
+                        WHERE ProductType=@productType";
+            var list = QuickRepository.Query<ProductEntity>(sql, new { productType=query.ProductType })
                         .ToList();
             return list;
         }

@@ -78,6 +78,29 @@ namespace SlickOne.Web.Controllers.WebApi
         }
 
         /// <summary>
+        /// 查询产品数据
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult<List<ProductEntity>> Query(ProductQuery query)
+        {
+            var result = ResponseResult<List<ProductEntity>>.Default();
+            try
+            {
+                var list = ProductService.Query(query);
+                result = ResponseResult<List<ProductEntity>>.Success(list);
+            }
+            catch (System.Exception ex)
+            {
+                result = ResponseResult<List<ProductEntity>>.Error(
+                    string.Format("查询产品数据失败, 错误：{0}", ex.Message)
+                );
+            }
+            return result;
+        }
+
+        /// <summary>
         /// 保存产品数据
         /// </summary>
         /// <param name="entity"></param>
