@@ -102,6 +102,14 @@
     <script type="text/javascript">
         $(function () {
             productlist.load();
+
+            $('#modelProductQueryForm').on('hidden', function () {
+                $(this).removeData('modal').find(".modal-body").empty();;
+            });
+
+            $('#modelProductEditForm').on('hidden', function () {
+                $(this).removeData('modal').find(".modal-body").empty();;
+            });
         })
     </script>
 
