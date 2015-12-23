@@ -6,6 +6,8 @@
     }
 
     productlist.load = function () {
+        productlist.mselectedProductID = 0;
+
         jshelper.ajaxGet("/soneweb/api/product/GetProductList", null, function (result) {
             if (result.Status == 1) {
                 var columnProduct = [
@@ -55,7 +57,14 @@
                         productlist.mselectedProductRow = row;
                     }
                 });
-            };
+            } else {
+                $.msgBox({
+                    title: "Product / List",
+                    content: result.Message,
+                    type: "error",
+                    buttons: [{ value: "Ok" }],
+                });
+            }
         });
 
         function datetimeFormatter(row, cell, value, columnDef, dataContext) {
@@ -65,14 +74,67 @@
         }
     }
 
-    productlist.sure = function () {
+    productlist.getProductByID = function () {
+        if (productlist.mselectedProductID > 0) {
+            jshelper.ajaxGet("/soneweb/api/product/Get/" + productlist.mselectedProductID,
+                null, function (result) {
+                    if (result.Status == 1) {
+                        var entity = result.Entity;
+
+                        $("#txtProductName").val(entity.ProductName);
+                        $("#ddlProductType").val(entity.ProductType);
+                        $("#txtProductCode").val(entity.ProductCode);
+                        $("#txtUnitPrice").val(entity.UnitPrice);
+                        $("#txtNotes").val(entity.Notes);
+                    } else {
+                        $.msgBox({
+                            title: "Product / Edit",
+                            content: result.Message,
+                            type: "error",
+                            buttons: [{ value: "Ok" }],
+                        });
+                    }
+                });
+        }
     }
 
+    productlist.sure = function () {
+        var entity = {};
+        entity.ID = productlist.mselectedProductID;
+        entity.ProductName = $("#txtProductName").val();
+        entity.ProductType = $("#ddlProductType").val();
+        entity.ProductCode = $("#txtProductCode").val();
+        entity.UnitPrice = $("#txtUnitPrice").val();
+        entity.Notes = $("#txtNotes").val();
+
+        jshelper.ajaxPost("/soneweb/api/product/save",
+            JSON.stringify(entity), function (result) {
+                if (result.Status == 1) {
+                    $.msgBox({
+                        title: "Product / Edit",
+                        content: "产品记录保存成功！",
+                        type: "info"
+                    });
+
+                    //refresh
+                    productlist.load();
+                } else {
+                    $.msgBox({
+                        title: "Product / Save",
+                        content: result.Message,
+                        type: "error",
+                        buttons: [{ value: "Ok" }],
+                    });
+                }
+        });
+        $("#modelProductEditForm").modal("hide");
+    }
 
     productlist.delete = function () {
         if (productlist.mselectedProductID == 0) {
             return;
         }
+
         $.msgBox({
             title: "Are You Sure",
             content: "确定要删除产品数据记录吗? ",
@@ -80,21 +142,27 @@
             buttons: [{ value: "Yes" }, { value: "Cancel" }],
             success: function (result) {
                 if (result == "Yes") {
-                    //jshelper.ajaxGet("/soneweb/api/product/Delete/" + productlist.mselectedProductID,
-                    //    null, function (result) {
-                    //        if (result.Status == 1) {
-                    //            $.msgBox({
-                    //                title: "Biz / Product",
-                    //                content: "产品记录已经删除！",
-                    //                type: "info"
-                    //            });
-                    //            productlist.mselectedProductID = 0;
+                    jshelper.ajaxGet("/soneweb/api/product/Delete/" + productlist.mselectedProductID,
+                        null, function (result) {
+                            if (result.Status == 1) {
+                                $.msgBox({
+                                    title: "Biz / Product",
+                                    content: "产品记录已经删除！",
+                                    type: "info"
+                                });
 
-                    //            //refresh
-                    //            productlist.load();
-                    //        }
-                    //    });
-                }
+                                //refresh
+                                productlist.load();
+                            } else {
+                                $.msgBox({
+                                    title: "Product / Delete",
+                                    content: result.Message,
+                                    type: "error",
+                                    buttons: [{ value: "Ok" }],
+                                });
+                            }
+                        });
+                } 
             }
         });
     }

@@ -18,5 +18,6 @@ namespace SlickOne.Biz.Entity
         public string ProductType { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
         public string Notes { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

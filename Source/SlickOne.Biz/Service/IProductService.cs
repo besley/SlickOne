@@ -12,6 +12,9 @@ namespace SlickOne.Biz.Service
     /// </summary>
     public interface IProductService
     {
+        ProductEntity Get(int id);
         List<ProductEntity> GetProductList();
+        ProductEntity Save(ProductEntity entity);
+        void Delete(int id);
     }
 }

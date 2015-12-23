@@ -23,16 +23,30 @@
 <body>
     <div class="container-fluid">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">产品数据</h3>
         </div>
-        <div class="modal-body">
-            <div id="myProductGrid" style="width:100%;height:200px;float:left;"></div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <a href="~/product/edit/" data-toggle="modal" data-target="#modelProductEditForm" role="dialog" class="btn btn-info"><i class="icon-white icon-file"></i> 新建</a>
+            <a href="~/product/edit/" data-toggle="modal" data-target="#modelProductEditForm" role="dialog" class="btn btn-info"><i class="icon-white icon-file"></i> 编辑</a>
+            <a href="#" class="btn btn-info" onclick="productlist.query();"><i class="icon-white icon-search"></i> 查询</a>
+            <a href="#" class="btn btn-info" onclick="productlist.delete();"><i class="icon-white icon-th"></i> 删除</a>
         </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" onclick="productlist.sure();">确定</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
-            <button class="btn btn-danger" onclick="productlist.delete();">删除</button>
+    </div>
+    <div class="container-fluid">
+        <div class="modal-body">
+            <div id="myProductGrid" style="width:800px;height:600px;float:left;"></div>
+        </div>
+    </div>
+
+    <!-- beginning of Modal HTML Page-->
+    <div id="modelProductEditForm" class="modal hide eavModalDialog" style="width:540px;height:500px;">
+        <div class="modal-dialog">
+            <!-- Modal -->
+            <div class="modal-body" style="max-height:460px;">
+                <!-- Content will be loaded here from "remote.php" file -->
+            </div>
         </div>
     </div>
 
