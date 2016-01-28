@@ -15,10 +15,10 @@ A quick enterprise framework for information system.
 6. 前端Javascript模板引擎(HandleBarJS/DustJS)。
 
 
-在线演示
+在线演示：
 http://demo.slickflow.com/soneweb/
 
-QQ群
+QQ群：
 151650479
 
 SlickOne is a basic library for an enterprise information system or website project. Some new features have been 
