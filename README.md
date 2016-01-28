@@ -18,6 +18,9 @@ A quick enterprise framework for information system.
 在线演示
 http://demo.slickflow.com/soneweb/
 
+QQ群
+151650479
+
 SlickOne is a basic library for an enterprise information system or website project. Some new features have been 
 implemenmted in the solution. The solution is designed for 3-tier distributed system, SOA based system, Repository pattern, POCO entity pattern, plugin architecture and asp.net mvc/web api architecture. There are some details  described here:
 
