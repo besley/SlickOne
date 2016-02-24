@@ -49,7 +49,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="ManagerBase.cs" />
-    <Compile Include="RepositoryFactory.cs" />
     <Compile Include="ServiceBase.cs" />
     <Compile Include="Session.cs" />
   </ItemGroup>
