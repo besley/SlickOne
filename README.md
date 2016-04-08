@@ -15,10 +15,19 @@ A quick enterprise framework for information system.
 6. 前端Javascript模板引擎(HandleBarJS/DustJS)。
 
 
-在线演示：
-http://demo.slickflow.com/soneweb/
+SlickOne框架在线DEMO及项目应用演示案例：
 
-QQ群：
+1. 基础功能在线演示：
+http://demo.slickflow.com/soneweb/
+2. 基于SlickOne的MVC应用：
+http://demo.slickflow.com/sfmvc/
+3. 基于SlickOne的流程设计器：
+http://demo.slickflow.com/sfd/
+4. 基于SlickOne的表单设计器：
+http://demo.slickflow.com/smd/
+
+
+QQ交流群：
 151650479
 
 SlickOne is a basic library for an enterprise information system or website project. Some new features have been 
