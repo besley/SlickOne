@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Slickflow 管理后台</title>
+    <meta name="description" content="Bootstrap mashable-style 3 column layout. Fixed sidebar and middle column using affix." />
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+
+    <link href="~/Content/bootstrap/bootstrap.min.css" rel="stylesheet" media="screen" />
+    <link href="~/Content/bootstrap/bootstrap-progressbar-2.3.1.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/Content/slickgrid/slick.grid.css" rel="stylesheet" />
+    <link href="~/Content/slickgrid/slickgrid-bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/slickgrid/slickgrid-example.css" rel="stylesheet" />
+
+    <link href="~/Content/msgBoxLight.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/layout.css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="http://github.com/besley/slickone">SlickOne</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav pull-right top-menu">
+                        <li class="active"><a href="http://github.com/besley/slickflow" target="view_window_sf">Slickflow</a></li>
+                        <li><a href="http://demo.slickflow.com/sfd/" target="view_window_sfd">流程设计器</a></li>
+                        <li><a href="http://github.com/besley/slickmasterce" target="view_window_sm">SlickMaster</a></li>
+                        <li><a href="http://demo.slickflow.com/smd/" target="view_window_smd">表单设计器</a></li>
+                        <li><a href="http://www.slickflow.com/demo/index" target="view_window_demo">示例</a></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <!--sidebar-->
+                <div class="sidebar-nav-fixed" data-spy="affix" data-offset-top="140">
+                    <ul class="nav nav-list">
+                        <li><a href="process/list">流程定义</a></li>
+                        <li><a href="#">表单定义</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">流程实例</a></li>
+                        <li><a href="#">活动实例</a></li>
+                        <li><a href="#">任务实例</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">系统日志</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="span10">
+                <div class="col-md-6">
+                    <!-- tabs bottom -->
+                    <div class="tabbable tabs-below">
+                        <div class="tab-content">
+                            <div class="tab-pane active" style="height:600px;" id="one_">
+                                <h3>我的工作台</h3>
+                                Lorem ipsum dolor sit amet, charetra varius quam sit amet vulputate.
+                                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero.
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#one_" data-toggle="tab">工作台</a></li>
+                        </ul>
+                    </div>
+                    <!-- /tabs -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--scripts loaded here-->
+    <script type="text/javascript" src="~/Scripts/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery/jquery-ui-1.10.3.min.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/jquery/jquery.event.drag-2.2.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery/jquery.msgBox.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap/bootbox.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-progressbar.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="~/Scripts/handlebars.js"></script>
+    <script type="text/javascript" src="~/Scripts/jshelper.js"></script>
+
+    <!-- slickgrid -->
+    <script src="~/Scripts/slickgrid/slickgrid.min.js"></script>
+
+    <script type="text/javascript" src="~/ViewJS/processlist.js"></script>
+
+    @RenderBody()
+</body>
+</html>

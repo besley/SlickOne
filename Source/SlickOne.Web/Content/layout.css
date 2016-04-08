@@ -1,0 +1,57 @@
+﻿body {
+  padding-top: 60px;
+}
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+/* uncomment this section to make the sidebar un-pin
+.affix-top {
+	top:60px;
+    position:fixed;
+}
+
+.affix {
+    position:static;
+}
+*/
+
+.affix-top {
+	top:60px;
+    position:fixed;
+}
+
+/* custom theme */
+    
+#midCol.affix-top {
+    position:fixed;
+  	margin-left:-18px;
+  	margin-right:10px;
+}
+
+#midCol.affix-bottom {
+	position:static;
+}
+
+#midCol.affix {
+    position:static;
+}
+
+@media (max-width:1190px) {
+  .affix,.affix-top,#midCol.affix,#midCol.affix-top {
+      position:static;
+  }
+}
+
+.caption {
+	background-color:#eee;
+  	padding:10px;
+    margin:0;
+	color:#555;
+}
+
+
+
+	

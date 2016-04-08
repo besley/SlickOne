@@ -121,9 +121,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Mvc\ActivityController.cs" />
     <Compile Include="Controllers\Mvc\BaseMvcController.cs" />
+    <Compile Include="Controllers\Mvc\HomeController.cs" />
+    <Compile Include="Controllers\Mvc\ProcessController.cs" />
     <Compile Include="Controllers\Mvc\ProductController.cs" />
+    <Compile Include="Controllers\Mvc\TaskController.cs" />
+    <Compile Include="Controllers\WebApi\FormMasterController.cs" />
     <Compile Include="Controllers\WebApi\ProductController.cs" />
+    <Compile Include="Controllers\WebApi\LogServiceController.cs" />
+    <Compile Include="Controllers\WebApi\WfProcessController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -132,11 +139,15 @@
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-progressbar-2.3.1.min.css" />
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\delete.png" />
     <Content Include="Content\images\sprite.png" />
+    <Content Include="Content\layout.css" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\jquery\jquery.msgBox.js" />
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
@@ -364,8 +375,10 @@
     <Content Include="Scripts\slickgrid\slick.dataview.js" />
     <Content Include="Scripts\slickgrid\slick.grid.css" />
     <Content Include="Scripts\slickgrid\slick.grid.js" />
+    <Content Include="Scripts\slickgrid\slickgrid.min.js" />
     <Content Include="Scripts\xmlhelper.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="ViewJS\processlist.js" />
     <Content Include="ViewJS\productlist.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -375,16 +388,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\mainlayout.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Process\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Activity\" />
+    <Folder Include="Views\Task\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -430,7 +443,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1057</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/soneweb</IISUrl>
+          <IISUrl>http://localhost/soweb</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
