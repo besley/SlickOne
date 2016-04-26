@@ -45,6 +45,9 @@
       <HintPath>..\Dapper\bin\Debug\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SlickMaster.Builder">
+      <HintPath>..\DLL\SlickMaster.Builder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -129,8 +132,7 @@
     <Compile Include="Controllers\Mvc\TaskController.cs" />
     <Compile Include="Controllers\WebApi\FormMasterController.cs" />
     <Compile Include="Controllers\WebApi\ProductController.cs" />
-    <Compile Include="Controllers\WebApi\LogServiceController.cs" />
-    <Compile Include="Controllers\WebApi\WfProcessController.cs" />
+    <Compile Include="Controllers\WebApi\WfDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -141,7 +143,9 @@
     <Content Include="Content\bootstrap\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap\bootstrap-progressbar-2.3.1.min.css" />
     <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\buttonicon.gif" />
     <Content Include="Content\images\delete.png" />
+    <Content Include="Content\images\mdiclose.gif" />
     <Content Include="Content\images\sprite.png" />
     <Content Include="Content\layout.css" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.js" />
@@ -380,6 +384,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="ViewJS\processlist.js" />
     <Content Include="ViewJS\productlist.js" />
+    <Content Include="ViewJS\somain.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -24,15 +24,6 @@ var processlist = (function () {
     function processlist() {
     }
 
-    processlist.pselectedProcessGUID = "";
-    processlist.pselectedProcessDataRow = null;
-
-    processlist.initListForm = function () {
-        $('#modelProcessListForm').on('hidden', function () {
-            $(this).removeData('modal').find(".modal-body").empty();;
-        });
-    }
-
     //#region Process DataGrid
     processlist.getProcessList = function () {
         $('#loading-indicator').show();
@@ -90,9 +81,6 @@ var processlist = (function () {
                     }
                 });
 
-                gridProcess.onDblClick.subscribe(function (e, args) {
-                    processlist.editProcess();
-                });
 
                 $('#loading-indicator').hide();
             }

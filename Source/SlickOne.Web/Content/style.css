@@ -75,10 +75,24 @@ input{ outline:none;}
 .spanright{float: right;}
 .btnBottom{margin-bottom: 10px;}
 .icoBtn{background-image:url(images/buttonicon.gif); background-repeat:no-repeat;}
-.icoBtn{float:left;margin:5px 0 0 5px;width:17px;height:20px;display:block;font-size:1px;}
+.icoLeft{float:left;margin:5px 0 0 5px;width:17px;height:20px;display:block;font-size:1px;}
+.icoRight{float:right;margin:0 0 0 5px;width:10px;height:20px;display:block;font-size:1px;vertical-align:top;}
 /*ui bttons*/
 .btnNew{background-position:-60px -140px;}/*add*/
 .btnDel{background-position:-20px -140px;width:18px;}/*delete*/
 .btnEdit{background-position:-120px -60px;}
 .btnSave{background-position:-0px -60px;}
+.btnClose{background-position:-60px -120px;}
 .spinner{position: fixed;top: 50%;left: 50%;margin-left: -50px; /* half width of the spinner gif */margin-top: -50px; /* half height of the spinner gif */text-align:center;z-index:1234;overflow: auto;width: 100px; /* width of the spinner gif */height: 102px; /*hight of the spinner gif +2px to fix IE8 issue */}
+.mdiDivClose
+{
+	float:right;
+	width:13px; 
+	height:13px; 
+	background:url(images/mdiclose.gif);             
+	margin-left: 4px;
+	margin-right:4px;  
+	margin-top:3px;
+	
+	z-index:5;
+}

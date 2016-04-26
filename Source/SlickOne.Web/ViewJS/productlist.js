@@ -6,7 +6,7 @@
     }
 
     productlist.load = function () {
-        jshelper.ajaxGet("/soneweb/api/product/GetProductList", null, function (result) {
+        jshelper.ajaxGet("/api/product/GetProductList", null, function (result) {
             if (result.Status == 1) {
                 fillData(result.Entity);
             } else {

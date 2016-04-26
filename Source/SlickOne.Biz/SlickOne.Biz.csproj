@@ -58,8 +58,8 @@
     <Compile Include="Entity\ProductEntity.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\IWfService.cs" />
-    <Compile Include="Service\WfService.cs" />
+    <Compile Include="Service\IWfDataService.cs" />
+    <Compile Include="Service\WfDataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SlickOne.Data\SlickOne.Data.csproj">
