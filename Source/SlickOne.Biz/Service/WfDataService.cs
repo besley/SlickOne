@@ -44,6 +44,10 @@ namespace SlickOne.Biz.Service
             return list;
         }
 
+        /// <summary>
+        /// 流程实例列表
+        /// </summary>
+        /// <returns></returns>
         public IList<ProcessInstanceEntity> GetProcessInstanceList()
         {
             var sql = @"SELECT TOP 100
@@ -51,19 +55,24 @@ namespace SlickOne.Biz.Service
                             ProcessName,
                             AppName,
                             ProcessState,
-                            CreaedDateTime,
-                            CreatedByUserName
+                            CreatedDateTime,
+                            CreatedByUserName,
+                            EndedDateTime,
+                            EndedByUserName
                         FROM WfProcessInstance
                         ORDER BY ID DESC";
             var list = QuickRepository.Query<ProcessInstanceEntity>(sql).ToList();
             return list;
         }
 
+        /// <summary>
+        /// 活动实例列表
+        /// </summary>
+        /// <returns></returns>
         public IList<ActivityInstanceEntity> GetActivityInstanceList()
         {
             var sql = @"SELECT TOP 100
                             ID, 
-                            ProcessName,
                             AppName,
                             ActivityName,
                             ActivityType,
@@ -79,11 +88,15 @@ namespace SlickOne.Biz.Service
             return list;
         }
 
+        /// <summary>
+        /// 按流程获取活动实例
+        /// </summary>
+        /// <param name="processInstanceID"></param>
+        /// <returns></returns>
         public IList<ActivityInstanceEntity> GetActivityInstanceList(int processInstanceID)
         {
             var sql = @"SELECT TOP 100
                             ID, 
-                            ProcessName,
                             AppName,
                             ActivityName,
                             ActivityType,
@@ -101,7 +114,10 @@ namespace SlickOne.Biz.Service
             return list;
         }
 
-
+        /// <summary>
+        /// 获取任务列表
+        /// </summary>
+        /// <returns></returns>
         public IList<TaskEntity> GetTaskList()
         {
             var sql = @"SELECT TOP 100
@@ -110,9 +126,9 @@ namespace SlickOne.Biz.Service
                             ActivityName,
                             TaskType,
                             TaskState,
-                            CreaedDateTime,
+                            CreatedDateTime,
                             CreatedByUserName,
-                            AssignedToUserNames,
+                            AssignedToUserName,
                             EndedDateTime,
                             EndedByUserName
                         FROM WfTasks
@@ -121,6 +137,10 @@ namespace SlickOne.Biz.Service
             return list;
         }
 
+        /// <summary>
+        /// 获取日志
+        /// </summary>
+        /// <returns></returns>
         public IList<LogEntity> GetLogList()
         {
             var sql = @"SELECT TOP 100
@@ -129,7 +149,7 @@ namespace SlickOne.Biz.Service
                             Priority,
                             Severity,
                             Title,
-                            Message,
+                            LEFT(Message, 20),
                             Timestamp
                         FROM WfLog
                         ORDER BY ID DESC";
