@@ -146,6 +146,7 @@
     <Content Include="Content\images\buttonicon.gif" />
     <Content Include="Content\images\delete.png" />
     <Content Include="Content\images\mdiclose.gif" />
+    <Content Include="Content\images\sailor.jpg" />
     <Content Include="Content\images\sprite.png" />
     <Content Include="Content\layout.css" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.js" />

@@ -1,4 +1,4 @@
-# SlickOne
+﻿# SlickOne
 ===========
 A quick enterprise framework for information system.
 
@@ -17,8 +17,8 @@ A quick enterprise framework for information system.
 
 SlickOne框架在线DEMO及项目应用演示案例：
 
-1. 基础功能在线演示：
-http://demo.slickflow.com/soneweb/
+1. Web前端框架在线演示：
+http://demo.slickflow.com/soweb/
 2. 基于SlickOne的MVC应用：
 http://demo.slickflow.com/sfmvc/
 3. 基于SlickOne的流程设计器：
