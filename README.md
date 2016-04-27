@@ -12,7 +12,8 @@ A quick enterprise framework for information system.
 3. 采用面向Interface接口编程规范；
 4. 采用WebApi实现服务总线;
 5. 前端SlickGrid数据控件展现，Web富交互功能实现；
-6. 前端Javascript模板引擎(HandleBarJS/DustJS)。
+6. 前端Javascript模板引擎(HandleBarJS/DustJS);
+7. 前端Bootstrap框架布局在线演示Demo实现；
 
 
 SlickOne框架在线DEMO及项目应用演示案例：
