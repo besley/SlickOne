@@ -9,7 +9,7 @@ A quick enterprise web framework for information system.
 
 1. 采用Dapper微ORMapping框架，性能接近原生SQL；
 2. 采用Repository泛型模式，可以不再使用代码生成器；
-3. 支持多数据库如：SQLSERVER, ORACLE, MYSQL, 国产数据人大金仓KINGBASE等；
+3. 支持多数据库如：SQLServer, Oracle, MySql, 国产数据库人大金仓KingBase等；
 3. 采用面向Interface接口编程规范；
 4. 采用Restful风格的WebApi实现服务总线；
 5. 前端采用优秀开源组件：SlickGrid数据控件，zTree树形控件等实现Web富交互功能；
