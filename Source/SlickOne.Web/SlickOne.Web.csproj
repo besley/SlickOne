@@ -129,9 +129,14 @@
     <Compile Include="Controllers\Mvc\HomeController.cs" />
     <Compile Include="Controllers\Mvc\ProcessController.cs" />
     <Compile Include="Controllers\Mvc\ProductController.cs" />
+    <Compile Include="Controllers\Mvc\RoleController.cs" />
+    <Compile Include="Controllers\Mvc\RoleUserController.cs" />
     <Compile Include="Controllers\Mvc\TaskController.cs" />
+    <Compile Include="Controllers\Mvc\UserController.cs" />
     <Compile Include="Controllers\WebApi\FormMasterController.cs" />
+    <Compile Include="Controllers\WebApi\HelloWorldController.cs" />
     <Compile Include="Controllers\WebApi\ProductController.cs" />
+    <Compile Include="Controllers\WebApi\RoleDataController.cs" />
     <Compile Include="Controllers\WebApi\WfDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,6 +154,22 @@
     <Content Include="Content\images\sailor.jpg" />
     <Content Include="Content\images\sprite.png" />
     <Content Include="Content\layout.css" />
+    <Content Include="Content\ztree\img\diy\1_close.png" />
+    <Content Include="Content\ztree\img\diy\1_open.png" />
+    <Content Include="Content\ztree\img\diy\2.png" />
+    <Content Include="Content\ztree\img\diy\3.png" />
+    <Content Include="Content\ztree\img\diy\4.png" />
+    <Content Include="Content\ztree\img\diy\5.png" />
+    <Content Include="Content\ztree\img\diy\6.png" />
+    <Content Include="Content\ztree\img\diy\7.png" />
+    <Content Include="Content\ztree\img\diy\8.png" />
+    <Content Include="Content\ztree\img\diy\9.png" />
+    <Content Include="Content\ztree\img\line_conn.gif" />
+    <Content Include="Content\ztree\img\line_conn.png" />
+    <Content Include="Content\ztree\img\loading.gif" />
+    <Content Include="Content\ztree\img\metro.gif" />
+    <Content Include="Content\ztree\img\metro.png" />
+    <Content Include="Content\ztree\metro.css" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.zh-CN.js" />
@@ -354,6 +375,7 @@
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\handlebars.js" />
     <None Include="Properties\PublishProfiles\SlickMaster-publish.pubxml" />
+    <None Include="Properties\PublishProfiles\SOWeb-publish.pubxml" />
     <None Include="Scripts\jquery\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery\jquery-1.10.2.min.js" />
@@ -382,10 +404,17 @@
     <Content Include="Scripts\slickgrid\slick.grid.js" />
     <Content Include="Scripts\slickgrid\slickgrid.min.js" />
     <Content Include="Scripts\xmlhelper.js" />
+    <Content Include="Scripts\ztree\jquery.ztree.all-3.5.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="ViewJS\processlist.js" />
     <Content Include="ViewJS\productlist.js" />
+    <Content Include="ViewJS\rolelist.js" />
+    <Content Include="ViewJS\roleuserlist.js" />
+    <Content Include="ViewJS\roleusertree.js" />
+    <Content Include="ViewJS\soconfig.js" />
     <Content Include="ViewJS\somain.js" />
+    <Content Include="ViewJS\userlist.js" />
+    <Content Include="ViewJS\userlistdialog.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -399,10 +428,15 @@
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Process\List.cshtml" />
+    <Content Include="Views\Home\Tree.cshtml" />
+    <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Activity\" />
+    <Folder Include="Views\RoleUser\" />
     <Folder Include="Views\Task\" />
   </ItemGroup>
   <ItemGroup>

@@ -6,15 +6,15 @@ using System.Web.Mvc;
 
 namespace SlickOne.Web.Controllers.Mvc
 {
-    public class HomeController : BaseMvcController
+    public class UserController : Controller
     {
-        // GET: Home
-        public ActionResult Index()
+        // GET: User
+        public ActionResult Edit()
         {
             return View();
         }
 
-        public ActionResult Tree()
+        public ActionResult List()
         {
             return View();
         }

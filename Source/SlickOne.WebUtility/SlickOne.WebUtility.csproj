@@ -83,6 +83,7 @@
     <Compile Include="FileHelper.cs" />
     <Compile Include="HttpRequestMessageExtensions.cs" />
     <Compile Include="ImageHelper.cs" />
+    <Compile Include="JsonHelper.cs" />
     <Compile Include="LogonResult.cs" />
     <Compile Include="NetworkUtility.cs" />
     <Compile Include="ResponseResult.cs" />

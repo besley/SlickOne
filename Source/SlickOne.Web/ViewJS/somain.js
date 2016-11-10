@@ -1,17 +1,12 @@
 ﻿var somain = (function () {
 	somain.tablist = [];
-	somain.activeTab = null;
-	somain.tabname = [];
-	somain.tabname["process"] = "流程记录";
-	somain.tabname["form"] = "表单记录";
-	somain.tabname["processinstance"] = "流程实例";
-	somain.tabname["activityinstance"] = "活动实例";
-	somain.tabname["task"] = "任务记录";
-	somain.tabname["log"] = "系统日志";
+	somain.activeTabName = "";
+	somain.activeToolButtonType = "";
 
 	function somain() {
 	}
 
+	//#region init, button
 	somain.initPage = function () {
 		//show tab
 		$("#myTab").on("click", "a", function (e) {
@@ -22,14 +17,14 @@
 		//remove tab
 		$('#myTab').on('click', ' li a .close', function () {
 			var tabId = $(this).parents('li').children('a').attr('href');
-			//window.console.log(tabId);
 
 			$(this).parents('li').remove('li');
 			$('#myTab a:first').tab('show');
 		});
 
 		$("#myTab").tab();
-	}
+	}	
+	//#endregion
 
 	//#region create tab dynamicaly
 	//somain.createTab = function (name) {
@@ -59,12 +54,13 @@
 	//}
 	//#endregion
 
+	//#region tab show
 	somain.showTab = function (name) {
 		var tab = $("a[href='#" + name + "_'");
 		if (tab.length === 0) {
 			$('#myTab').append(
 			$('<li><a href="#' + name + '_">' +
-			somain.tabname[name] +
+			soconfig.tabname[name] +
 			'<button class="close" type="button" ' +
 			'title="Remove this page">×</button>' +
 			'</a></li>'));
@@ -72,11 +68,37 @@
 			$('#myTab a:last').tab('show');
 
 			readGridDataByTabName(name);
+		} else {
+			//tab already exist
+			tab.tab('show');
 		}
+
+		//make the current tab actived
+		somain.activeTabName = name;
 	}
 
 	function readGridDataByTabName(name) {
-		if (name === "process") {
+		if (name === "role") {
+			rolelist.getRoleList();
+		} else if (name === "user") {
+			userlist.getUserList();
+		} else if (name === "roleuserview") {
+			roleuserlist.getRoleUserList();
+		} else if (name === "roleusermanage") {
+			roleusertree.getRoleUserTree();
+		} else if (name === "functionpermission") {
+			getFunctionPermissionList();
+		} else if (name === "datapermission") {
+			getDataPermissionList();
+		} else if (name === "permissionquery") {
+			getPermissionQueryList();
+		} else if (name === "department") {
+			getDepartmentList();
+		} else if (name === "employee") {
+			getEmployeeList();
+		} else if (name === "deptemp") {
+			getDeptEmpList();
+		} else if (name === "process") {
 			getProcessList();
 		} else if (name === "form") {
 			getFormList();
@@ -96,7 +118,53 @@
 			return value.substring(0, 10);
 		}
 	}
+	//#endregion
 
+	//#region toolbutton
+	somain.addrecord = function (e) {
+		somain.activeToolButtonType = "add";
+		openDialogForm(somain.activeToolButtonType);
+	}
+
+	somain.editrecord = function () {
+		somain.activeToolButtonType = "edit";
+		openDialogForm(somain.activeToolButtonType);
+	}
+
+	somain.deleterecord = function () {
+		somain.activeToolButtonType = "delete";
+		if (soconfig.toolbutton[somain.activeToolButtonType][somain.activeTabName]) {
+			soconfig.toolbutton[somain.activeToolButtonType][somain.activeTabName]();
+		}
+	}
+
+	somain.queryrecord = function () {
+
+	}
+
+	function openDialogForm(buttonType) {
+		var url = soconfig.toolbutton[buttonType][somain.activeTabName];
+		window.console.log("buttontype: " + buttonType + " activeTabName:" + somain.activeTabName + " url:" + url);
+
+		if (url !== undefined) {
+			$('#loading-indicator').show();
+
+			$("#modelDialogForm").modal({
+				remote: url
+			});
+
+			$('#loading-indicator').hide();
+		} else {
+			//$.msgBox({
+			//	title: "SlickOne / Action",
+			//	content: "此页面没有绑定[" + buttonType + "]操作！",
+			//	type: "alert"
+			//});
+		}
+	}
+	//#endregion
+
+	//#region 流程数据管理
 	//#region Process List
 	function getProcessList() {
 		$('#loading-indicator').show();
@@ -502,6 +570,8 @@
 		});
 	}
 	//#endregion
+	//#endregion
+
 
 	return somain;
 })();

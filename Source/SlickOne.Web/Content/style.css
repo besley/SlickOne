@@ -72,6 +72,7 @@ input{ outline:none;}
 .np {border:none;}
 .btn{width: 90px;}
 .btn-small{width: 60px;margin-top: 10px}
+.btn-mini{width: 40px;margin-top: 10px}
 .spanright{float: right;}
 .btnBottom{margin-bottom: 10px;}
 .icoBtn{background-image:url(images/buttonicon.gif); background-repeat:no-repeat;}
