@@ -3,6 +3,7 @@
 SlickOne 企业级Web快速开发框架，Bootstrap3/Mvc(WebApi)/Dapper技术体系，AG-Grid/zTree优秀开源组件，丰富代码示例。
 
 SlickOne 0.1.2 版本发布:
+
 1) Bootstrap3.3.5版本升级；
 2) AG-Grid 替代SlickGrid，同样强大功能的数据控件，有完善开源社区支持；
 3) 左侧导航菜单折叠隐藏功能实现；
@@ -52,10 +53,10 @@ implemenmted in the solution. The solution is designed for 3-tier distributed sy
 The SlickOne.Web project would give you a full tutorial how to use the SlickOne library and webapi to create a rich mvc web
 application. Similarily, there are serveral key features to describe here:
 
-1) Bootstrap3/Mvc(WebApi)/Dapper;
-2) AG-Grid/zTree/Bootstrap-Dialog;
-3) NavBar in top and left side;
-3) Rich page demos in solution.
+1. Bootstrap3/Mvc(WebApi)/Dapper.
+2. AG-Grid/zTree/Bootstrap-Dialog.
+3. NavBar in top and left side.
+4. Rich page demos in solution.
 
   
 
