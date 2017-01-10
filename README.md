@@ -1,6 +1,12 @@
 ﻿# SlickOne
 ===========
-A quick enterprise framework for information system.
+SlickOne 企业级Web快速开发框架，Bootstrap3/Mvc(WebApi)/Dapper技术体系，AG-Grid/zTree优秀开源组件，丰富代码示例。
+
+SlickOne 0.1.2 版本发布:
+1) Bootstrap3.3.5版本升级；
+2) AG-Grid 替代SlickGrid，同样强大功能的数据控件，有完善开源社区支持；
+3) 左侧导航菜单折叠隐藏功能实现；
+4) 用户添加, 角色维护等功能示例实现。
 
 
 项目描述
@@ -11,7 +17,7 @@ A quick enterprise framework for information system.
 2. 采用Repository模式；
 3. 采用面向Interface接口编程规范；
 4. 采用WebApi实现服务总线;
-5. 前端SlickGrid数据控件展现，Web富交互功能实现；
+5. 前端AG-Grid数据控件展现，Web富交互功能实现；
 6. 前端Javascript模板引擎(HandleBarJS/DustJS);
 7. 前端Bootstrap框架布局在线演示Demo实现；
 
@@ -44,10 +50,12 @@ implemenmted in the solution. The solution is designed for 3-tier distributed sy
 6. The IRepository class can be used to implement EF, NHerbinate framework which the user prefered to them.
  
 The SlickOne.Web project would give you a full tutorial how to use the SlickOne library and webapi to create a rich mvc web
-application. Similarily, there sare serveral key points to describe here:
+application. Similarily, there are serveral key features to describe here:
 
-1. The javascript block included in asp.net mvc view can call service/webapi by ajax get, post method;
-2. Slickgrid is a javascript control for displaying large records with high performance;
+1) Bootstrap3/Mvc(WebApi)/Dapper;
+2) AG-Grid/zTree/Bootstrap-Dialog;
+3) NavBar in top and left side;
+3) Rich page demos in solution.
 
   
 
