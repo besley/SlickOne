@@ -1,6 +1,6 @@
 ﻿# SlickOne
 ===========
-SlickOne 企业级Web快速开发框架，Bootstrap3/Mvc(WebApi)/Dapper技术体系，AG-Grid/zTree优秀开源组件，丰富代码示例。
+SlickOne 企业级Web快速开发框架，Bootstrap3/Mvc/WebApi/Dapper技术体系，AG-Grid/zTree优秀开源组件，丰富代码示例。
 
 ﻿# SlickOne 0.1.2 版本发布：
 ===========
