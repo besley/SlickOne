@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>React.Web.Mvc4</name>
+    </assembly>
+    <members>
+        <member name="T:React.Web.Mvc.HtmlHelperExtensions">
+            <summary>
+            HTML Helpers for utilising React from an ASP.NET MVC application.
+            </summary>
+        </member>
+        <member name="P:React.Web.Mvc.HtmlHelperExtensions.Environment">
+            <summary>
+            Gets the React environment
+            </summary>
+        </member>
+        <member name="M:React.Web.Mvc.HtmlHelperExtensions.React``1(System.Web.Mvc.HtmlHelper,System.String,``0,System.String,System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Renders the specified React component
+            </summary>
+            <typeparam name="T">Type of the props</typeparam>
+            <param name="htmlHelper">HTML helper</param>
+            <param name="componentName">Name of the component</param>
+            <param name="props">Props to initialise the component with</param>
+            <param name="htmlTag">HTML tag to wrap the component in. Defaults to &lt;div&gt;</param>
+            <param name="containerId">ID to use for the container HTML tag. Defaults to an auto-generated ID</param>
+            <param name="clientOnly">Skip rendering server-side and only output client-side initialisation code. Defaults to <c>false</c></param>
+            <param name="serverOnly">Skip rendering React specific data-attributes during server side rendering. Defaults to <c>false</c></param>
+            <param name="containerClass">HTML class(es) to set on the container tag</param>
+            <returns>The component's HTML</returns>
+        </member>
+        <member name="M:React.Web.Mvc.HtmlHelperExtensions.ReactWithInit``1(System.Web.Mvc.HtmlHelper,System.String,``0,System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Renders the specified React component, along with its client-side initialisation code.
+            Normally you would use the <see cref="M:React.Web.Mvc.HtmlHelperExtensions.React``1(System.Web.Mvc.HtmlHelper,System.String,``0,System.String,System.String,System.Boolean,System.Boolean,System.String)"/> method, but <see cref="M:React.Web.Mvc.HtmlHelperExtensions.ReactWithInit``1(System.Web.Mvc.HtmlHelper,System.String,``0,System.String,System.String,System.Boolean,System.String)"/>
+            is useful when rendering self-contained partial views.
+            </summary>
+            <typeparam name="T">Type of the props</typeparam>
+            <param name="htmlHelper">HTML helper</param>
+            <param name="componentName">Name of the component</param>
+            <param name="props">Props to initialise the component with</param>
+            <param name="htmlTag">HTML tag to wrap the component in. Defaults to &lt;div&gt;</param>
+            <param name="containerId">ID to use for the container HTML tag. Defaults to an auto-generated ID</param>
+            <param name="clientOnly">Skip rendering server-side and only output client-side initialisation code. Defaults to <c>false</c></param>
+            <param name="containerClass">HTML class(es) to set on the container tag</param>
+            <returns>The component's HTML</returns>
+        </member>
+        <member name="M:React.Web.Mvc.HtmlHelperExtensions.ReactInitJavaScript(System.Web.Mvc.HtmlHelper,System.Boolean)">
+            <summary>
+            Renders the JavaScript required to initialise all components client-side. This will
+            attach event handlers to the server-rendered HTML.
+            </summary>
+            <returns>JavaScript for all components</returns>
+        </member>
+    </members>
+</doc>

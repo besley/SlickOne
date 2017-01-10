@@ -2,7 +2,7 @@
 * SlickOne WEB快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 
-The Slickflow Designer project.
+The SlickOne project.
 Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
@@ -27,64 +27,39 @@ var userlist = (function () {
 	userlist.pselectedUserID = "";
 	userlist.pselectedUserDataRow = null;
 
-	userlist.initListForm = function () {
-		$('#modelDialogForm').on('hidden', function () {
-			$(this).removeData('modal').find(".modal-body").empty();;
-		});
-	}
-
 	//#region User DataGrid
 	userlist.getUserList = function() {
-		$('#loading-indicator').show();
 		jshelper.ajaxGet('api/RoleData/GetUserAll', null, function (result) {
 			if (result.Status === 1) {
-				var columnUser = [
-                    { id: "ID", name: "ID", field: "ID", width: 40, cssClass: "bg-gray" },
-                    { id: "UserName", name: "用户名称", field: "UserName", width: 120, cssClass: "bg-gray" },
-				];
+				var divUserGrid = document.querySelector('#myusergrid');
+				$(divUserGrid).empty();
 
-				var optionsUser = {
-					editable: true,
-					enableCellNavigation: true,
-					enableColumnReorder: true,
-					asyncEditorLoading: true,
-					forceFitColumns: false,
-					topPanelHeight: 25
-				};
+				var gridOptions = {
+					columnDefs: [
+					    { headerName: "ID", field: "ID", width: 40, cssClass: "bg-gray" },
+						{ headerName: "用户名称", field: "UserName", width: 120, cssClass: "bg-gray" },
+					],
+					rowSelection: 'single',
+					onSelectionChanged: onSelectionChanged
+				}
+				
+				new agGrid.Grid(divUserGrid, gridOptions);
+				gridOptions.api.setRowData(result.Entity);
 
-				var dsUser = result.Entity;
-
-				var dvUser = new Slick.Data.DataView({ inlineFilters: true });
-				var gridUser = new Slick.Grid("#myusergrid", dvUser, columnUser, optionsUser);
-
-				dvUser.onRowsChanged.subscribe(function (e, args) {
-					gridUser.invalidateRows(args.rows);
-					gridUser.render();
+				function onSelectionChanged() {
+					var selectedRows = gridOptions.api.getSelectedRows();
+					var selectedProcessID = 0;
+					selectedRows.forEach(function (selectedRow, index) {
+						userlist.pselectedUserID = selectedRow.ID;
+						userlist.pselectedUserDataRow = selectedRow;
+					});
+				}
+			} else {
+				$.msgBox({
+					title: "User / List",
+					content: "读取用户记录失败！错误信息：" + result.Message,
+					type: "error"
 				});
-
-				dvUser.onRowCountChanged.subscribe(function (e, args) {
-					gridUser.updateRowCount();
-					gridUser.render();
-				});
-
-				dvUser.beginUpdate();
-				dvUser.setItems(dsUser, "ID");
-				gridUser.setSelectionModel(new Slick.RowSelectionModel());
-				dvUser.endUpdate();
-
-				//rows change event
-				gridUser.onSelectedRowsChanged.subscribe(function (e, args) {
-					var selectedRowIndex = args.rows[0];
-					var row = dvUser.getItemByIdx(selectedRowIndex);
-					if (row) {
-						//marked and returned selected row info
-						userlist.pselectedUserID = row.ID;
-						userlist.pselectedUserDataRow = row;
-					}
-				});
-
-
-				$('#loading-indicator').hide();
 			}
 		});
 	}
@@ -99,12 +74,6 @@ var userlist = (function () {
 		}
 	}
 
-	userlist.initEditForm = function () {
-		$('#modelDialogForm').on('hidden', function () {
-			$(this).removeData('modal').find(".modal-body").empty();;
-		});
-	}
-
 	userlist.editUser = function () {
 		var entity = userlist.pselectedUserDataRow;
 		if (entity == null) {
@@ -116,8 +85,9 @@ var userlist = (function () {
 			return false;
 		}
 
-		$("#modelDialogForm").modal({
-			remote: "user/edit"
+		BootstrapDialog.show({
+			title: "user",
+			message: $('<div></div>').load("user/edit")
 		});
 	}
 
@@ -133,16 +103,16 @@ var userlist = (function () {
 		}
 
 		var entity = {
-			"ID": userlist.pselectedUserID,
+            "ID": "0",
 			"UserName": $("#txtUserName").val(),
 			"UserCode": $("#txtUserCode").val(),
 		};
 
+        if (somain.activeToolButtonType === "edit"){
+           entity.ID = userlist.pselectedUserID;
+        } 
+
 		userapi.save(entity);
-
-		userlist.getUserList();
-
-		$("#modelDialogForm").modal("hide");
 	}
 
 	userlist.delete = function () {

@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JavaScriptEngineSwitcher.V8</name>
+    </assembly>
+    <members>
+        <member name="T:JavaScriptEngineSwitcher.V8.AssemblyResolver">
+            <summary>
+            Assembly resolver
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.AssemblyResolver.ASSEMBLY_NAME">
+            <summary>
+            Name of the ClearScriptV8 assembly
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.AssemblyResolver.Initialize">
+            <summary>
+            Initialize a assembly resolver
+            </summary>
+        </member>
+        <member name="T:JavaScriptEngineSwitcher.V8.JsEngineFactoryCollectionExtensions">
+            <summary>
+            JS engine factory collection extensions
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.JsEngineFactoryCollectionExtensions.AddV8(JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection)">
+            <summary>
+            Adds a instance of <see cref="T:JavaScriptEngineSwitcher.V8.V8JsEngineFactory"/> to
+            the specified <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" />
+            </summary>
+            <param name="source">Instance of <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" /></param>
+            <returns>Instance of <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" /></returns>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.JsEngineFactoryCollectionExtensions.AddV8(JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection,System.Action{JavaScriptEngineSwitcher.V8.V8Settings})">
+            <summary>
+            Adds a instance of <see cref="T:JavaScriptEngineSwitcher.V8.V8JsEngineFactory"/> to
+            the specified <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" />
+            </summary>
+            <param name="source">Instance of <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" /></param>
+            <param name="configure">The delegate to configure the provided <see cref="T:JavaScriptEngineSwitcher.V8.V8Settings"/></param>
+            <returns>Instance of <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" /></returns>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.JsEngineFactoryCollectionExtensions.AddV8(JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection,JavaScriptEngineSwitcher.V8.V8Settings)">
+            <summary>
+            Adds a instance of <see cref="T:JavaScriptEngineSwitcher.V8.V8JsEngineFactory"/> to
+            the specified <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" />
+            </summary>
+            <param name="source">Instance of <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" /></param>
+            <param name="settings">Settings of the V8 JS engine</param>
+            <returns>Instance of <see cref="T:JavaScriptEngineSwitcher.Core.JsEngineFactoryCollection" /></returns>
+        </member>
+        <member name="T:JavaScriptEngineSwitcher.V8.V8JsEngine">
+            <summary>
+            Adapter for the V8 JS engine (Microsoft ClearScript.V8)
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngine.EngineName">
+            <summary>
+            Name of JS engine
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngine.EngineVersion">
+            <summary>
+            Version of original JS engine
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngine._jsEngine">
+            <summary>
+            V8 JS engine
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngine._originalUndefinedValue">
+            <summary>
+            ClearScript <code>undefined</code> value
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngine._v8ScriptItemInvokeMethodInfo">
+            <summary>
+            Information about `InvokeMethod` method of `Microsoft.ClearScript.V8.V8ScriptItem` type
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngine._errorStringRegex">
+            <summary>
+            Regular expression for working with the string representation of error
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngine._executionSynchronizer">
+            <summary>
+            Synchronizer of code execution
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8JsEngine.Name">
+            <summary>
+            Gets a name of JS engine
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8JsEngine.Version">
+            <summary>
+            Gets a version of original JS engine
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8JsEngine.SupportsGarbageCollection">
+            <summary>
+            Gets a value that indicates if the JS engine supports garbage collection
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngine.#cctor">
+            <summary>
+            Static constructor
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngine.#ctor">
+            <summary>
+            Constructs a instance of adapter for the V8 JS engine (Microsoft ClearScript.V8)
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngine.#ctor(JavaScriptEngineSwitcher.V8.V8Settings)">
+            <summary>
+            Constructs a instance of adapter for the V8 JS engine (Microsoft ClearScript.V8)
+            </summary>
+            <param name="settings">Settings of the V8 JS engine</param>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngine.LoadUndefinedValue">
+            <summary>
+            Loads a ClearScript <code>undefined</code> value
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngine.LoadWinScriptItemInvokeMethodInfo">
+            <summary>
+            Loads a `InvokeMethod` method information of `Microsoft.ClearScript.V8.V8ScriptItem` type
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngine.MapToClearScriptType(System.Object)">
+            <summary>
+            Executes a mapping from the host type to a ClearScript type
+            </summary>
+            <param name="value">The source value</param>
+            <returns>The mapped value</returns>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngine.MapToHostType(System.Object)">
+            <summary>
+            Executes a mapping from the ClearScript type to a host type
+            </summary>
+            <param name="value">The source value</param>
+            <returns>The mapped value</returns>
+        </member>
+        <member name="T:JavaScriptEngineSwitcher.V8.V8JsEngineFactory">
+            <summary>
+            V8 JS engine factory
+            </summary>
+        </member>
+        <member name="F:JavaScriptEngineSwitcher.V8.V8JsEngineFactory._settings">
+            <summary>
+            Settings of the V8 JS engine
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8JsEngineFactory.EngineName">
+            <summary>
+            Gets a name of JS engine
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngineFactory.#ctor">
+            <summary>
+            Constructs an instance of the V8 JS engine factory
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngineFactory.#ctor(JavaScriptEngineSwitcher.V8.V8Settings)">
+            <summary>
+            Constructs an instance of the V8 JS engine factory
+            </summary>
+            <param name="settings">Settings of the V8 JS engine</param>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8JsEngineFactory.CreateEngine">
+            <summary>
+            Creates a instance of the V8 JS engine
+            </summary>
+            <returns>Instance of the V8 JS engine</returns>
+        </member>
+        <member name="T:JavaScriptEngineSwitcher.V8.V8Settings">
+            <summary>
+            Settings of the V8 JS engine
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8Settings.EnableDebugging">
+            <summary>
+            Gets or sets a flag for whether to enable script debugging features
+            (allows a TCP/IP-based debugging)
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8Settings.DebugPort">
+            <summary>
+            Gets or sets a TCP/IP port on which to listen for a debugger connection
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8Settings.DisableGlobalMembers">
+            <summary>
+            Gets or sets a flag for whether to disable global members
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8Settings.MaxNewSpaceSize">
+            <summary>
+            Gets or sets a maximum size of the new object heap in mebibytes
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8Settings.MaxOldSpaceSize">
+            <summary>
+            Gets or sets a maximum size of the old object heap in mebibytes
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.V8Settings.MaxExecutableSize">
+            <summary>
+            Gets or sets a maximum size of the executable code heap in mebibytes
+            </summary>
+        </member>
+        <member name="M:JavaScriptEngineSwitcher.V8.V8Settings.#ctor">
+            <summary>
+            Constructs instance of the V8 settings
+            </summary>
+        </member>
+        <member name="T:JavaScriptEngineSwitcher.V8.Resources.Strings">
+            <summary>
+            A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.Resources.Strings.ResourceManager">
+            <summary>
+            Returns a cached ResourceManager instance used by this class
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.Resources.Strings.Culture">
+            <summary>
+            Overrides a current thread's CurrentUICulture property for all
+            resource lookups using this strongly typed resource class
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.Resources.Strings.Engines_ClearScriptUndefinedValueNotLoaded">
+            <summary>
+            Looks up a localized string similar to "Failed to load the ClearScript `undefined` value."
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.Resources.Strings.Engines_ClearScriptV8AssemblyFileNotFound">
+            <summary>
+            Looks up a localized string similar to "Failed to load the ClearScriptV8 assembly, because the '{0}' file does not exist."
+            </summary>
+        </member>
+        <member name="P:JavaScriptEngineSwitcher.V8.Resources.Strings.Runtime_MethodInfoNotLoaded">
+            <summary>
+            Looks up a localized string similar to "Failed to load information about the `{1}` method of type `{0}`."
+            </summary>
+        </member>
+    </members>
+</doc>

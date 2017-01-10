@@ -49,62 +49,37 @@
     }
 
     function fillData(dataSource) {
-        productlist.mselectedProductID = 0;
+    	$('#loading-indicator').show();
 
-        var columnProduct = [
-                    { id: "ID", name: "ID", field: "ID", width: 40, cssClass: "bg-gray" },
-                    { id: "ProductName", name: "名称", field: "ProductName", width: 120, cssClass: "bg-gray" },
-                    { id: "ProductCode", name: "编码", field: "ProductCode", width: 120, cssClass: "bg-gray" },
-                    { id: "ProductType", name: "类型", field: "ProductType", width: 160, cssClass: "bg-gray" },
-                    { id: "UnitPrice", name: "单价", field: "UnitPrice", width: 160, cssClass: "bg-gray" },
-                    { id: "CreatedDate", name: "创建时间", field: "CreatedDate", width: 200, cssClass: "bg-gray", formatter: datetimeFormatter },
-        ];
+        var divProductGrid = document.querySelector('#myProductGrid');
+        $(divProductGrid).empty();
 
-        var optionsProduct = {
-            editable: true,
-            enableCellNavigation: true,
-            enableColumnReorder: true,
-            asyncEditorLoading: true,
-            forceFitColumns: false,
-            topPanelHeight: 25
-        };
-
-        var dsProduct = dataSource;
-        var dvProduct = new Slick.Data.DataView({ inlineFilters: true });
-        var gridProduct = new Slick.Grid("#myProductGrid", dvProduct, columnProduct, optionsProduct);
-
-        dvProduct.onRowsChanged.subscribe(function (e, args) {
-            gridProduct.invalidateRows(args.rows);
-            gridProduct.render();
-
-        });
-
-        dvProduct.onRowCountChanged.subscribe(function (e, args) {
-            gridProduct.updateRowCount();
-            gridProduct.render();
-        });
-
-        dvProduct.beginUpdate();
-        dvProduct.setItems(dsProduct, "ID");
-        gridProduct.setSelectionModel(new Slick.RowSelectionModel());
-        dvProduct.endUpdate();
-
-        gridProduct.onSelectedRowsChanged.subscribe(function (e, args) {
-            var selectionRowIndex = args.rows[0];
-            var row = dvProduct.getItemByIdx(selectionRowIndex);
-
-            if (row) {
-                productlist.mselectedProductID = row.ID;
-                productlist.mselectedProductRow = row;
-            }
-        });
-    }
-
-
-    function datetimeFormatter(row, cell, value, columnDef, dataContext) {
-        if (value != null && value != "") {
-            return value.substring(0, 10);
+        var gridOptions = {
+        	columnDefs: [
+				{ headerName: "ID", field: "ID", width: 40, cssClass: "bg-gray" },
+                { headerName: "名称", field: "ProductName", width: 120, cssClass: "bg-gray" },
+                { headerName: "编码", field: "ProductCode", width: 120, cssClass: "bg-gray" },
+                { headerName: "类型", field: "ProductType", width: 160, cssClass: "bg-gray" },
+                { headerName: "单价", field: "UnitPrice", width: 160, cssClass: "bg-gray" },
+                { headerName: "创建时间", field: "CreatedDate", width: 200, cssClass: "bg-gray", formatter: datetimeFormatter },
+        	],
+        	rowSelection: 'single',
+        	onSelectionChanged: onSelectionChanged
         }
+
+        new agGrid.Grid(divProductGrid, gridOptions);
+        gridOptions.api.setRowData(dataSource);
+
+        function onSelectionChanged() {
+        	var selectedRows = gridOptions.api.getSelectedRows();
+        	var selectedProcessID = 0;
+        	selectedRows.forEach(function (selectedRow, index) {
+        		rolelist.pselectedProductID = selectedRow.ID;
+        		rolelist.pselectedProductDataRow = selectedRow;
+        	});
+        }
+
+        $('#loading-indicator').hide();
     }
 
     productlist.getProductByID = function () {

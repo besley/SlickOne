@@ -45,6 +45,25 @@ namespace SlickOne.Biz.Service
         }
 
         /// <summary>
+        /// 表单定义记录
+        /// </summary>
+        /// <returns></returns>
+        public IList<FormEntity> GetFormListSimple()
+        {
+            var sql = @"SELECT 
+                            ID, 
+                            EntityName, 
+                            EntityTitle,
+                            EntityCode,
+                            Description,
+                            CreatedDate
+                        FROM EavEntityDef
+                        ORDER BY ID DESC";
+            var list = QuickRepository.Query<FormEntity>(sql).ToList();
+            return list;
+        }
+
+        /// <summary>
         /// 流程实例列表
         /// </summary>
         /// <returns></returns>
@@ -149,7 +168,7 @@ namespace SlickOne.Biz.Service
                             Priority,
                             Severity,
                             Title,
-                            LEFT(Message, 20),
+                            LEFT(Message, 80),
                             Timestamp
                         FROM WfLog
                         ORDER BY ID DESC";

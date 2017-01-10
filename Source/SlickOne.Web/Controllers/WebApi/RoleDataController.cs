@@ -5,8 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using SlickOne.WebUtility;
-using SlickOne.Biz.Entity;
-using SlickOne.Biz.Service;
+using SlickOne.Module.AuthImp.Entity;
+using SlickOne.Module.AuthImp.Service;
+
 
 namespace SlickOne.Web.Controllers.WebApi
 {

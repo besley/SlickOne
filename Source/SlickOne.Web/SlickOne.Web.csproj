@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -8,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{FE695041-A0E1-43C4-8269-96F38EB3AF83}</ProjectGuid>
+    <ProjectGuid>{CB8E4382-2B8F-43A7-9773-BAF599FA0C29}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -21,7 +22,10 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <TypeScriptToolsVersion>1.6</TypeScriptToolsVersion>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,38 +45,49 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper">
-      <HintPath>..\Dapper\bin\Debug\Dapper.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="SlickMaster.Builder">
-      <HintPath>..\DLL\SlickMaster.Builder.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -97,6 +112,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -107,17 +123,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -131,52 +138,64 @@
     <Compile Include="Controllers\Mvc\ProductController.cs" />
     <Compile Include="Controllers\Mvc\RoleController.cs" />
     <Compile Include="Controllers\Mvc\RoleUserController.cs" />
-    <Compile Include="Controllers\Mvc\TaskController.cs" />
     <Compile Include="Controllers\Mvc\UserController.cs" />
-    <Compile Include="Controllers\WebApi\FormMasterController.cs" />
     <Compile Include="Controllers\WebApi\HelloWorldController.cs" />
-    <Compile Include="Controllers\WebApi\ProductController.cs" />
     <Compile Include="Controllers\WebApi\RoleDataController.cs" />
     <Compile Include="Controllers\WebApi\WfDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="Content\ag-grid\ag-grid.css" />
+    <Content Include="Content\ag-grid\theme-bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap-3.3.7.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-dialog.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-progressbar-3.3.4.css" />
+    <Content Include="Content\bootstrap\bootstrap-progressbar-3.3.4.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme-3.3.7.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap\font-awesome.min.css" />
+    <Content Include="Content\bpmnjs\bpmn-font\css\app.css" />
+    <Content Include="Content\bpmnjs\bpmn-font\css\bpmn-embedded.css" />
+    <Content Include="Content\bpmnjs\bpmn-font\css\bpmn.css" />
+    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.svg" />
+    <Content Include="Content\bpmnjs\diagram-js.css" />
+    <Content Include="Content\images\circle.png" />
+    <Content Include="Content\images\diamond.png" />
+    <Content Include="Content\images\ellipse.png" />
+    <Content Include="Content\images\rectangle.png" />
+    <Content Include="Content\images\sailor.jpg" />
+    <Content Include="Content\images\triangle.png" />
+    <Content Include="Content\images\triangle_90.png" />
+    <Content Include="Content\jsplumb\ico-jsplumb.svg" />
+    <Content Include="Content\jsplumb\jsPlumb-demo.css" />
+    <Content Include="Content\jsplumb\jsPlumbToolkit-defaults.css" />
+    <Content Include="Content\jsplumb\jsPlumbToolkit-demo.css" />
+    <Content Include="Content\jsplumb\jsPlumb-main.css" />
+    <Content Include="Content\layout.css" />
+    <Content Include="Scripts\ag-grid\ag-grid.js" />
+    <Content Include="Scripts\ag-grid\ag-grid.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-dialog.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-progressbar.js" />
+    <Content Include="Scripts\handlebars.js" />
+    <Content Include="Scripts\jsplumb\jsPlumb-2.2.8-min.js" />
+    <Content Include="Scripts\jsplumb\jsPlumb-2.2.8.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap\bootstrap-datetimepicker.min.css" />
-    <Content Include="Content\bootstrap\bootstrap-progressbar-2.3.1.min.css" />
-    <Content Include="Content\images\ajax-loader.gif" />
-    <Content Include="Content\images\buttonicon.gif" />
-    <Content Include="Content\images\delete.png" />
-    <Content Include="Content\images\mdiclose.gif" />
-    <Content Include="Content\images\sailor.jpg" />
-    <Content Include="Content\images\sprite.png" />
-    <Content Include="Content\layout.css" />
-    <Content Include="Content\ztree\img\diy\1_close.png" />
-    <Content Include="Content\ztree\img\diy\1_open.png" />
-    <Content Include="Content\ztree\img\diy\2.png" />
-    <Content Include="Content\ztree\img\diy\3.png" />
-    <Content Include="Content\ztree\img\diy\4.png" />
-    <Content Include="Content\ztree\img\diy\5.png" />
-    <Content Include="Content\ztree\img\diy\6.png" />
-    <Content Include="Content\ztree\img\diy\7.png" />
-    <Content Include="Content\ztree\img\diy\8.png" />
-    <Content Include="Content\ztree\img\diy\9.png" />
-    <Content Include="Content\ztree\img\line_conn.gif" />
-    <Content Include="Content\ztree\img\line_conn.png" />
-    <Content Include="Content\ztree\img\loading.gif" />
-    <Content Include="Content\ztree\img\metro.gif" />
-    <Content Include="Content\ztree\img\metro.png" />
-    <Content Include="Content\ztree\metro.css" />
-    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.min.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.zh-CN.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-progressbar.min.js" />
-    <Content Include="Scripts\jquery\jquery.msgBox.js" />
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\bpmn-icons.gif" />
+    <Content Include="Content\images\buttonicon.gif" />
+    <Content Include="Content\images\delete.png" />
+    <Content Include="Content\images\jsplumb-grid.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\sprite.png" />
+    <Content Include="Content\img\glyphicons-halflings-white.png" />
+    <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\img\jsPlumb-Connector-Components.png" />
     <Content Include="Content\jquery-ui\images\2.png" />
     <Content Include="Content\jquery-ui\images\ajax-loader.gif" />
     <Content Include="Content\jquery-ui\images\alert.png" />
@@ -247,17 +266,10 @@
     <Content Include="Content\jquery-ui\images\user_online.gif" />
     <Content Include="Content\jquery-ui\images\web_ui_lanrensc_01_03.png" />
     <Content Include="Content\jquery-ui\images\web_ui_lanrensc_03.png" />
-    <Content Include="Content\img\glyphicons-halflings-white.png" />
-    <Content Include="Content\img\glyphicons-halflings.png" />
     <Content Include="Content\jquery-ui\jquery-ui-1.8.16.custom.css" />
     <Content Include="Content\jquery-ui\jquery-ui.css" />
-    <Content Include="Content\master.css" />
     <Content Include="Content\msgBoxLight.css" />
-    <Content Include="Content\slickgrid\slick.grid.css" />
-    <Content Include="Content\slickgrid\slickgrid-bootstrap.css" />
-    <Content Include="Content\slickgrid\slickgrid-example.css" />
     <Content Include="Content\splitter.css" />
-    <Content Include="Content\style.css" />
     <Content Include="Content\superfish.css" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -367,52 +379,81 @@
     <Content Include="Content\ui\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\ui\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\ui\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\ztree\img\diy\1_close.png" />
+    <Content Include="Content\ztree\img\diy\1_open.png" />
+    <Content Include="Content\ztree\img\diy\2.png" />
+    <Content Include="Content\ztree\img\diy\3.png" />
+    <Content Include="Content\ztree\img\diy\4.png" />
+    <Content Include="Content\ztree\img\diy\5.png" />
+    <Content Include="Content\ztree\img\diy\6.png" />
+    <Content Include="Content\ztree\img\diy\7.png" />
+    <Content Include="Content\ztree\img\diy\8.png" />
+    <Content Include="Content\ztree\img\diy\9.png" />
+    <Content Include="Content\ztree\img\line_conn.gif" />
+    <Content Include="Content\ztree\img\line_conn.png" />
+    <Content Include="Content\ztree\img\loading.gif" />
+    <Content Include="Content\ztree\img\metro.gif" />
+    <Content Include="Content\ztree\img\metro.png" />
+    <Content Include="Content\ztree\metro.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap\bootbox.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Scripts\bootstrap\bootstrap-progressbar.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
-    <Content Include="Scripts\handlebars.js" />
-    <None Include="Properties\PublishProfiles\SlickMaster-publish.pubxml" />
-    <None Include="Properties\PublishProfiles\SOWeb-publish.pubxml" />
+    <Content Include="Content\jsplumb\ico-jsplumb.eot" />
+    <Content Include="Content\jsplumb\ico-jsplumb.ttf" />
+    <Content Include="Content\jsplumb\ico-jsplumb.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.eot" />
+    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.ttf" />
+    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <None Include="Properties\PublishProfiles\MPDiagram.pubxml" />
+    <None Include="Properties\PublishProfiles\sfd.pubxml" />
+    <Content Include="Resource\sidebar.json" />
+    <None Include="Properties\PublishProfiles\soweb.pubxml" />
     <None Include="Scripts\jquery\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery\jquery-ui-1.10.3.min.js" />
-    <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery\jquery-1.8.3.js" />
+    <Content Include="Scripts\jquery\jquery-ui-1.10.3.min.js" />
+    <Content Include="Scripts\jquery\jquery.event.drag-2.2.js" />
+    <Content Include="Scripts\jquery\jquery.msgBox.js" />
+    <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery\jquery.validate.js" />
+    <Content Include="Scripts\jquery\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery\jquery.ztree.all-3.5.min.js" />
+    <Content Include="Scripts\jquery\jstree.js" />
     <Content Include="Scripts\jquery\ui\jquery-ui-1.8.16.custom.min.js" />
     <Content Include="Scripts\jquery\ui\jquery.ui.core.js" />
     <Content Include="Scripts\jquery\ui\jquery.ui.mouse.js" />
     <Content Include="Scripts\jquery\ui\jquery.ui.resizable.js" />
     <Content Include="Scripts\jquery\ui\jquery.ui.sortable.js" />
     <Content Include="Scripts\jquery\ui\jquery.ui.widget.js" />
-    <Content Include="Scripts\jquery\jquery.event.drag-2.2.js" />
-    <Content Include="Scripts\jquery\jquery.validate.js" />
-    <Content Include="Scripts\jquery\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jshelper.js" />
-    <Content Include="Scripts\jsrender.js" />
-    <Content Include="Scripts\slickgrid\lib\jquery.event.drag-2.0.min.js" />
-    <Content Include="Scripts\slickgrid\plugins\slick.checkboxselectcolumn.js" />
-    <Content Include="Scripts\slickgrid\plugins\slick.rowselectionmodel.js" />
-    <Content Include="Scripts\slickgrid\slick.core.js" />
-    <Content Include="Scripts\slickgrid\slick.dataview.js" />
-    <Content Include="Scripts\slickgrid\slick.grid.css" />
-    <Content Include="Scripts\slickgrid\slick.grid.js" />
-    <Content Include="Scripts\slickgrid\slickgrid.min.js" />
+    <Content Include="Scripts\localhelper.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\slick.event.js" />
     <Content Include="Scripts\xmlhelper.js" />
+    <Content Include="Scripts\XMLWriter-1.0.0-min.js" />
     <Content Include="Scripts\ztree\jquery.ztree.all-3.5.min.js" />
-    <Content Include="Scripts\_references.js" />
     <Content Include="ViewJS\processlist.js" />
     <Content Include="ViewJS\productlist.js" />
     <Content Include="ViewJS\rolelist.js" />
-    <Content Include="ViewJS\roleuserlist.js" />
     <Content Include="ViewJS\roleusertree.js" />
     <Content Include="ViewJS\soconfig.js" />
     <Content Include="ViewJS\somain.js" />
+    <Content Include="ViewJS\tasklist.js" />
     <Content Include="ViewJS\userlist.js" />
     <Content Include="ViewJS\userlistdialog.js" />
     <Content Include="Web.config" />
@@ -422,31 +463,34 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Shared\mainlayout.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Scripts\jquery\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Process\List.cshtml" />
     <Content Include="Views\Home\Tree.cshtml" />
+    <Content Include="Views\Process\List.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Role\Edit.cshtml" />
+    <Content Include="Views\Shared\mainlayout.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Activity\" />
-    <Folder Include="Views\RoleUser\" />
-    <Folder Include="Views\Task\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Dapper\Dapper.csproj">
+      <Project>{4da6306b-b9f0-4e06-aca0-2a1400dd9bd0}</Project>
+      <Name>Dapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SlickOne.Biz\SlickOne.Biz.csproj">
       <Project>{79d7a322-276a-4fb5-b509-5219f3e80f63}</Project>
       <Name>SlickOne.Biz</Name>
@@ -454,6 +498,14 @@
     <ProjectReference Include="..\SlickOne.Data\SlickOne.Data.csproj">
       <Project>{e0a4fc43-54af-49b3-a227-0ce9db503903}</Project>
       <Name>SlickOne.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SlickOne.Module.AuthImp\SlickOne.Module.AuthImp.csproj">
+      <Project>{80d57a25-341c-49e7-8803-62ee6fc6c35d}</Project>
+      <Name>SlickOne.Module.AuthImp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SlickOne.Module\SlickOne.Module.csproj">
+      <Project>{8193b232-c188-4f62-a571-81660e3a9b93}</Project>
+      <Name>SlickOne.Module</Name>
     </ProjectReference>
     <ProjectReference Include="..\SlickOne.WebUtility\SlickOne.WebUtility.csproj">
       <Project>{b90de653-f768-465a-bb23-3b5b4d89c96c}</Project>
@@ -465,11 +517,6 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-    <TypeScriptOutDir>D:\Cloud365\GitHome\SlickMaster\Source\SlickMaster.Web\AppJS</TypeScriptOutDir>
-    <TypeScriptSourceMap>False</TypeScriptSourceMap>
-  </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
@@ -481,7 +528,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>1057</DevelopmentServerPort>
+          <DevelopmentServerPort>17364</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/soweb</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
@@ -493,6 +540,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

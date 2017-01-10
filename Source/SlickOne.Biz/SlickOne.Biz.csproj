@@ -44,27 +44,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\ActivityInstanceEntity.cs" />
+    <Compile Include="Entity\FormEntity.cs" />
     <Compile Include="Entity\LogEntity.cs" />
     <Compile Include="Entity\LogQueryEntity.cs" />
     <Compile Include="Entity\ProcessEntity.cs" />
     <Compile Include="Entity\ProcessInstanceEntity.cs" />
     <Compile Include="Entity\ProductQuery.cs" />
     <Compile Include="Entity\QueryBase.cs" />
-    <Compile Include="Entity\RoleEntity.cs" />
-    <Compile Include="Entity\RoleUserEntity.cs" />
-    <Compile Include="Entity\RoleUserView.cs" />
     <Compile Include="Entity\Table.cs" />
     <Compile Include="Entity\TaskEntity.cs" />
     <Compile Include="Entity\TaskViewEntity.cs" />
     <Compile Include="Entity\TransitionInstanceEntity.cs" />
-    <Compile Include="Entity\UserEntity.cs" />
     <Compile Include="Service\IProductService.cs" />
     <Compile Include="Entity\ProductEntity.cs" />
-    <Compile Include="Service\IRoleDataService.cs" />
     <Compile Include="Service\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\IWfDataService.cs" />
-    <Compile Include="Service\RoleDataService.cs" />
     <Compile Include="Service\WfDataService.cs" />
   </ItemGroup>
   <ItemGroup>

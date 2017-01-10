@@ -2,7 +2,7 @@
 * SlickOne WEB快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 
-The Slickflow Designer project.
+The SlickOne project.
 Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
@@ -22,7 +22,9 @@ web page about lgpl: https://www.gnu.org/licenses/lgpl.html
 
 var roleusertree = (function () {
 	function roleusertree() {
-	}
+    }
+
+    roleusertree.pmztree = null;
 
 	function addHoverDom(treeId, treeNode) {
 		if (treeNode.type === "root") return;
@@ -151,16 +153,24 @@ var roleusertree = (function () {
 
 				//render zTree
 				var t = $("#myroleusertree");
-				roleuserlist.pmztree = $.fn.zTree.init(t, getZTreeSetting(), zNodes);
+                roleusertree.pmztree = $.fn.zTree.init(t, getZTreeSetting(), zNodes);
+                userlistdialog.onUserSelected4Adding.subscribe(beforeAddUserIntoRole);
 			}
 		});
-	}
+    }
+
+    function beforeAddUserIntoRole(event, args) {
+        if (args.RoleID > 0 && args.UserID > 0) {
+            roleuserapi.addRoleUser(args);
+        }
+    }
 
 	function openUserDialog(roleId) {
 		userlistdialog.pselectedRoleID = roleId;
 
-		$("#modelDialogForm").modal({
-			remote: "User/List"
+		BootstrapDialog.show({
+			title: "User",
+			message: $('<div></div>').load("User/List")
 		});
 	}
 
@@ -200,16 +210,8 @@ var roleusertree = (function () {
 				}
 			}
 		});
-	}
+    }
 
-	roleusertree.addRoleUser = function (roleID, userID) {
-		var entity = {
-			"RoleID": roleID,
-			"UserID": userID
-		}
-
-		roleuserapi.addRoleUser(entity);
-	}
 	return roleusertree;
 })()
 
@@ -218,14 +220,14 @@ var roleuserapi = (function () {
 	function roleuserapi() {
 	}
 
-	roleuserapi.addRoleUser = function (entity) {
+    roleuserapi.addRoleUser = function (entity) {
 		jshelper.ajaxPost('api/RoleData/AddRoleUser',
             JSON.stringify(entity),
             function (result) {
             	if (result.Status == 1) {
             		$.msgBox({
             			title: "SlickOne / Role",
-            			content: "角色记录已经成功创建！",
+            			content: "已经成功添加用户到该角色！",
             			type: "info"
             		});
 

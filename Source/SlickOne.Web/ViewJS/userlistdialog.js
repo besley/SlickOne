@@ -2,7 +2,7 @@
 * SlickOne WEB快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 
-The Slickflow Designer project.
+The SlickOne project.
 Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
@@ -26,79 +26,50 @@ var userlistdialog = (function () {
 
 	userlistdialog.pselectedRoleID = "";
 	userlistdialog.pselectedUserID = "";
-	userlistdialog.pselectedUserDataRow = null;
-
-	userlistdialog.initListForm = function () {
-		$('#modelDialogForm').on('hidden', function () {
-			$(this).removeData('modal').find(".modal-body").empty();;
-		});
-	}
+    userlistdialog.pselectedUserDataRow = null;
+    userlistdialog.onUserSelected4Adding = new slick.Event();
 
 	//#region User DataGrid
 	userlistdialog.getUserList = function () {
-		$('#loading-indicator').show();
 		jshelper.ajaxGet('api/RoleData/GetUserAll', null, function (result) {
 			if (result.Status === 1) {
-				var columnUser = [
-                    { id: "ID", name: "ID", field: "ID", width: 40, cssClass: "bg-gray" },
-                    { id: "UserName", name: "用户名称", field: "UserName", width: 120, cssClass: "bg-gray" },
-				];
+                var divUserGrid = document.querySelector('#myuserlistdialoggrid');
+				$(divUserGrid).empty();
 
-				var optionsUser = {
-					editable: true,
-					enableCellNavigation: true,
-					enableColumnReorder: true,
-					asyncEditorLoading: true,
-					forceFitColumns: false,
-					topPanelHeight: 25
-				};
+				var gridOptions = {
+					columnDefs: [
+					    { headerName: "ID", field: "ID", width: 40, cssClass: "bg-gray" },
+						{ headerName: "用户名称", field: "UserName", width: 120, cssClass: "bg-gray" },
+					],
+					rowSelection: 'single',
+					onSelectionChanged: onSelectionChanged
+				}
+				
+				new agGrid.Grid(divUserGrid, gridOptions);
+				gridOptions.api.setRowData(result.Entity);
 
-				var dsUser = result.Entity;
-
-				var dvUser = new Slick.Data.DataView({ inlineFilters: true });
-				var gridUser = new Slick.Grid("#myuserlistdialoggrid", dvUser, columnUser, optionsUser);
-
-				dvUser.onRowsChanged.subscribe(function (e, args) {
-					gridUser.invalidateRows(args.rows);
-					gridUser.render();
-				});
-
-				dvUser.onRowCountChanged.subscribe(function (e, args) {
-					gridUser.updateRowCount();
-					gridUser.render();
-				});
-
-				dvUser.beginUpdate();
-				dvUser.setItems(dsUser, "ID");
-				gridUser.setSelectionModel(new Slick.RowSelectionModel());
-				dvUser.endUpdate();
-
-				//rows change event
-				gridUser.onSelectedRowsChanged.subscribe(function (e, args) {
-					var selectedRowIndex = args.rows[0];
-					var row = dvUser.getItemByIdx(selectedRowIndex);
-					if (row) {
-						//marked and returned selected row info
-						userlistdialog.pselectedUserID = row.ID;
-						userlistdialog.pselectedUserDataRow = row;
-					}
-				});
-
-
-				$('#loading-indicator').hide();
+				function onSelectionChanged() {
+					var selectedRows = gridOptions.api.getSelectedRows();
+					var selectedProcessID = 0;
+					selectedRows.forEach(function (selectedRow, index) {
+						userlistdialog.pselectedUserID = selectedRow.ID;
+						userlistdialog.pselectedUserDataRow = selectedRow;
+					});
+				}
 			}
 		});
 	}
 
-	userlistdialog.sure = function () {
-		roleusertree.addRoleUser(userlistdialog.pselectedRoleID, userlistdialog.pselectedUserID);
-		$("#modelDialogForm").modal("hide");
+    userlistdialog.sure = function () {
+        slick.trigger(userlistdialog.onUserSelected4Adding, {
+            "UserID": userlistdialog.pselectedUserID,
+            "RoleID": userlistdialog.pselectedRoleID
+        });
 	}
 
 	userlistdialog.cancel = function () {
 		userlistdialog.pselectedUserID = "";
 		userlistdialog.pselectedUserDataRow = null;
-		$("#modelDialogForm").modal("hide");
 	}
 
 	return userlistdialog;

@@ -1,5 +1,5 @@
 ﻿/*
-* Slickflow 工作流引擎遵循LGPL协议，也可联系作者商业授权并获取技术支持；
+* SlickOne 企业级Web快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 * 
 The Slickflow project.
@@ -149,10 +149,8 @@ namespace SlickOne.Data
         /// <returns></returns>
         private static IDbConnection CreateConnectionByProvider()
         {
-            var connStringSetting = ConfigurationManager.ConnectionStrings["ProductDBConnectionString"];
+            var connStringSetting = ConfigurationManager.ConnectionStrings["SlickOneDBConnectionString"];
             IDbConnection conn = new SqlConnection(connStringSetting.ConnectionString);
-
-            //IDbConnection conn = new OracleConnection(connStringSetting.ConnectionString);
 
             return conn;
         }

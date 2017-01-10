@@ -1,6 +1,6 @@
 ﻿# SlickOne
 ===========
-A quick enterprise web framework for information system.
+A quick enterprise framework for information system.
 
 
 项目描述
@@ -8,13 +8,12 @@ A quick enterprise web framework for information system.
 基于MVC, WebApi, Dapper的3层分布式架构开发框架，其特点是：
 
 1. 采用Dapper微ORMapping框架，性能接近原生SQL；
-2. 采用Repository泛型模式，可以不再使用代码生成器；
-3. 支持多数据库如：SQLServer, Oracle, MySql, 国产数据库人大金仓KingBase等；
+2. 采用Repository模式；
 3. 采用面向Interface接口编程规范；
-4. 采用Restful风格的WebApi实现服务总线；
-5. 前端采用优秀开源组件：SlickGrid数据控件，zTree树形控件等实现Web富交互功能；
+4. 采用WebApi实现服务总线;
+5. 前端SlickGrid数据控件展现，Web富交互功能实现；
 6. 前端Javascript模板引擎(HandleBarJS/DustJS);
-7. 前端Bootstrap框架多栏布局，底部多Tab页控件在线演示Demo实现；
+7. 前端Bootstrap框架布局在线演示Demo实现；
 
 
 SlickOne框架在线DEMO及项目应用演示案例：

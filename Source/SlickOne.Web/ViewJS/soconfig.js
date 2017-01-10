@@ -2,7 +2,7 @@
 * SlickOne WEB快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 
-The Slickflow Designer project.
+The SlickOne project.
 Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
@@ -26,10 +26,10 @@ var soconfig = (function () {
 
 	//#region tab configuration
 	soconfig.tabname = [];
-	soconfig.tabname["role"] = "角色记录";
-	soconfig.tabname["user"] = "用户记录";
-	soconfig.tabname["roleusermanage"] = "角色用户维护";
-	soconfig.tabname["roleuserview"] = "角色用户视图";
+	soconfig.tabname["myrolegrid"] = "角色记录";
+	soconfig.tabname["myusergrid"] = "用户记录";
+	soconfig.tabname["myroleusertree"] = "角色用户维护";
+	soconfig.tabname["myroleusergrid"] = "角色用户视图";
 	soconfig.tabname["resource"] = "资源数据";
 	soconfig.tabname["functionpermission"] = "功能权限";
 	soconfig.tabname["datapermission"] = "数据权限";
@@ -37,12 +37,12 @@ var soconfig = (function () {
 	soconfig.tabname["department"] = "部门数据";
 	soconfig.tabname["employee"] = "员工激励";
 	soconfig.tabname["deptemp"] = "部门员工视图";
-	soconfig.tabname["process"] = "流程记录";
-	soconfig.tabname["form"] = "表单记录";
-	soconfig.tabname["processinstance"] = "流程实例";
-	soconfig.tabname["activityinstance"] = "活动实例";
+	soconfig.tabname["myprocessgrid"] = "流程记录";
+	soconfig.tabname["myformgrid"] = "表单记录";
+	soconfig.tabname["myprocessinstancegrid"] = "流程实例";
+	soconfig.tabname["myactivityinstancegrid"] = "活动实例";
 	soconfig.tabname["task"] = "任务记录";
-	soconfig.tabname["log"] = "系统日志";
+	soconfig.tabname["myloggrid"] = "系统日志";
 	//#endregion
 
 	//#region toolbutton configuration
@@ -66,10 +66,6 @@ var soconfig = (function () {
 	soconfig.toolbutton["delete"]["user"] = userlist.delete;
 
 	//#endregion
-
-	
-
-
 
 	return soconfig;
 })()

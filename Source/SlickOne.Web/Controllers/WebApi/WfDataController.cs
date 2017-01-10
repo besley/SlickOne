@@ -116,6 +116,30 @@ namespace SlickOne.Web.Controllers.WebApi
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        public ResponseResult<List<FormEntity>> GetFormListSimple()
+        {
+            var result = ResponseResult<List<FormEntity>>.Default();
+            try
+            {
+                var wfService = new WfDataService();
+                var entity = wfService.GetFormListSimple().ToList();
+
+                result = ResponseResult<List<FormEntity>>.Success(entity);
+            }
+            catch (System.Exception ex)
+            {
+                result = ResponseResult<List<FormEntity>>.Error(
+                    string.Format("读取{0}数据失败, 错误：{1}", "Form", ex.Message)
+                );
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取日志数据
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
         public ResponseResult<List<LogEntity>> GetLogList()
         {
             var result = ResponseResult<List<LogEntity>>.Default();

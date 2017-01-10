@@ -1,0 +1,103 @@
+﻿{
+    "id":  "slickone",
+    "name": "SlickOne",
+    "title": "SlickOne 数据管理",
+    "menus": [
+        {
+            "id": "dashboard",
+            "name": "Dashboard",
+            "title": "工作台",
+            "iconClass": "fa fa-dashboard fa-lg"
+        },
+        {
+            "id": "business",
+            "name": "Business",
+            "title": "业务数据",
+            "iconClass": "fa fa-gift fa-lg",
+            "menus": [
+                {
+                    "id": "product",
+                    "name": "Product",
+                    "title": "产品数据"
+                },
+
+                {
+                    "id": "Order",
+                    "title": "订单数据"
+                }
+
+            ]
+        },
+        {
+            "name": "Workflow",
+            "title": "流程数据",
+            "menus": [
+                {
+                    "name": "Process",
+                    "title": "流程定义"
+                },
+
+                {
+                    "name": "ProcessInstance",
+                    "title": "流程实例"
+                },
+                {
+                    "name": "ActivityInstance",
+                    "title": "活动实例"
+                },
+
+                {
+                    "name": "Task",
+                    "title": "任务数据"
+                },
+
+                {
+                    "name": "Transition",
+                    "title": "转移数据"
+                }
+            ]
+        },
+
+        {
+            "name": "System",
+            "title": "系统数据",
+            "menus": [
+                {
+                    "name": "User",
+                    "title": "用户数据"
+                },
+
+                {
+                    "name": "Role",
+                    "title": "角色数据"
+                },
+
+                {
+                    "name": "RoleUserEdit",
+                    "title": "角色用户维护"
+                },
+
+                {
+                    "name": "RoleUserView",
+                    "title": "角色用户视图"
+                }
+            ]
+        },
+        {
+            "name": "Log",
+            "title": "日志数据",
+            "menus": [
+                {
+                    "name": "Operation",
+                    "title": "操作日志"
+                },
+
+                {
+                    "name": "Exception",
+                    "title": "异常日志"
+                }
+            ]
+        }
+    ]
+
+}

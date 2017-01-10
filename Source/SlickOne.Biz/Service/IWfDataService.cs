@@ -14,6 +14,7 @@ namespace SlickOne.Biz.Service
         IList<ActivityInstanceEntity> GetActivityInstanceList();
         IList<ActivityInstanceEntity> GetActivityInstanceList(int processInstanceID);
         IList<TaskEntity> GetTaskList();
+        IList<FormEntity> GetFormListSimple();
         IList<LogEntity> GetLogList();
     }
 }
