@@ -4,10 +4,10 @@ SlickOne 企业级Web快速开发框架，Bootstrap3/Mvc(WebApi)/Dapper技术体
 
 SlickOne 0.1.2 版本发布:
 
-1) Bootstrap3.3.5版本升级；
-2) AG-Grid 替代SlickGrid，同样强大功能的数据控件，有完善开源社区支持；
-3) 左侧导航菜单折叠隐藏功能实现；
-4) 用户添加, 角色维护等功能示例实现。
+1. Bootstrap3.3.5版本升级；
+2. AG-Grid 替代SlickGrid，同样强大功能的数据控件，有完善开源社区支持；
+3. 左侧导航菜单折叠隐藏功能实现；
+4. 用户添加, 角色维护等功能示例实现。
 
 
 项目描述
