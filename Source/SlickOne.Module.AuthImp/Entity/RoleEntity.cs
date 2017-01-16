@@ -29,11 +29,5 @@ namespace SlickOne.Module.AuthImp.Entity
             get;
             set;
         }
-
-        public IList<UserEntity> UserList
-        {
-            get;
-            set;
-        }
     }
 }

@@ -7,6 +7,9 @@ using SlickOne.Module.AuthImp.Entity;
 
 namespace SlickOne.Module.AuthImp.Service
 {
+    /// <summary>
+    /// 角色数据服务接口
+    /// </summary>
     public interface IRoleDataService
     {
         IList<RoleEntity> GetRoleAll();

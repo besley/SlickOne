@@ -3,7 +3,7 @@
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 * 
 The Slickflow project.
-Copyright (C) 2014  .NET Workflow Engine Library
+Copyright (C) 2016  .NET Web Framwork Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -76,9 +76,12 @@ namespace SlickOne.Data
         IEnumerable<T> GetPaged<T>(IDbConnection conn, Pager pager, bool buffered = false) where T : class;
 
         //execute
+        Int32 Execute(string sql, dynamic param = null);
         Int32 Execute(IDbConnection conn, string sql, dynamic param = null, IDbTransaction transaction = null);
         Int32 ExecuteCommand(IDbCommand cmd);
+        Int32 ExecuteProc(string procName, DynamicParameters param = null);
         Int32 ExecuteProc(IDbConnection conn, string procName, DynamicParameters param = null);
+        IList<T> ExecProcQuery<T>(string procName, DynamicParameters param) where T : class;
         IList<T> ExecProcQuery<T>(IDbConnection conn, string procName, DynamicParameters param) where T : class;
 
         //insert, update, delete

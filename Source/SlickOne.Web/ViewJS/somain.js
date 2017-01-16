@@ -3,7 +3,7 @@
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 
 The SlickOne project.
-Copyright (C) 2014  .NET Workflow Engine Library
+Copyright (C) 2016  .NET Web Framwork Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -52,6 +52,24 @@ var somain = (function () {
         $('[data-toggle="offcanvas"]').click(function () {
             $('#wrapper').toggleClass('toggled');
         });
+
+        //load left menu tree
+        loadLeftMenuList();
+    }
+
+    function loadLeftMenuList(){
+         jshelper.ajaxGet('api/ResourceData/GetResourceNodeAll', null, function (result) {
+			if (result.Status === 1) {
+                var menuData = result.Entity;
+
+            } else {
+				$.msgBox({
+					title: "Menu / List",
+					content: "读取菜单记录失败！错误信息：" + result.Message,
+					type: "error"
+				});
+            }
+        });
     }
 
 	//#region init, button
@@ -84,13 +102,6 @@ var somain = (function () {
 		var tab = $("a[href='#" + tabName + "_'");
 
 		if (tab.length === 0) {
-            var className = '';
-            if (name.slice(-4) === "grid") 
-                className = "ag-bootstrap";
-            else if(name.slice(-4) === "tree")
-                className = "ztree";
-
-            
 			$('#myTab').append(
 			    $('<li><a href="#' + tabName + '_">' +
 			    soconfig.tabname[name] +
@@ -100,13 +111,10 @@ var somain = (function () {
 
 			var newTabContent = $('<div class="tab-pane" style="height:700px;width:100%;margin-top:10px;" id="' + tabName + '_"></div>')
 				.appendTo("#divTabContentContainer");
-			var newTabGrid = $('<div id="' + name + '" class="' + className + '" style="width:100%;height:700px;float:left;"></div>')
-				.appendTo(newTabContent);
-
-			readGridDataByTabName(name);
+            somain.activeTabControl = newTabContent;
+			loadGridDaTaByTabName(newTabContent, name);
 
 			$('#myTab a:last').tab('show');
-
 		} else {
 			//tab already exist
 			tab.tab('show');
@@ -116,17 +124,19 @@ var somain = (function () {
 		somain.activeTabName = name;
 	}
 
-	function readGridDataByTabName(name) {
+	function loadGridDaTaByTabName(newTabContent, name) {
+        $(newTabContent).empty();
+
 		if (name === "myrolegrid") {
-			rolelist.getRoleList();
+            $(newTabContent).load("role/list");
 		} else if (name === "myusergrid") {
-			userlist.getUserList();
+			$(newTabContent).load("user/list");
 		} else if (name === "myroleusertree") {
-			roleusertree.getRoleUserTree();
-		} else if (name === "functionpermission") {
-			getFunctionPermissionList();
-		} else if (name === "datapermission") {
-			getDataPermissionList();
+			$(newTabContent).load("roleuser/list");
+		} else if (name === "myresourcegrid") {
+			$(newTabContent).load("resource/list");
+		} else if (name === "myrolepermissiongrid") {
+            $(newTabContent).load("permission/list");
 		} else if (name === "permissionquery") {
 			getPermissionQueryList();
 		} else if (name === "department") {
@@ -136,16 +146,18 @@ var somain = (function () {
 		} else if (name === "deptemp") {
 			getDeptEmpList();
 		} else if (name === "myprocessgrid") {
-			processlist.getProcessList();
+            $(newTabContent).load("workflow/process");
 		} else if (name === "myformgrid") {
-			processlist.getFormList();
+			$(newTabContent).load("workflow/form");
 		} else if (name === "myprocessinstancegrid") {
-			processlist.getProcessInstanceList();
+			$(newTabContent).load("workflow/processinstance");
 		} else if (name === "myactivityinstancegrid") {
-			processlist.getActivityInstanceList();
+			$(newTabContent).load("workflow/activityinstance");
 		} else if (name === "myloggrid") {
-			processlist.getLogList();
-		}
+			$(newTabContent).load("log/list");
+		} else {
+            window.console.log("unknown tab name..." + name);
+        }
 	}
 
 	function datetimeFormatter(row, cell, value, columnDef, dataContext) {
@@ -156,7 +168,7 @@ var somain = (function () {
 	//#endregion
 
 	//#region toolbutton
-	somain.addrecord = function (e) {
+	somain.addrecord = function () {
 		somain.activeToolButtonType = "add";
 		openDialogForm(somain.activeToolButtonType);
 	}
@@ -168,6 +180,7 @@ var somain = (function () {
 
 	somain.deleterecord = function () {
 		somain.activeToolButtonType = "delete";
+        window.console.log(somain.activeTabName);
 		if (soconfig.toolbutton[somain.activeToolButtonType][somain.activeTabName]) {
 			soconfig.toolbutton[somain.activeToolButtonType][somain.activeTabName]();
 		}
@@ -175,17 +188,16 @@ var somain = (function () {
 
     somain.refreshrecord = function (){
         somain.activeToolButtonType = "refresh";
-        readGridDataByTabName(somain.activeTabName);
+        loadGridDaTaByTabName(somain.activeTabControl, somain.activeTabName);
     }
 
 	function openDialogForm(buttonType) {
 		var url = soconfig.toolbutton[buttonType][somain.activeTabName];
-
 		if (url !== undefined) {
 			$('#loading-indicator').show();
             
 			BootstrapDialog.show({
-				title: somain.activeTabName,
+				title: soconfig.tabname[somain.activeTabName],
 				message: $('<div></div>').load(url)
 			});
 

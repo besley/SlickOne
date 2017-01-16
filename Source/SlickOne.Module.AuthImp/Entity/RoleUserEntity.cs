@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SlickOne.Module.AuthImp.Entity
 {
+    /// <summary>
+    /// 角色用户实体
+    /// </summary>
     [Table("SysRoleUser")]
     public class RoleUserEntity
     {

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace SlickOne.Module.AuthImp.Entity
 {
+    /// <summary>
+    /// 角色用户视图
+    /// </summary>
     [Table("vw_SysRoleUserView")]
     public class RoleUserView
     {

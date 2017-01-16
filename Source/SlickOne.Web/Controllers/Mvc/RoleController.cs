@@ -8,6 +8,11 @@ namespace SlickOne.Web.Controllers.Mvc
 {
     public class RoleController : Controller
     {
+        public ActionResult List()
+        {
+            return View();
+        }
+
         // GET: Role
         public ActionResult Edit()
         {

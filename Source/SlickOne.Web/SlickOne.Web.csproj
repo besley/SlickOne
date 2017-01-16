@@ -131,15 +131,21 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Mvc\ActivityController.cs" />
     <Compile Include="Controllers\Mvc\BaseMvcController.cs" />
+    <Compile Include="Controllers\Mvc\DemoController.cs" />
     <Compile Include="Controllers\Mvc\HomeController.cs" />
-    <Compile Include="Controllers\Mvc\ProcessController.cs" />
+    <Compile Include="Controllers\Mvc\LogController.cs" />
+    <Compile Include="Controllers\Mvc\PermissionController.cs" />
     <Compile Include="Controllers\Mvc\ProductController.cs" />
+    <Compile Include="Controllers\Mvc\ResourceController.cs" />
     <Compile Include="Controllers\Mvc\RoleController.cs" />
     <Compile Include="Controllers\Mvc\RoleUserController.cs" />
+    <Compile Include="Controllers\Mvc\TaskController.cs" />
+    <Compile Include="Controllers\Mvc\TestController.cs" />
     <Compile Include="Controllers\Mvc\UserController.cs" />
+    <Compile Include="Controllers\Mvc\WorkflowController.cs" />
     <Compile Include="Controllers\WebApi\HelloWorldController.cs" />
+    <Compile Include="Controllers\WebApi\ResourceDataController.cs" />
     <Compile Include="Controllers\WebApi\RoleDataController.cs" />
     <Compile Include="Controllers\WebApi\WfDataController.cs" />
     <Compile Include="Global.asax.cs">
@@ -447,8 +453,11 @@
     <Content Include="Scripts\xmlhelper.js" />
     <Content Include="Scripts\XMLWriter-1.0.0-min.js" />
     <Content Include="Scripts\ztree\jquery.ztree.all-3.5.min.js" />
+    <Content Include="ViewJS\loglist.js" />
+    <Content Include="ViewJS\permissionlist.js" />
     <Content Include="ViewJS\processlist.js" />
     <Content Include="ViewJS\productlist.js" />
+    <Content Include="ViewJS\resourcelist.js" />
     <Content Include="ViewJS\rolelist.js" />
     <Content Include="ViewJS\roleusertree.js" />
     <Content Include="ViewJS\soconfig.js" />
@@ -466,6 +475,7 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery\jquery-1.10.2.min.map" />
+    <Content Include="Views\Demo\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Tree.cshtml" />
     <Content Include="Views\Process\List.cshtml" />
@@ -475,10 +485,25 @@
     <Content Include="Views\Shared\mainlayout.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\List.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="Views\Test\SideBar.cshtml" />
+    <Content Include="Views\Test\NavBar.cshtml" />
+    <Content Include="Views\Resource\Edit.cshtml" />
+    <Content Include="Views\Resource\Authorize.cshtml" />
+    <Content Include="Views\Permission\List.cshtml" />
+    <Content Include="Views\Role\List.cshtml" />
+    <Content Include="Views\User\Dialog.cshtml" />
+    <Content Include="Views\RoleUser\List.cshtml" />
+    <Content Include="Views\Resource\List.cshtml" />
+    <Content Include="Views\Workflow\Process.cshtml" />
+    <Content Include="Views\Workflow\ProcessInstance.cshtml" />
+    <Content Include="Views\Workflow\ActivityInstance.cshtml" />
+    <Content Include="Views\Workflow\Form.cshtml" />
+    <Content Include="Views\Log\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Activity\" />
+    <Folder Include="Views\Task\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

@@ -3,7 +3,7 @@
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 
 The SlickOne project.
-Copyright (C) 2014  .NET Workflow Engine Library
+Copyright (C) 2016  .NET Web Framwork Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -143,6 +143,8 @@ var roleusertree = (function () {
 							userId: o.UserID,
 							name: o.UserName,
 							roleId: o.RoleID,
+
+
 							type: "user",
 							open: false
 						};
@@ -170,7 +172,7 @@ var roleusertree = (function () {
 
 		BootstrapDialog.show({
 			title: "User",
-			message: $('<div></div>').load("User/List")
+			message: $('<div></div>').load("User/Dialog")
 		});
 	}
 

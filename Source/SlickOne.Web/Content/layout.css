@@ -472,3 +472,75 @@ html {
     background-color: rgba(250,250,250,.8);
     z-index: 1;
 }
+
+/*ui bttons*/
+.icoBtn {
+    background-image: url(images/buttonicon.gif);
+    background-repeat: no-repeat;
+    float: left;
+    margin: 5px 0 0 5px;
+    width: 20px;
+    height: 20px;
+    display: block;
+    font-size: 1px;
+}
+
+.btnNew {
+    background-position: -60px -140px;
+}
+/*add*/
+.btnDel {
+    background-position: -20px -140px;
+    width: 18px;
+}
+/*delete*/
+.btnEdit {
+    background-position: -120px -60px;
+}
+
+.btnSave {
+    background-position: -0px -60px;
+}
+
+.btnSetting {
+    background-position: -60px -20px;
+}
+
+.btnDelete {
+    background-position: -80px -120px;
+}
+
+.btnFolder {
+    background-position: -0px -0px;
+}
+/*bpmn icons*/
+.iconBPMN {
+    background-image: url(images/bpmn-icons.gif);
+    background-repeat: no-repeat;
+    float: left;
+    margin: 5px 0 0 5px;
+    width: 20px;
+    height: 20px;
+    display: block;
+    font-size: 1px;
+}
+
+.iconTask {
+    background-position: -206px -6px;
+}
+
+.iconGateway {
+    background-position: -166px -6px;
+}
+
+.iconSub {
+    background-position: -244px -6px;
+}
+
+.iconMI {
+    background-position: -284px -6px;
+}
+
+.iconEnd {
+    background-position: -48px -6px;
+}

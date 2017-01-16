@@ -3,7 +3,7 @@
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 
 The SlickOne project.
-Copyright (C) 2014  .NET Workflow Engine Library
+Copyright (C) 2016  .NET Web Framwork Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -30,8 +30,8 @@ var soconfig = (function () {
 	soconfig.tabname["myusergrid"] = "用户记录";
 	soconfig.tabname["myroleusertree"] = "角色用户维护";
 	soconfig.tabname["myroleusergrid"] = "角色用户视图";
-	soconfig.tabname["resource"] = "资源数据";
-	soconfig.tabname["functionpermission"] = "功能权限";
+	soconfig.tabname["myresourcegrid"] = "资源数据";
+    soconfig.tabname["myrolepermissiongrid"] = "角色授权";
 	soconfig.tabname["datapermission"] = "数据权限";
 	soconfig.tabname["permissionquery"] = "权限查询";
 	soconfig.tabname["department"] = "部门数据";
@@ -52,18 +52,19 @@ var soconfig = (function () {
 	soconfig.toolbutton["delete"] = [];
 	soconfig.toolbutton["query"] = [];
 
-	soconfig.toolbutton["add"]["role"] = "role/edit";
-	soconfig.toolbutton["add"]["user"] = "user/edit";
+	soconfig.toolbutton["add"]["myrolegrid"] = "role/edit";
+	soconfig.toolbutton["add"]["myusergrid"] = "user/edit";
+    soconfig.toolbutton["add"]["myresourcegrid"] = "resource/edit";
 
-	soconfig.toolbutton["edit"]["role"] = "role/edit";
-	soconfig.toolbutton["edit"]["user"] = "user/edit";
+	soconfig.toolbutton["edit"]["myrolegrid"] = "role/edit";
+	soconfig.toolbutton["edit"]["myusergrid"] = "user/edit";
 
 	soconfig.toolbutton["query"]["role"] = "role/query";
 	soconfig.toolbutton["query"]["user"] = "user/query";
 
 	//delete method
-	soconfig.toolbutton["delete"]["role"] = rolelist.delete;
-	soconfig.toolbutton["delete"]["user"] = userlist.delete;
+	soconfig.toolbutton["delete"]["myrolegrid"] = rolelist.delete;
+	soconfig.toolbutton["delete"]["myusergrid"] = userlist.delete;
 
 	//#endregion
 

@@ -1,30 +1,9 @@
-﻿@{
-    Layout = null;
-}
+﻿<div>
+    <div id="myusergrid" class="ag-bootstrap" style="width:100%;height:700px;float:left;"></div>
+</div>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title>角色添加/编辑</title>
-</head>
-<body>
-    <!-- Modal -->
-    <div>
-        <div class="modal-body">
-            <div id="myuserlistdialoggrid" class="ag-bootstrap" style="width:100%;height:280px;float:left;"></div>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" data-dismiss="modal" onclick="userlistdialog.sure();">确定</button>
-            <button class="btn" data-dismiss="modal" aria-hidden="true" onclick="userlistdialog.cancel();">取消</button>
-        </div>
-    </div>
-
-
-    <script type="text/javascript">
-        $(function () {
-            userlistdialog.getUserList();
-        })
-    </script>
-</body>
-</html>
+<script type="text/javascript">
+    $(function () {
+        userlist.getUserList();
+    });
+</script>

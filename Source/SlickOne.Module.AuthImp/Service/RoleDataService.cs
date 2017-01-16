@@ -11,22 +11,10 @@ using SlickOne.Module.AuthImp.Entity;
 namespace SlickOne.Module.AuthImp.Service
 {
     /// <summary>
-    /// 权限数据服务
+    /// 角色数据服务实现类
     /// </summary>
-    public class RoleDataService : IRoleDataService
+    public class RoleDataService : ServiceBase, IRoleDataService
     {
-        #region 基本属性
-        private Repository _quickRepository;
-        public Repository QuickRepository
-        {
-            get
-            {
-                if (_quickRepository == null) _quickRepository = new Repository();
-                return _quickRepository;
-            }
-        }
-        #endregion
-
         /// <summary>
         /// 获取所有角色数据
         /// </summary>

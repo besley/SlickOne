@@ -3,7 +3,7 @@
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 * 
 The Slickflow project.
-Copyright (C) 2014  .NET Workflow Engine Library
+Copyright (C) 2016  .NET Web Framwork Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -459,6 +459,20 @@ namespace SlickOne.Data
         /// <param name="sql"></param>
         /// <param name="param"></param>
         /// <returns></returns>
+        public int Execute(string sql, dynamic param = null)
+        {
+            using (IDbConnection conn = SessionFactory.CreateConnection())
+            {
+                return conn.Execute(sql, param as object);
+            }
+        }
+
+        /// <summary>
+        /// 执行sql操作
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
         public int Execute(IDbConnection conn, string sql, dynamic param = null, IDbTransaction transaction = null)
         {
             return conn.Execute(sql, param as object, transaction);
@@ -478,6 +492,20 @@ namespace SlickOne.Data
         /// <summary>
         /// 执行存储过程
         /// </summary>
+        /// <param name="procName"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public int ExecuteProc(string procName, DynamicParameters param = null)
+        {
+            using (IDbConnection conn = SessionFactory.CreateConnection())
+            {
+                return conn.Execute(procName, param, null, null, CommandType.StoredProcedure);
+            }
+        }
+
+        /// <summary>
+        /// 执行存储过程
+        /// </summary>
         /// <param name="conn"></param>
         /// <param name="procName"></param>
         /// <param name="param"></param>
@@ -485,6 +513,23 @@ namespace SlickOne.Data
         public int ExecuteProc(IDbConnection conn, string procName, DynamicParameters param = null)
         {
             return conn.Execute(procName, param, null, null, CommandType.StoredProcedure);
+        }
+
+        /// <summary>
+        /// 存储过程执行方法
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="procName"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public IList<T> ExecProcQuery<T>(string procName, DynamicParameters param)
+            where T : class
+        {
+            using (IDbConnection conn = SessionFactory.CreateConnection())
+            {
+                IList<T> list = conn.Query<T>(procName, param, null, false, null, CommandType.StoredProcedure).ToList<T>();
+                return list;
+            }
         }
 
         /// <summary>

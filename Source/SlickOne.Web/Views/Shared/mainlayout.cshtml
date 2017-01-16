@@ -77,6 +77,8 @@
                         <li><a href="#" class="active" onclick="somain.showTab('myusergrid')">用户数据</a></li>
                         <li><a href="#" onclick="somain.showTab('myrolegrid')">角色数据</a></li>
                         <li><a href="#" onclick="somain.showTab('myroleusertree')">角色用户维护</a></li>
+                        <li><a href="#" onclick="somain.showTab('myresourcegrid')">资源数据</a></li>
+                        <li><a href="#" onclick="somain.showTab('myrolepermissiongrid')">角色授权</a></li>
                     </ul>
 
                     <li data-toggle="collapse" data-target="#process" class="collapsed">
@@ -123,7 +125,7 @@
                 <!-- 功能操作按钮 -->
                 <div class="top-nav ">
 
-                    <a href="#" class="btn btn-info btn-small" onclick="somain.addrecord(this)"><i class="icon-white icon-plus"></i> 新增</a>
+                    <a href="#" class="btn btn-info btn-small" onclick="somain.addrecord()"><i class="icon-white icon-plus"></i> 新增</a>
                     <a href="#" class="btn btn-info btn-small" onclick="somain.editrecord();"><i class="icon-white icon-pencil"></i> 编辑</a>
                     <a href="#" class="btn btn-info btn-small" onclick="somain.deleterecord();"><i class="icon-white icon-remove"></i> 删除</a>
                     @*<a href="#" class="btn btn-info btn-small" onclick="somain.queryrecord();"><i class="icon-white icon-search"></i> 查询</a>*@
@@ -180,7 +182,11 @@
         <script type="text/javascript" src="~/ViewJS/userlist.js"></script>
         <script type="text/javascript" src="~/ViewJS/userlistdialog.js"></script>
         <script type="text/javascript" src="~/ViewJS/roleusertree.js"></script>
+        <script type="text/javascript" src="~/ViewJS/resourcelist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/permissionlist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/loglist.js"></script>
         <script type="text/javascript" src="~/ViewJS/soconfig.js"></script>
+
 
         <script type="text/javascript">
             $(document).ready(function () {

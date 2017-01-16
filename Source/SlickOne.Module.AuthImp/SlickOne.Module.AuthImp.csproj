@@ -45,14 +45,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\ResourceEntity.cs" />
+    <Compile Include="Entity\ResourceNode.cs" />
+    <Compile Include="Entity\RoleResourcePermissionEntity.cs" />
+    <Compile Include="Entity\RoleResourcePermissionView.cs" />
+    <Compile Include="Entity\ResourceQuery.cs" />
+    <Compile Include="Entity\ResourceTypeEnum.cs" />
+    <Compile Include="Entity\RoleUserQuery.cs" />
     <Compile Include="Entity\UserEntity.cs" />
+    <Compile Include="Entity\XmlTransferEntity.cs" />
+    <Compile Include="Service\ResourceDataService.cs" />
     <Compile Include="Service\AuthServiceFactory.cs" />
     <Compile Include="Entity\QueryBase.cs" />
     <Compile Include="Entity\RoleEntity.cs" />
     <Compile Include="Entity\RoleUserEntity.cs" />
     <Compile Include="Entity\RoleUserView.cs" />
     <Compile Include="Entity\Table.cs" />
-    <Compile Include="Service\IResourceService.cs" />
+    <Compile Include="Service\IResourceDataService.cs" />
     <Compile Include="Service\IRoleDataService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\RoleDataService.cs" />

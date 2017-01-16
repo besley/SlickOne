@@ -9,7 +9,7 @@ namespace SlickOne.Web.Controllers.Mvc
     public class RoleUserController : Controller
     {
         // GET: RoleUser
-        public ActionResult Index()
+        public ActionResult List()
         {
             return View();
         }

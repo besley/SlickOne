@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace SlickOne.Web.Controllers.Mvc
 {
-    public class ActivityController : Controller
+    public class PermissionController : Controller
     {
-        // GET: Activity
-        public ActionResult Index()
+        // GET: Permission
+        public ActionResult List()
         {
             return View();
         }
