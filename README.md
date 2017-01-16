@@ -1,6 +1,6 @@
 ﻿# SlickOne
 ===========
-SlickOne 企业级Web快速开发框架，Bootstrap3/Mvc(WebApi)/Dapper技术体系，AG-Grid/zTree优秀开源组件，丰富代码示例。
+SlickOne 企业级Web快速开发框架，技术体系描述如下：Bootstrap3/Mvc(WebApi)Dapper，AG-Grid/zTree优秀开源组件，Dapper针对MSSQL, MySQL, Oracle等多数据库的实现，丰富代码示例。
 
 ﻿# SlickOne 0.1.2 版本发布：
 ===========
@@ -50,6 +50,7 @@ implemenmted in the solution. The solution is designed for 3-tier distributed sy
    client sides.
 5. All business logic are implemented from Interface, it makes concept not depended on the concrete class instance.
 6. The IRepository class can be used to implement EF, NHerbinate framework which the user prefered to them.
+7. MSSQL, MySQL, Oracle and other database supported by Dapper.
  
 The SlickOne.Web project would give you a full tutorial how to use the SlickOne library and webapi to create a rich mvc web
 application. Similarily, there are serveral key features to describe here:
