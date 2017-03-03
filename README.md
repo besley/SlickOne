@@ -20,8 +20,8 @@ SlickOne 企业级Web快速开发框架，技术体系描述如下：Bootstrap3/
 3. 采用面向Interface接口编程规范；
 4. 采用WebApi实现服务总线;
 5. 前端AG-Grid数据控件展现，Web富交互功能实现；
-6. 前端Javascript模板引擎(HandleBarJS/DustJS);
-7. 前端Bootstrap框架布局在线演示Demo实现；
+6. 前端Bootstrap框架布局在线演示Demo实现；
+7. 多数据库的支持，默认SQLSERVER，支持Oracle, MySQL, KingBase（人大金仓） 等数据库；
 
 
 SlickOne框架在线DEMO及项目应用演示案例：
