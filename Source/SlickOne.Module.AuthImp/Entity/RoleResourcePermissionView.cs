@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SlickOne.Module.AuthImp.Entity
+namespace SlickOne.Module.AuthImpl.Entity
 {
     /// <summary>
     /// 角色资源权限视图

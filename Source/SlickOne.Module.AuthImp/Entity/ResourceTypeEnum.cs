@@ -3,40 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SlickOne.Module.AuthImp.Entity
+namespace SlickOne.Module.AuthImpl.Entity
 {
     /// <summary>
-    /// 资源类型枚举
+    /// resource type
     /// </summary>
     public enum AppResourceTypeEnum
     {
         /// <summary>
-        /// 系统
+        /// system
         /// </summary>
         System = 1,
 
         /// <summary>
-        /// 模块
+        /// module
         /// </summary>
         Module = 2,
 
         /// <summary>
-        /// 菜单
+        /// menu
         /// </summary>
         Menu = 3,
 
         /// <summary>
-        /// 表单
+        /// field
         /// </summary>
-        Form = 4,
+        Field = 4,
 
         /// <summary>
-        /// 按钮
+        /// button
         /// </summary>
         Button = 5,
 
         /// <summary>
-        /// 方法
+        /// method
         /// </summary>
         Function = 6
     }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SlickOne.Module.AuthImp.Entity
+namespace SlickOne.Module.AuthImpl.Entity
 {
     /// <summary>
-    /// 资源查询
+    /// resource query
     /// </summary>
     public class ResourceQuery : QueryBase
     {

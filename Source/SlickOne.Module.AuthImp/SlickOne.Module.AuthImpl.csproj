@@ -7,8 +7,8 @@
     <ProjectGuid>{80D57A25-341C-49E7-8803-62EE6FC6C35D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlickOne.Module.AuthImp</RootNamespace>
-    <AssemblyName>SlickOne.Module.AuthImp</AssemblyName>
+    <RootNamespace>SlickOne.Module.AuthImpl</RootNamespace>
+    <AssemblyName>SlickOne.Module.AuthImpl</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -51,6 +51,8 @@
     <Compile Include="Entity\ResourceQuery.cs" />
     <Compile Include="Entity\ResourceTypeEnum.cs" />
     <Compile Include="Entity\RoleUserQuery.cs" />
+    <Compile Include="Entity\UserAccountEntity.cs" />
+    <Compile Include="Entity\UserAccountQuery.cs" />
     <Compile Include="Entity\UserEntity.cs" />
     <Compile Include="Entity\XmlTransferEntity.cs" />
     <Compile Include="Entity\QueryBase.cs" />

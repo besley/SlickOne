@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26020.0
+VisualStudioVersion = 15.0.26206.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickOne.Biz", "SlickOne.Biz\SlickOne.Biz.csproj", "{79D7A322-276A-4FB5-B509-5219F3E80F63}"
 EndProject
@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{E1E5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickOne.Module", "SlickOne.Module\SlickOne.Module.csproj", "{8193B232-C188-4F62-A571-81660E3A9B93}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickOne.Module.AuthImp", "SlickOne.Module.AuthImp\SlickOne.Module.AuthImp.csproj", "{80D57A25-341C-49E7-8803-62EE6FC6C35D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlickOne.Module.AuthImpl", "SlickOne.Module.AuthImp\SlickOne.Module.AuthImpl.csproj", "{80D57A25-341C-49E7-8803-62EE6FC6C35D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{04D717B2-9561-4415-9D62-2C421179BC2B}"
 EndProject

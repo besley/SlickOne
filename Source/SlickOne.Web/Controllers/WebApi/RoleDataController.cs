@@ -5,8 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using SlickOne.WebUtility;
-using SlickOne.Module.AuthImp.Entity;
-using SlickOne.Module.AuthImp.Service;
+using SlickOne.Module.AuthImpl.Entity;
+using SlickOne.Module.AuthImpl.Service;
 
 
 namespace SlickOne.Web.Controllers.WebApi
@@ -26,7 +26,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult<List<RoleEntity>>.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 var roleList = roleService.GetRoleAll().ToList();
 
                 result = ResponseResult<List<RoleEntity>>.Success(roleList);
@@ -51,7 +51,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 roleService.SaveRole(entity);
 
                 result = ResponseResult.Success();
@@ -69,7 +69,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 roleService.DeleteRole(entity);
 
                 result = ResponseResult.Success();
@@ -86,19 +86,19 @@ namespace SlickOne.Web.Controllers.WebApi
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ResponseResult<List<UserEntity>> GetUserAll()
+        public ResponseResult<List<UserAccountEntity>> GetUserAll()
         {
-            var result = ResponseResult<List<UserEntity>>.Default();
+            var result = ResponseResult<List<UserAccountEntity>>.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 var userList = roleService.GetUserAll().ToList();
 
-                result = ResponseResult<List<UserEntity>>.Success(userList);
+                result = ResponseResult<List<UserAccountEntity>>.Success(userList);
             }
             catch (System.Exception ex)
             {
-                result = ResponseResult<List<UserEntity>>.Error(
+                result = ResponseResult<List<UserAccountEntity>>.Error(
                     string.Format("获取用户数据失败！{0}", ex.Message)
                 );
             }
@@ -111,7 +111,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 roleService.SaveUser(entity);
 
                 result = ResponseResult.Success();
@@ -129,7 +129,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 roleService.DeleteUser(entity);
 
                 result = ResponseResult.Success();
@@ -151,7 +151,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult<List<RoleUserView>>.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 var userList = roleService.GetRoleUserAll().ToList();
 
                 result = ResponseResult<List<RoleUserView>>.Success(userList);
@@ -176,7 +176,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 roleService.AddRoleUser(entity);
 
                 result = ResponseResult.Success();
@@ -199,7 +199,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var roleService = new RoleDataService();
+                var roleService = new RoleService();
                 roleService.DeleteRoleUser(entity);
 
                 result = ResponseResult.Success();

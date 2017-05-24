@@ -524,9 +524,9 @@
       <Project>{e0a4fc43-54af-49b3-a227-0ce9db503903}</Project>
       <Name>SlickOne.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SlickOne.Module.AuthImp\SlickOne.Module.AuthImp.csproj">
+    <ProjectReference Include="..\SlickOne.Module.AuthImp\SlickOne.Module.AuthImpl.csproj">
       <Project>{80d57a25-341c-49e7-8803-62ee6fc6c35d}</Project>
-      <Name>SlickOne.Module.AuthImp</Name>
+      <Name>SlickOne.Module.AuthImpl</Name>
     </ProjectReference>
     <ProjectReference Include="..\SlickOne.Module\SlickOne.Module.csproj">
       <Project>{8193b232-c188-4f62-a571-81660e3a9b93}</Project>

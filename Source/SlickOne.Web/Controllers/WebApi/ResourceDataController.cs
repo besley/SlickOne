@@ -5,8 +5,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using SlickOne.WebUtility;
-using SlickOne.Module.AuthImp.Entity;
-using SlickOne.Module.AuthImp.Service;
+using SlickOne.Module.AuthImpl.Entity;
+using SlickOne.Module.AuthImpl.Service;
 
 namespace SlickOne.Web.Controllers.WebApi
 {
@@ -25,7 +25,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult<List<ResourceEntity>>.Default();
             try
             {
-                var resourceService = new ResourceDataService();
+                var resourceService = new ResourceService();
                 var resourceList = resourceService.GetResourceAll().ToList();
 
                 result = ResponseResult<List<ResourceEntity>>.Success(resourceList);
@@ -39,32 +39,7 @@ namespace SlickOne.Web.Controllers.WebApi
             return result;
         }
 
-        /// <summary>
-        /// 获取左侧导航资源数据集
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost]
-        public ResponseResult<List<ResourceEntity>> GetLeftMenuList()
-        {
-            var result = ResponseResult<List<ResourceEntity>>.Default();
-            try
-            {
-                var resourceService = new ResourceDataService();
-                ResourceQuery query = new ResourceQuery { UserID = -1000 };
-                var resourceList = resourceService.GetLeftMenuList(query.UserID);
-
-                result = ResponseResult<List<ResourceEntity>>.Success(resourceList);
-            }
-            catch (System.Exception ex)
-            {
-                result = ResponseResult<List<ResourceEntity>>.Error(
-                    string.Format("获取左侧导航资源数据失败！{0}", ex.Message)
-                );
-            }
-            return result;
-        }
-
-        /// <summary>
+         /// <summary>
         /// 获取所有资源数据集
         /// </summary>
         /// <returns></returns>
@@ -74,8 +49,8 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult<List<RoleResourcePermissionView>>.Default();
             try
             {
-                var resourceService = new ResourceDataService();
-                var permissionList = resourceService.GetRoleResourceList(query.RoleID);
+                var resourceService = new ResourceService();
+                var permissionList = resourceService.GetResourceByRoleID(query.RoleID);
 
                 result = ResponseResult<List<RoleResourcePermissionView>>.Success(permissionList);
             }
@@ -98,7 +73,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult<ResourceNode>.Default();
             try
             {
-                var resourceService = new ResourceDataService();
+                var resourceService = new ResourceService();
                 var resourceList = resourceService.GetResourceNodeAll();
 
                 result = ResponseResult<ResourceNode>.Success(resourceList);
@@ -123,7 +98,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var resourceService = new ResourceDataService();
+                var resourceService = new ResourceService();
                 resourceService.SaveResource(entity);
 
                 result = ResponseResult.Success();
@@ -146,7 +121,7 @@ namespace SlickOne.Web.Controllers.WebApi
             var result = ResponseResult.Default();
             try
             {
-                var resourceService = new RoleDataService();
+                var resourceService = new RoleService();
                 //resourceService.DeleteResource(entity);
 
                 result = ResponseResult.Success();

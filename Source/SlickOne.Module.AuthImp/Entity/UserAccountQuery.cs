@@ -7,12 +7,10 @@ using System.Threading.Tasks;
 namespace SlickOne.Module.AuthImpl.Entity
 {
     /// <summary>
-    /// 用户实体
+    /// user account query
     /// </summary>
-    [Table("SysUser")]
-    public class UserEntity
+    public class UserAccountQuery : QueryBase
     {
-        public int ID { get; set; }
         public string UserName { get; set; }
     }
 }

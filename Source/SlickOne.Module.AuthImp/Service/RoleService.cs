@@ -1,4 +1,26 @@
-﻿using System;
+﻿/*
+* SlickOne 企业级WEB快速开发框架遵循LGPL协议，也可联系作者获取商业授权
+* 和技术支持服务；除此之外的使用，则视为不正当使用，请您务必避免由此带来的
+* 商业版权纠纷。
+*
+The SlickOne Product.
+Copyright (C) 2017  .NET Authorization Framework Software
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License as published by the Free Software Foundation; either
+version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, you can access the official
+web page about lgpl: https://www.gnu.org/licenses/lgpl.html
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,17 +28,17 @@ using System.Threading.Tasks;
 using Dapper;
 using DapperExtensions;
 using SlickOne.Data;
-using SlickOne.Module.AuthImp.Entity;
+using SlickOne.Module.AuthImpl.Entity;
 
-namespace SlickOne.Module.AuthImp.Service
+namespace SlickOne.Module.AuthImpl.Service
 {
     /// <summary>
-    /// 角色数据服务实现类
+    /// role data service implementation
     /// </summary>
-    public class RoleDataService : ServiceBase, IRoleDataService
+    public class RoleService : ServiceBase, IRoleService
     {
         /// <summary>
-        /// 获取所有角色数据
+        /// get all role
         /// </summary>
         /// <returns></returns>
         public IList<RoleEntity> GetRoleAll()
@@ -30,7 +52,7 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 保存角色数据
+        /// save role data
         /// </summary>
         /// <param name="entity"></param>
         public void SaveRole(RoleEntity entity)
@@ -47,7 +69,7 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 删除角色
+        /// delete role
         /// </summary>
         /// <param name="entity"></param>
         public void DeleteRole(RoleEntity entity)
@@ -62,17 +84,22 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 获取所有用户数据
+        /// get user all data
         /// </summary>
         /// <returns></returns>
-        public IList<UserEntity> GetUserAll()
+        public IList<UserAccountEntity> GetUserAll()
         {
-            var list = QuickRepository.GetAll<UserEntity>().ToList();
+            var sql = @"SELECT 
+                            *
+                        FROM SysUser
+                        WHERE AccountType <> -1
+                        ORDER BY ID DESC";
+            var list = QuickRepository.Query<UserAccountEntity>(sql).ToList();
             return list;
         }
 
         /// <summary>
-        /// 保存用户数据
+        /// save user
         /// </summary>
         /// <param name="entity"></param>
         public void SaveUser(UserEntity entity)
@@ -88,7 +115,7 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 删除用户
+        /// delete user
         /// </summary>
         /// <param name="entity"></param>
         public void DeleteUser(UserEntity entity)
@@ -103,7 +130,7 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 获取角色下用户列表
+        /// get role user data
         /// </summary>
         /// <returns></returns>
         public IList<RoleUserView> GetRoleUserAll()
@@ -123,7 +150,7 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 根据角色查询用户
+        /// query user of role
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
@@ -145,7 +172,7 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 添加用户到角色
+        /// add user into role
         /// </summary>
         /// <param name="entity"></param>
         public void AddRoleUser(RoleUserEntity entity)
@@ -154,7 +181,7 @@ namespace SlickOne.Module.AuthImp.Service
         }
 
         /// <summary>
-        /// 删除角色下的用户
+        /// delete user from role
         /// </summary>
         /// <param name="entity"></param>
         public void DeleteRoleUser(RoleUserEntity entity)

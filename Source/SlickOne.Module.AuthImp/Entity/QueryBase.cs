@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlickOne.Module.AuthImp.Entity
+namespace SlickOne.Module.AuthImpl.Entity
 {
     /// <summary>
-    /// 分页查询类
+    /// paged query
     /// </summary>
     public abstract class QueryBase
     {
         public int PageIndex { get; set; }
         public int PageSize { get; set; }
-        public string Field { set; get; }//排序字段
-        public string Order { set; get; }//排序方式
+        public string Field { set; get; }       //order by field
+        public string Order { set; get; }       //order asc/desc
         public int TotalRowsCount { get; set; }
         public int TotalPages { get; set; }
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlickOne.Module.AuthImp.Entity
+namespace SlickOne.Module.AuthImpl.Entity
 {
     /// <summary>
     /// 角色实体

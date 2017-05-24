@@ -60,7 +60,7 @@
         <!-- left sidebar-->
         <div id="sidebar-wrapper" class="nav-side-menu" style="margin-top:50px;">
             <div class="brand">
-                <span>SlickOne 数据管理</span>
+                <span>SlickOne 框架DEMO</span>
                 <a href="#" style="margin-left:30px;" class="btn btn-link btn-sm" data-toggle="collapse" data-target="#menu-content" aria-expanded="true"><span class="glyphicon glyphicon-chevron-down"></span></a>
             </div>
             <div class="menu-list">
@@ -71,23 +71,37 @@
                         </a>
                     </li>
                     <li data-toggle="collapse" data-target="#basic" class="collapsed active">
-                        <a href="#"><i class="fa fa-gift fa-lg"></i> 基础数据管理 <span class="arrow"></span></a>
+                        <a href="#"><i class="fa fa-gift fa-lg"></i> 基础控件示例 <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="basic">
-                        <li><a href="#" class="active" onclick="somain.showTab('myusergrid')">用户数据</a></li>
-                        <li><a href="#" onclick="somain.showTab('myrolegrid')">角色数据</a></li>
-                        <li><a href="#" onclick="somain.showTab('myroleusertree')">角色用户维护</a></li>
-                        <li><a href="#" onclick="somain.showTab('myresourcegrid')">资源数据</a></li>
-                        <li><a href="#" onclick="somain.showTab('myrolepermissiongrid')">角色授权</a></li>
+                        <li data-toggle="collapse" data-target="#datagrid" class="collapsed active">
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> 数据控件 <span class="arrow"></span></a>
+                            <ul class="sub-menu collapse" id="datagrid">
+                                <li><a href="#" class="active" onclick="somain.showTab('myusergrid')">用户数据</a></li>
+                                <li><a href="#" onclick="somain.showTab('myrolegrid')">角色数据</a></li>
+                                <li><a href="#" onclick="somain.showTab('myresourcegrid')">资源数据</a></li>
+                                <li><a href="#" onclick="somain.showTab('myformgrid')">表单定义</a></li>
+                                <li><a href="#" onclick="somain.showTab('myprocessgrid')">流程定义</a></li>
+                                <li><a href="#" onclick="somain.showTab('myprocessinstancegrid')">流程实例</a></li>
+                                <li><a href="#" onclick="somain.showTab('myactivityinstancegrid')">活动实例</a></li>
+                            </ul>
+                        </li>
+                        <li data-toggle="collapse" data-target="#treeview" class="collapsed active">
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> 树控件 <span class="arrow"></span></a>
+                            <ul class="sub-menu collapse" id="treeview">
+                                <li><a href="#" onclick="somain.showTab('myroleusertree')">角色用户维护</a></li>
+                                <li><a href="#" onclick="somain.showTab('myrolepermissiongrid')">角色授权维护</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <li data-toggle="collapse" data-target="#process" class="collapsed">
-                        <a href="#"><i class="fa fa-globe fa-lg"></i> 流程数据管理 <span class="arrow"></span></a>
+                        <a href="#"><i class="fa fa-globe fa-lg"></i> 高级控件示例 <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="process">
-                        <li><a href="#" onclick="somain.showTab('myprocessgrid')">流程定义</a></li>
-                        <li><a href="#" onclick="somain.showTab('myformgrid')">表单定义</a></li>
-                        <li><a href="#" onclick="somain.showTab('myprocessinstancegrid')">流程实例</a></li>
+                        <li><a href="#" onclick="somain.showTab('myprocessgrid')">文件上传控件</a></li>
+                        <li><a href="#" onclick="somain.showTab('myformgrid')">图片滚动控件</a></li>
+                        <li><a href="#" onclick="somain.showTab('myprocessinstancegrid')">即时消息通讯组件</a></li>
                         <li><a href="#" onclick="somain.showTab('myactivityinstancegrid')">活动实例</a></li>
                     </ul>
 

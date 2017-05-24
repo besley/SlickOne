@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SlickOne.Module.AuthImp.Entity
+namespace SlickOne.Module.AuthImpl.Entity
 {
     /// <summary>
-    /// 资源实体
+    /// resource entity
     /// </summary>
     [Table("SysResource")]
     public class ResourceEntity
@@ -15,10 +15,9 @@ namespace SlickOne.Module.AuthImp.Entity
         public int ID { get; set; }
         public short ResourceTypeID { get; set; }
         public int ParentID { get; set; }
-        public string ResourceCode { get; set; }
         public string ResourceName { get; set; }
-        public string PageUrl { get; set; }
-        public string TagID { get; set; }
+        public string UrlAction { get; set; }
+        public string DataAction { get; set; }
         public string StyleClass { get; set; }
         public short OrderNum { get; set; }
         public byte CanNotBeDeleted { get; set; }
