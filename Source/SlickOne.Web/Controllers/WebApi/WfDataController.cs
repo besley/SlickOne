@@ -116,13 +116,13 @@ namespace SlickOne.Web.Controllers.WebApi
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ResponseResult<List<FormEntity>> GetFormListSimple()
+        public ResponseResult<List<FormEntity>> GetEntityDefListSimple()
         {
             var result = ResponseResult<List<FormEntity>>.Default();
             try
             {
                 var wfService = new WfDataService();
-                var entity = wfService.GetFormListSimple().ToList();
+                var entity = wfService.GetEntityDefListSimple().ToList();
 
                 result = ResponseResult<List<FormEntity>>.Success(entity);
             }

@@ -104,7 +104,7 @@ var somain = (function () {
 		if (tab.length === 0) {
 			$('#myTab').append(
 			    $('<li><a href="#' + tabName + '_">' +
-			    soconfig.tabname[name] +
+			    soconfig.sideBar[name].tabName +
 			    '<button class="close" type="button" ' +
 			    'title="Remove this page"> ×</button>' +
 			    '</a></li>'));
@@ -112,6 +112,7 @@ var somain = (function () {
 			var newTabContent = $('<div class="tab-pane" style="height:700px;width:100%;margin-top:10px;" id="' + tabName + '_"></div>')
 				.appendTo("#divTabContentContainer");
             somain.activeTabControl = newTabContent;
+
 			loadGridDaTaByTabName(newTabContent, name);
 
 			$('#myTab a:last').tab('show');
@@ -126,37 +127,11 @@ var somain = (function () {
 
 	function loadGridDaTaByTabName(newTabContent, name) {
         $(newTabContent).empty();
-
-		if (name === "myrolegrid") {
-            $(newTabContent).load("role/list");
-		} else if (name === "myusergrid") {
-			$(newTabContent).load("user/list");
-		} else if (name === "myroleusertree") {
-			$(newTabContent).load("roleuser/list");
-		} else if (name === "myresourcegrid") {
-			$(newTabContent).load("resource/list");
-		} else if (name === "myrolepermissiongrid") {
-            $(newTabContent).load("permission/list");
-		} else if (name === "permissionquery") {
-			getPermissionQueryList();
-		} else if (name === "department") {
-			getDepartmentList();
-		} else if (name === "employee") {
-			getEmployeeList();
-		} else if (name === "deptemp") {
-			getDeptEmpList();
-		} else if (name === "myprocessgrid") {
-            $(newTabContent).load("workflow/process");
-		} else if (name === "myformgrid") {
-			$(newTabContent).load("workflow/form");
-		} else if (name === "myprocessinstancegrid") {
-			$(newTabContent).load("workflow/processinstance");
-		} else if (name === "myactivityinstancegrid") {
-			$(newTabContent).load("workflow/activityinstance");
-		} else if (name === "myloggrid") {
-			$(newTabContent).load("log/list");
-		} else {
-            window.console.log("unknown tab name..." + name);
+        if (soconfig.sideBar[name] 
+            && soconfig.sideBar[name].pageUrl !== ""){
+            $(newTabContent).load(soconfig.sideBar[name].pageUrl);
+        } else {
+            window.console.log("未定义页面URL，名称信息：" + name);
         }
 	}
 
@@ -197,7 +172,7 @@ var somain = (function () {
 			$('#loading-indicator').show();
             
 			BootstrapDialog.show({
-				title: soconfig.tabname[somain.activeTabName],
+				title: soconfig.sideBar[somain.activeTabName].tabName,
 				message: $('<div></div>').load(url)
 			});
 

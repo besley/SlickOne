@@ -74,42 +74,58 @@
                         <a href="#"><i class="fa fa-gift fa-lg"></i> 基础控件示例 <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="basic">
-                        <li data-toggle="collapse" data-target="#datagrid" class="collapsed active">
-                            <a href="#"><i class="fa fa-gift fa-lg"></i> 数据控件 <span class="arrow"></span></a>
-                            <ul class="sub-menu collapse" id="datagrid">
-                                <li><a href="#" class="active" onclick="somain.showTab('myusergrid')">用户数据</a></li>
-                                <li><a href="#" onclick="somain.showTab('myrolegrid')">角色数据</a></li>
-                                <li><a href="#" onclick="somain.showTab('myresourcegrid')">资源数据</a></li>
-                                <li><a href="#" onclick="somain.showTab('myformgrid')">表单定义</a></li>
-                                <li><a href="#" onclick="somain.showTab('myprocessgrid')">流程定义</a></li>
-                                <li><a href="#" onclick="somain.showTab('myprocessinstancegrid')">流程实例</a></li>
-                                <li><a href="#" onclick="somain.showTab('myactivityinstancegrid')">活动实例</a></li>
-                            </ul>
+                        <li data-toggle="collapse" data-target="#datagrid" class="collapsed">
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> DataGrid(ag-Grid) <span class="arrow"></span></a>
                         </li>
-                        <li data-toggle="collapse" data-target="#treeview" class="collapsed active">
-                            <a href="#"><i class="fa fa-gift fa-lg"></i> 树控件 <span class="arrow"></span></a>
-                            <ul class="sub-menu collapse" id="treeview">
-                                <li><a href="#" onclick="somain.showTab('myroleusertree')">角色用户维护</a></li>
-                                <li><a href="#" onclick="somain.showTab('myrolepermissiongrid')">角色授权维护</a></li>
-                            </ul>
+                        <ul class="sub-menu collapse" id="datagrid">
+                            @*<li><a href="#" class="active" onclick="somain.showTab('myusergrid')">用户数据</a></li>*@
+                            <li><a href="#" onclick="somain.showTab('myrolegrid')">简单网格</a></li>
+                            <li><a href="#" onclick="somain.showTab('myresourcegrid')">层级网格</a></li>
+                            <li><a href="#" onclick="somain.showTab('myentitydefgrid')">常见网格01</a></li>
+                            <li><a href="#" onclick="somain.showTab('myprocessgrid')">常见网格02</a></li>
+                            <li><a href="#" onclick="somain.showTab('myprocessinstancegrid')">常见网格03</a></li>
+                            <li><a href="#" onclick="somain.showTab('myactivityinstancegrid')">常见网格04</a></li>
+                        </ul>
+
+                        <li data-toggle="collapse" data-target="#treeview" class="collapsed">
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> TreeView(zTree) <span class="arrow"></span></a>
                         </li>
+                        <ul class="sub-menu collapse" id="treeview">
+                            <li><a href="#" onclick="somain.showTab('myroleusertree')">树维护(角色用户)</a></li>
+                            <li><a href="#" onclick="somain.showTab('myrolepermissiongrid')">树交互(角色授权)</a></li>
+                        </ul>
+
+                        <li data-toggle="collapse" data-target="#popwindow" class="collapsed">
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> 对话框(Dialog) <span class="arrow"></span></a>
+                        </li>
+                        <ul class="sub-menu collapse" id="popwindow">
+                            <li><a href="#" onclick="somain.showTab('mymessagebox')">消息弹框</a></li>
+                            <li><a href="#" onclick="somain.showTab('mymodaldialog')">模式对话窗口</a></li>
+                        </ul>
+
+                        <li data-toggle="collapse" data-target="#form" class="collapsed">
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> 表单(Form) <span class="arrow"></span></a>
+                        </li>
+                        <ul class="sub-menu collapse" id="form">
+                            <li><a href="#" onclick="somain.showTab('myusergrid')">表单示例</a></li>
+                        </ul>
                     </ul>
 
-                    <li data-toggle="collapse" data-target="#process" class="collapsed">
+                    <li data-toggle="collapse" data-target="#advanced" class="collapsed">
                         <a href="#"><i class="fa fa-globe fa-lg"></i> 高级控件示例 <span class="arrow"></span></a>
                     </li>
-                    <ul class="sub-menu collapse" id="process">
-                        <li><a href="#" onclick="somain.showTab('myprocessgrid')">文件上传控件</a></li>
-                        <li><a href="#" onclick="somain.showTab('myformgrid')">图片滚动控件</a></li>
-                        <li><a href="#" onclick="somain.showTab('myprocessinstancegrid')">即时消息通讯组件</a></li>
-                        <li><a href="#" onclick="somain.showTab('myactivityinstancegrid')">活动实例</a></li>
+                    <ul class="sub-menu collapse" id="advanced">
+                        <li><a href="#" onclick="somain.showTab('myfileupload')">本地上传(FineUpload)</a></li>
+                        <li><a href="#" onclick="somain.showTab('myimageflash')">图片滚动(ImageFlash)</a></li>
                     </ul>
 
-                    <li data-toggle="collapse" data-target="#log" class="collapsed">
-                        <a href="#"><i class="fa fa-car fa-lg"></i> 系统日志 <span class="arrow"></span></a>
+                    <li data-toggle="collapse" data-target="#valued" class="collapsed">
+                        <a href="#"><i class="fa fa-car fa-lg"></i> 增值组件示例 <span class="arrow"></span></a>
                     </li>
-                    <ul class="sub-menu collapse" id="log">
-                        <li><a href="#" onclick="somain.showTab('myloggrid')">异常日志</a></li>
+                    <ul class="sub-menu collapse" id="valued">
+                        <li><a href="#" onclick="somain.showTab('myfileuploadcloud')">云端上传(FineUpload)</a></li>
+                        <li><a href="#" onclick="somain.showTab('mynotifymsgbox')">通知弹窗</a></li>
+                        <li><a href="#" onclick="somain.showTab('mymessenger')">Messenger</a></li>
                     </ul>
 
                     <li>

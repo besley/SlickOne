@@ -132,9 +132,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Mvc\BaseMvcController.cs" />
+    <Compile Include="Controllers\Mvc\DataGridController.cs" />
     <Compile Include="Controllers\Mvc\DemoController.cs" />
+    <Compile Include="Controllers\Mvc\DialogController.cs" />
+    <Compile Include="Controllers\Mvc\FormController.cs" />
     <Compile Include="Controllers\Mvc\HomeController.cs" />
     <Compile Include="Controllers\Mvc\LogController.cs" />
+    <Compile Include="Controllers\Mvc\MessageController.cs" />
     <Compile Include="Controllers\Mvc\PermissionController.cs" />
     <Compile Include="Controllers\Mvc\ProductController.cs" />
     <Compile Include="Controllers\Mvc\ResourceController.cs" />
@@ -142,6 +146,8 @@
     <Compile Include="Controllers\Mvc\RoleUserController.cs" />
     <Compile Include="Controllers\Mvc\TaskController.cs" />
     <Compile Include="Controllers\Mvc\TestController.cs" />
+    <Compile Include="Controllers\Mvc\TreeViewController.cs" />
+    <Compile Include="Controllers\Mvc\UploadController.cs" />
     <Compile Include="Controllers\Mvc\UserController.cs" />
     <Compile Include="Controllers\Mvc\WorkflowController.cs" />
     <Compile Include="Controllers\WebApi\HelloWorldController.cs" />
@@ -498,12 +504,18 @@
     <Content Include="Views\Workflow\Process.cshtml" />
     <Content Include="Views\Workflow\ProcessInstance.cshtml" />
     <Content Include="Views\Workflow\ActivityInstance.cshtml" />
-    <Content Include="Views\Workflow\Form.cshtml" />
+    <Content Include="Views\Workflow\EntityDef.cshtml" />
     <Content Include="Views\Log\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DataGrid\" />
+    <Folder Include="Views\Dialog\" />
+    <Folder Include="Views\Form\" />
+    <Folder Include="Views\Messenger\" />
     <Folder Include="Views\Task\" />
+    <Folder Include="Views\TreeView\" />
+    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

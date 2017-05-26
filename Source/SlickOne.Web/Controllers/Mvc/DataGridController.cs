@@ -6,25 +6,25 @@ using System.Web.Mvc;
 
 namespace SlickOne.Web.Controllers.Mvc
 {
-    public class WorkflowController : Controller
+    public class DataGridController : Controller
     {
-        // GET: Workflow
+        // GET: DataGrid
+        public ActionResult Role()
+        {
+            return View();
+        }
+
+        public ActionResult Resource()
+        {
+            return View();
+        }
+
+        public ActionResult Entity()
+        {
+            return View();
+        }
+
         public ActionResult Process()
-        {
-            return View();
-        }
-
-        public ActionResult ProcessInstance()
-        {
-            return View();
-        }
-
-        public ActionResult ActivityInstance()
-        {
-            return View();
-        }
-
-        public ActionResult EntityDef()
         {
             return View();
         }

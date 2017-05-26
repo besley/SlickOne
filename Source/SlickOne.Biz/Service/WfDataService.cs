@@ -48,7 +48,7 @@ namespace SlickOne.Biz.Service
         /// 表单定义记录
         /// </summary>
         /// <returns></returns>
-        public IList<FormEntity> GetFormListSimple()
+        public IList<FormEntity> GetEntityDefListSimple()
         {
             var sql = @"SELECT 
                             ID, 

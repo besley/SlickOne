@@ -24,47 +24,78 @@ var soconfig = (function () {
 	function soconfig() {
 	}
 
-	//#region tab configuration
-	soconfig.tabname = [];
-	soconfig.tabname["myrolegrid"] = "角色记录";
-	soconfig.tabname["myusergrid"] = "用户记录";
-	soconfig.tabname["myroleusertree"] = "角色用户维护";
-	soconfig.tabname["myroleusergrid"] = "角色用户视图";
-	soconfig.tabname["myresourcegrid"] = "资源数据";
-    soconfig.tabname["myrolepermissiongrid"] = "角色授权";
-	soconfig.tabname["datapermission"] = "数据权限";
-	soconfig.tabname["permissionquery"] = "权限查询";
-	soconfig.tabname["department"] = "部门数据";
-	soconfig.tabname["employee"] = "员工激励";
-	soconfig.tabname["deptemp"] = "部门员工视图";
-	soconfig.tabname["myprocessgrid"] = "流程记录";
-	soconfig.tabname["myformgrid"] = "表单记录";
-	soconfig.tabname["myprocessinstancegrid"] = "流程实例";
-	soconfig.tabname["myactivityinstancegrid"] = "活动实例";
-	soconfig.tabname["task"] = "任务记录";
-	soconfig.tabname["myloggrid"] = "系统日志";
-	//#endregion
+    //#region tab configuration
+    var myrolegrid = "myrolegrid",
+        myusergrid = "myusergrid",
+        myroleusertree = "myroleusertree",
+        myresourcegrid = "myresourcegrid",
+        myprocessgrid = "myprocessgrid",
+        myentitydefgrid = "myentitydefgrid",
+        myprocessinstancegrid = "myprocessinstancegrid",
+        myactivityinstancegrid = "myactivityinstancegrid",
+        mymessagebox = "mymessagebox",
+        mymodaldialog = "mymodaldialog";
+        
+    soconfig.sideBar = {};
+    soconfig.sideBar[myrolegrid] = {};
+    soconfig.sideBar[myrolegrid].tabName = "角色记录";
+    soconfig.sideBar[myrolegrid].pageUrl = "role/list";
+
+    soconfig.sideBar[myusergrid] = {};
+    soconfig.sideBar[myusergrid].tabName = "用户记录";
+    soconfig.sideBar[myusergrid].pageUrl = "user/list";
+
+    soconfig.sideBar[myroleusertree] = {};
+    soconfig.sideBar[myroleusertree].tabName = "角色用户维护";
+    soconfig.sideBar[myroleusertree].pageUrl = "roleuser/list";
+
+    soconfig.sideBar[myresourcegrid] = {};
+    soconfig.sideBar[myresourcegrid].tabName = "资源数据";
+    soconfig.sideBar[myresourcegrid].pageUrl = "resource/list";
+
+    soconfig.sideBar[myprocessgrid] = {};
+    soconfig.sideBar[myprocessgrid].tabName = "流程记录";
+    soconfig.sideBar[myprocessgrid].pageUrl = "workflow/process";
+
+    soconfig.sideBar[myentitydefgrid] = {};
+    soconfig.sideBar[myentitydefgrid].tabName = "表单记录";
+    soconfig.sideBar[myentitydefgrid].pageUrl = "workflow/entitydef";
+
+    soconfig.sideBar[myprocessinstancegrid] = {};
+    soconfig.sideBar[myprocessinstancegrid].tabName = "流程实例";
+    soconfig.sideBar[myprocessinstancegrid].pageUrl = "workflow/processinstance";
+
+    soconfig.sideBar[myactivityinstancegrid] = {};
+    soconfig.sideBar[myactivityinstancegrid].tabName = "活动实例";
+    soconfig.sideBar[myactivityinstancegrid].pageUrl = "workflow/activityinstance";
+
+    soconfig.sideBar[mymessagebox] = {};
+    soconfig.sideBar[mymessagebox].tabName = "消息弹框";
+    soconfig.sideBar[mymessagebox].pageUrl = "message/popup";
+
+    soconfig.sideBar[mymodaldialog] = {};
+    soconfig.sideBar[mymodaldialog].tabName = "模式窗口";
+    soconfig.sideBar[mymodaldialog].pageUrl = "message/dialog";
+    //#endregion
 
 	//#region toolbutton configuration
+   
 	soconfig.toolbutton = [];
 	soconfig.toolbutton["add"] = [];
 	soconfig.toolbutton["edit"] = [];
 	soconfig.toolbutton["delete"] = [];
 	soconfig.toolbutton["query"] = [];
 
-	soconfig.toolbutton["add"]["myrolegrid"] = "role/edit";
-	soconfig.toolbutton["add"]["myusergrid"] = "user/edit";
-    soconfig.toolbutton["add"]["myresourcegrid"] = "resource/edit";
+	soconfig.toolbutton["add"][myrolegrid] = "role/edit";
+	soconfig.toolbutton["add"][myusergrid] = "user/edit";
+    soconfig.toolbutton["add"][myresourcegrid] = "resource/edit";
 
-	soconfig.toolbutton["edit"]["myrolegrid"] = "role/edit";
-	soconfig.toolbutton["edit"]["myusergrid"] = "user/edit";
-
-	soconfig.toolbutton["query"]["role"] = "role/query";
-	soconfig.toolbutton["query"]["user"] = "user/query";
+	soconfig.toolbutton["edit"][myrolegrid] = "role/edit";
+	soconfig.toolbutton["edit"][myusergrid] = "user/edit";
 
 	//delete method
-	soconfig.toolbutton["delete"]["myrolegrid"] = rolelist.delete;
-	soconfig.toolbutton["delete"]["myusergrid"] = userlist.delete;
+	soconfig.toolbutton["delete"][myrolegrid] = rolelist.delete;
+	soconfig.toolbutton["delete"][myusergrid] = userlist.delete;
 
 	//#endregion
 

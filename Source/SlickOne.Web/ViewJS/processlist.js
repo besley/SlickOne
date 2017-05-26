@@ -156,10 +156,10 @@ var processlist = (function () {
 
 
     //#region Form List
-    processlist.getFormList = function () {
-        jshelper.ajaxGet('api/WfData/GetFormListSimple', null, function (result) {
+    processlist.getEntityDefList = function () {
+        jshelper.ajaxGet('api/WfData/GetEntityDefListSimple', null, function (result) {
             if (result.Status === 1) {
-            	var divFormGrid = document.querySelector('#myformgrid');
+            	var divFormGrid = document.querySelector('#myentitydefgrid');
 				$(divFormGrid).empty();
 
 				var gridOptions = {
@@ -187,7 +187,7 @@ var processlist = (function () {
 				}
             } else {
             	$.msgBox({
-            		title: "Form / List",
+            		title: "EntityDef / List",
             		content: "读取表单定义记录失败！错误信息：" + result.Message,
             		type: "error"
             	});
