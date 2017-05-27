@@ -1,0 +1,95 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>消息弹窗</title>
+</head>
+<body>
+    <div class="row"> 
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                $.msgBox({
+                    title: "Message / Popup",
+                    content: "消息弹窗类型：普通信息",
+                    type: "info"
+                });
+            </pre>
+            <input type="button" onclick="showPopup('info');" value="Info" />
+        </div>
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                $.msgBox({
+                    title: "Message / Popup",
+                    content: "消息弹窗类型：警告信息",
+                    type: "warm"
+                });
+            </pre>
+            <input type="button" onclick="showPopup('warm');" value="Warn" />
+        </div>
+    </div>
+    <div class="row">
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                $.msgBox({
+                    title: "Message / Popup",
+                    content: "消息弹窗类型：错误提示",
+                    type: "error"
+                });
+            </pre>
+            <input type="button" onclick="showPopup('error');" value="Error" />
+        </div>
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                $.msgBox({
+                    title: "Message / Popup",
+                    content: "消息弹窗类型：提问确认",
+                    type: "confirm",
+                    buttons : [
+                        {type: "submit", value: "Yes"},
+                        {type: "submit", value: "No"},
+                        {type: "cancel", value: "Cancel"}
+                      ]
+                });
+            </pre>
+            <input type="button" onclick="showPopup('confirm');" value="Confirm" />
+        </div>
+    </div>
+    <div class="row">
+
+
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                $.msgBox("请输入您的信息：", {
+                    title: "Message / Popup",
+                    content: "消息弹窗类型：输入提示",
+                    type: "prompt"
+                });
+            </pre>
+            <input type="button" onclick="showPopup('prompt');" value="Prompt" />
+        </div>
+
+    </div>
+    <script type="text/javascript">
+        function showPopup(type){
+            $.msgBox({
+				title: "Message / Popup",
+				content: "消息弹窗内容。。。",
+				type: type
+			});
+        }
+    </script>
+    <script type="text/javascript" src="~/Scripts/codepretty.js"></script>
+</body>
+</html>

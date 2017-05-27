@@ -95,19 +95,19 @@
                             <li><a href="#" onclick="somain.showTab('myrolepermissiongrid')">树交互(角色授权)</a></li>
                         </ul>
 
-                        <li data-toggle="collapse" data-target="#popwindow" class="collapsed">
-                            <a href="#"><i class="fa fa-gift fa-lg"></i> 对话框(Dialog) <span class="arrow"></span></a>
-                        </li>
-                        <ul class="sub-menu collapse" id="popwindow">
-                            <li><a href="#" onclick="somain.showTab('mymessagebox')">消息弹框</a></li>
-                            <li><a href="#" onclick="somain.showTab('mymodaldialog')">模式对话窗口</a></li>
-                        </ul>
-
                         <li data-toggle="collapse" data-target="#form" class="collapsed">
                             <a href="#"><i class="fa fa-gift fa-lg"></i> 表单(Form) <span class="arrow"></span></a>
                         </li>
                         <ul class="sub-menu collapse" id="form">
                             <li><a href="#" onclick="somain.showTab('myusergrid')">表单示例</a></li>
+                        </ul>
+
+                        <li data-toggle="collapse" data-target="#msgbox" class="collapsed">
+                            <a href="#"><i class="fa fa-gift fa-lg"></i> 消息框(MsgBox) <span class="arrow"></span></a>
+                        </li>
+                        <ul class="sub-menu collapse" id="msgbox">
+                            <li><a href="#" onclick="somain.showTab('mymessagebox')">消息弹框</a></li>
+                            <li><a href="#" onclick="somain.showTab('mymodaldialog')">模式对话窗口</a></li>
                         </ul>
                     </ul>
 
@@ -115,27 +115,22 @@
                         <a href="#"><i class="fa fa-globe fa-lg"></i> 高级控件示例 <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="advanced">
-                        <li><a href="#" onclick="somain.showTab('myfileupload')">本地上传(FineUpload)</a></li>
+                        <li><a href="#" onclick="somain.showTab('myfileupload')">文件上传(FineUpload)</a></li>
                         <li><a href="#" onclick="somain.showTab('myimageflash')">图片滚动(ImageFlash)</a></li>
+                        <li><a href="#" onclick="somain.showTab('mynotifymsgbox')">通知弹窗</a></li>
                     </ul>
 
                     <li data-toggle="collapse" data-target="#valued" class="collapsed">
                         <a href="#"><i class="fa fa-car fa-lg"></i> 增值组件示例 <span class="arrow"></span></a>
                     </li>
                     <ul class="sub-menu collapse" id="valued">
-                        <li><a href="#" onclick="somain.showTab('myfileuploadcloud')">云端上传(FineUpload)</a></li>
-                        <li><a href="#" onclick="somain.showTab('mynotifymsgbox')">通知弹窗</a></li>
+                        <li><a href="#" onclick="somain.showTab('mycloudupload')">云端上传(FineUpload)</a></li>
                         <li><a href="#" onclick="somain.showTab('mymessenger')">Messenger</a></li>
                     </ul>
 
                     <li>
-                        <a href="#">
+                        <a href="http://github.com/besley/slickone" target="_blank">
                             <i class="fa fa-user fa-lg"></i> Profile
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-users fa-lg"></i> Users
                         </a>
                     </li>
                 </ul>
@@ -185,6 +180,19 @@
             </div>
         </div>
 
+        <!--Progress Bar-->
+        <div class="modal js-loading-bar">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" data-transitiongoal="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!--scripts loaded here-->
         <script type="text/javascript" src="~/Scripts/jquery/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="~/Scripts/jquery/jquery-ui-1.10.3.min.js"></script>
@@ -207,6 +215,7 @@
         <script src="~/Scripts/ztree/jquery.ztree.all-3.5.min.js"></script>
 
         <script type="text/javascript" src="~/ViewJS/somain.js"></script>
+        <script type="text/javascript" src="~/ViewJS/filelist.js"></script>
         <script type="text/javascript" src="~/ViewJS/processlist.js"></script>
         <script type="text/javascript" src="~/ViewJS/rolelist.js"></script>
         <script type="text/javascript" src="~/ViewJS/userlist.js"></script>

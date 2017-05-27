@@ -21,5 +21,10 @@ namespace SlickOne.Web.Controllers.Mvc
         {
             return View();
         }
+
+        public ActionResult Dialog()
+        {
+            return View();
+        }
     }
 }

@@ -34,7 +34,9 @@ var soconfig = (function () {
         myprocessinstancegrid = "myprocessinstancegrid",
         myactivityinstancegrid = "myactivityinstancegrid",
         mymessagebox = "mymessagebox",
-        mymodaldialog = "mymodaldialog";
+        mymodaldialog = "mymodaldialog",
+        myfileupload = "myfileupload",
+        mycloudupload = "mycloudupload";
         
     soconfig.sideBar = {};
     soconfig.sideBar[myrolegrid] = {};
@@ -76,6 +78,16 @@ var soconfig = (function () {
     soconfig.sideBar[mymodaldialog] = {};
     soconfig.sideBar[mymodaldialog].tabName = "模式窗口";
     soconfig.sideBar[mymodaldialog].pageUrl = "message/dialog";
+
+/*
+    soconfig.sideBar[myfileupload] = {};
+    soconfig.sideBar[myfileupload].tabName = "文件上传";
+    soconfig.sideBar[myfileupload].pageUrl = "file/upload";
+
+    soconfig.sideBar[mycloudupload] = {};
+    soconfig.sideBar[mycloudupload].tabName = "云端上传";
+    soconfig.sideBar[mycloudupload].pageUrl = "cloud/upload";
+*/
     //#endregion
 
 	//#region toolbutton configuration

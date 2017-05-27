@@ -129,6 +129,10 @@ var somain = (function () {
         $(newTabContent).empty();
         if (soconfig.sideBar[name] 
             && soconfig.sideBar[name].pageUrl !== ""){
+
+		    //waiting...
+		    showProgressBar();
+
             $(newTabContent).load(soconfig.sideBar[name].pageUrl);
         } else {
             window.console.log("未定义页面URL，名称信息：" + name);
@@ -180,6 +184,23 @@ var somain = (function () {
 		} else {
             ;
 		}
+	}
+	//#endregion
+
+    //#region preparation
+	function showProgressBar() {
+		$('.progress .progress-bar').progressbar({
+			transition_delay: 200
+		});
+
+		var $modal = $('.js-loading-bar'),
+            $bar = $modal.find('.bar');
+
+		$modal.modal('show');
+
+		setTimeout(function () {
+			$modal.modal('hide');
+		}, 500);
 	}
 	//#endregion
 

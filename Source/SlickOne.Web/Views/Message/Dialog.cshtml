@@ -1,0 +1,161 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>模式对话框</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                BootstrapDialog.alert('一般消息提醒！');
+            </pre>
+            <input type="button" onclick="showDialog('alert');" value="Alert" />
+        </div>
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                 BootstrapDialog.show({
+                    message: $('<div></div>').load('user/list')
+                });
+            </pre>
+            <input type="button" onclick="showDialog('remote');" value="Remote Page" />
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                var types = [BootstrapDialog.TYPE_DEFAULT, 
+                     BootstrapDialog.TYPE_INFO, 
+                     BootstrapDialog.TYPE_PRIMARY, 
+                     BootstrapDialog.TYPE_SUCCESS, 
+                     BootstrapDialog.TYPE_WARNING, 
+                     BootstrapDialog.TYPE_DANGER];
+                     
+                var buttons = [];
+                $.each(types, function(index, type) {
+                    buttons.push({
+                        label: type,
+                        cssClass: 'btn-default btn-sm',
+                        action: function(dialog) {
+                            dialog.setType(type);
+                        }
+                    });
+                });
+
+                BootstrapDialog.show({
+                    title: 'Changing dialog type',
+                    message: 'Click buttons below...',
+                    buttons: buttons
+                });
+        
+            </pre>
+            <input type="button" onclick="showDialog('title');" value="Ttile" />
+        </div>
+        <div class="col-lg-4 col-sm-4">
+            <pre class="prettyprint lang-js">
+                BootstrapDialog.show({
+                    message: 'Hi Apple!',
+                    buttons: [{
+                        label: 'Button 1',
+                        title: 'Mouse over Button 1'
+                    }, {
+                        label: 'Button 2',
+                        // no title as it is optional
+                        cssClass: 'btn-primary',
+                        data: {
+                            js: 'btn-confirm',
+                            'user-id': '3'
+                        },
+                        action: function(){
+                            alert('Hi Orange!');
+                        }
+                    }, {
+                        icon: 'glyphicon glyphicon-ban-circle',
+                        label: 'Button 3',
+                        title: 'Mouse over Button 3',
+                        cssClass: 'btn-warning'
+                    }, {
+                        label: 'Close',
+                        action: function(dialogItself){
+                            dialogItself.close();
+                        }
+                    }]
+                });
+            </pre>
+            <input type="button" onclick="showDialog('button');" value="Button" />
+        </div>
+    </div>
+    <script type="text/javascript">
+        function showDialog(type){
+            if (type === "alert"){
+                BootstrapDialog.alert('一般消息提醒!');
+            } else if (type === "remote"){
+                BootstrapDialog.show({
+                    message: $('<div></div>').load('user/edit')
+                });
+            } else if (type === "title"){
+                var types = [BootstrapDialog.TYPE_DEFAULT,
+                     BootstrapDialog.TYPE_INFO,
+                     BootstrapDialog.TYPE_PRIMARY,
+                     BootstrapDialog.TYPE_SUCCESS,
+                     BootstrapDialog.TYPE_WARNING,
+                     BootstrapDialog.TYPE_DANGER];
+
+                var buttons = [];
+                $.each(types, function(index, type) {
+                    buttons.push({
+                        label: type,
+                        cssClass: 'btn-default btn-sm',
+                        action: function(dialog) {
+                            dialog.setType(type);
+                        }
+                    });
+                });
+
+                BootstrapDialog.show({
+                    title: 'Changing dialog type',
+                    message: 'Click buttons below...',
+                    buttons: buttons
+                });
+            } else if (type === "button"){
+                BootstrapDialog.show({
+                    message: 'Hi Apple!',
+                    buttons: [{
+                        label: 'Button 1',
+                        title: 'Mouse over Button 1'
+                    }, {
+                        label: 'Button 2',
+                        // no title as it is optional
+                        cssClass: 'btn-primary',
+                        data: {
+                            js: 'btn-confirm',
+                            'user-id': '3'
+                        },
+                        action: function(){
+                            alert('Hi Orange!');
+                        }
+                    }, {
+                        icon: 'glyphicon glyphicon-ban-circle',
+                        label: 'Button 3',
+                        title: 'Mouse over Button 3',
+                        cssClass: 'btn-warning'
+                    }, {
+                        label: 'Close',
+                        action: function(dialogItself){
+                            dialogItself.close();
+                        }
+                    }]
+                });
+            }
+        }
+    </script>
+    <script type="text/javascript" src="~/Scripts/codepretty.js"></script>
+</body>
+</html>

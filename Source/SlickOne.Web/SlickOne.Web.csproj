@@ -45,6 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -132,25 +141,20 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Mvc\BaseMvcController.cs" />
-    <Compile Include="Controllers\Mvc\DataGridController.cs" />
     <Compile Include="Controllers\Mvc\DemoController.cs" />
-    <Compile Include="Controllers\Mvc\DialogController.cs" />
     <Compile Include="Controllers\Mvc\FormController.cs" />
     <Compile Include="Controllers\Mvc\HomeController.cs" />
     <Compile Include="Controllers\Mvc\LogController.cs" />
     <Compile Include="Controllers\Mvc\MessageController.cs" />
     <Compile Include="Controllers\Mvc\PermissionController.cs" />
-    <Compile Include="Controllers\Mvc\ProductController.cs" />
     <Compile Include="Controllers\Mvc\ResourceController.cs" />
     <Compile Include="Controllers\Mvc\RoleController.cs" />
     <Compile Include="Controllers\Mvc\RoleUserController.cs" />
-    <Compile Include="Controllers\Mvc\TaskController.cs" />
     <Compile Include="Controllers\Mvc\TestController.cs" />
-    <Compile Include="Controllers\Mvc\TreeViewController.cs" />
-    <Compile Include="Controllers\Mvc\UploadController.cs" />
     <Compile Include="Controllers\Mvc\UserController.cs" />
     <Compile Include="Controllers\Mvc\WorkflowController.cs" />
     <Compile Include="Controllers\WebApi\HelloWorldController.cs" />
+    <Compile Include="Controllers\WebApi\InMemoryStreamProvider.cs" />
     <Compile Include="Controllers\WebApi\ResourceDataController.cs" />
     <Compile Include="Controllers\WebApi\RoleDataController.cs" />
     <Compile Include="Controllers\WebApi\WfDataController.cs" />
@@ -172,6 +176,16 @@
     <Content Include="Content\bpmnjs\bpmn-font\css\bpmn.css" />
     <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.svg" />
     <Content Include="Content\bpmnjs\diagram-js.css" />
+    <Content Include="Content\fineuploader\continue.gif" />
+    <Content Include="Content\fineuploader\edit.gif" />
+    <Content Include="Content\fineuploader\fine-uploader.min.css" />
+    <Content Include="Content\fineuploader\loading.gif" />
+    <Content Include="Content\fineuploader\not_available-generic.png" />
+    <Content Include="Content\fineuploader\pause.gif" />
+    <Content Include="Content\fineuploader\processing.gif" />
+    <Content Include="Content\fineuploader\retry.gif" />
+    <Content Include="Content\fineuploader\trash.gif" />
+    <Content Include="Content\fineuploader\waiting-generic.png" />
     <Content Include="Content\images\circle.png" />
     <Content Include="Content\images\diamond.png" />
     <Content Include="Content\images\ellipse.png" />
@@ -185,11 +199,16 @@
     <Content Include="Content\jsplumb\jsPlumbToolkit-demo.css" />
     <Content Include="Content\jsplumb\jsPlumb-main.css" />
     <Content Include="Content\layout.css" />
+    <Content Include="Content\prettify.css" />
     <Content Include="Scripts\ag-grid\ag-grid.js" />
     <Content Include="Scripts\ag-grid\ag-grid.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap-dialog.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap-progressbar.js" />
+    <Content Include="Scripts\codepretty.js" />
+    <Content Include="Scripts\fineuploader\fine-uploader.min.js" />
     <Content Include="Scripts\handlebars.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
     <Content Include="Scripts\jsplumb\jsPlumb-2.2.8-min.js" />
     <Content Include="Scripts\jsplumb\jsPlumb-2.2.8.js" />
   </ItemGroup>
@@ -428,7 +447,6 @@
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <None Include="Properties\PublishProfiles\MPDiagram.pubxml" />
     <None Include="Properties\PublishProfiles\sfd.pubxml" />
-    <Content Include="Resource\sidebar.json" />
     <None Include="Properties\PublishProfiles\soweb.pubxml" />
     <None Include="Scripts\jquery\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery\jquery-1.10.2.js" />
@@ -459,6 +477,7 @@
     <Content Include="Scripts\xmlhelper.js" />
     <Content Include="Scripts\XMLWriter-1.0.0-min.js" />
     <Content Include="Scripts\ztree\jquery.ztree.all-3.5.min.js" />
+    <Content Include="ViewJS\filelist.js" />
     <Content Include="ViewJS\loglist.js" />
     <Content Include="ViewJS\permissionlist.js" />
     <Content Include="ViewJS\processlist.js" />
@@ -506,16 +525,12 @@
     <Content Include="Views\Workflow\ActivityInstance.cshtml" />
     <Content Include="Views\Workflow\EntityDef.cshtml" />
     <Content Include="Views\Log\List.cshtml" />
+    <Content Include="Views\Message\Popup.cshtml" />
+    <Content Include="Views\Message\Messenger.cshtml" />
+    <Content Include="Views\Message\Dialog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\DataGrid\" />
-    <Folder Include="Views\Dialog\" />
-    <Folder Include="Views\Form\" />
-    <Folder Include="Views\Messenger\" />
-    <Folder Include="Views\Task\" />
-    <Folder Include="Views\TreeView\" />
-    <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />

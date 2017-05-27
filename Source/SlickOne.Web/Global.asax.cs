@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Microsoft.AspNet.SignalR;
 
 namespace SlickOne.Web
 {
@@ -28,6 +29,7 @@ namespace SlickOne.Web
             ViewEngines.Engines.Clear();
             IViewEngine razorEngine = new RazorViewEngine() { FileExtensions = new string[] { "cshtml" } };
             ViewEngines.Engines.Add(razorEngine);
+
 
             //use Json format 
             SetJsonFormat();
