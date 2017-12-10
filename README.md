@@ -1,7 +1,13 @@
 ﻿# SlickOne
 ===========
 
-SlickOne 企业级Web快速开发框架，技术体系描述如下：Bootstrap3/Mvc(WebApi)Dapper，AG-Grid/zTree优秀开源组件，Dapper针对MSSQL, MySQL, Oracle等多数据库的实现，丰富代码示例。
+SlickOne 企业级Web快速开发框架，技术体系描述如下：
+1. Bootstrap3/Mvc(WebApi)；
+2. AG-Grid、zTree优秀开源组件；
+3. Dapper 多数据库支持(MSSQL, MySQL, Oracle)；
+4. WebApi 访问支持前后端分离；
+5. SSO多站点统一登录验证实现；
+6. 多租户\SAAS平台基础数据框架支持；
 
 
 # SlickOne 1.2.0 版本发布：
