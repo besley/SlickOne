@@ -1,0 +1,16 @@
+﻿<div>
+    <div id="myuserpermissiongrid" class="ag-bootstrap" style="width:20%;height:700px;float:left;"></div>
+    <div id="treeContainerUserResource" style="display:none;width:75%;height:700px;">
+        <div id="myuserresourcetree" class="ztree sotree"></div>
+        <div id="btnContainerUserResource" style="float:left;margin-left: 5px;">
+            <button class="btn btn-primary" onclick="userpermissionlist.save();">保存</button>
+            <button class="btn" onclick="userpermissionlist.cancel();">取消</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        userpermissionlist.getUserList();
+    });
+</script>

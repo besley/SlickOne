@@ -1,0 +1,59 @@
+﻿@model SfAdmin.Biz.Entity.LoginUser
+
+@{
+    ViewBag.Title = "Home Index";
+    Layout = "~/Views/Shared/mainlayout.cshtml";
+}
+
+<script type="text/javascript" src="~/AppJS/Account/account.js"></script>
+<script type="text/javascript">
+    $(function () {
+        if ($("#divRegisterError").text() != "") {
+            $("#divRegisterError").show();
+        }
+    });
+</script>
+
+<!--中间-->
+<div class="middle">
+  <div class="left">
+    <div class="login_in">
+      <div class="l_login">
+        <div class="l_mistake" style="display:none" id="divRegisterError">@ViewData["Message"]</div>
+        <div class="l_dl">
+          <div class="l_name">用户名：</div>
+          <div class="l_input">
+            <input id="txtUserName" type="text" />
+          </div>
+          <div class="l_info">检测用户名是否重复</div>
+        </div>
+        <div class="l_dl">
+          <div class="l_name">密码：</div>
+          <div class="l_input">
+            <input id="txtPassword" type="password" />
+          </div>
+          <div class="l_info">请输入密码，字母、数字或符号，最短6个字符</div>
+        </div>
+        <div class="l_dl">
+          <div class="l_name">确认密码：</div>
+          <div class="l_input">
+            <input id="txtPasswordConfirmed" type="password" />
+          </div>
+          <div class="l_info">请再次输入密码</div>
+        </div>
+        <div class="l_dl">
+          <div class="l_name">邮箱：</div>
+          <div class="l_input">
+            <input id="txtEmail" type="text" />
+          </div>
+          <div class="l_info">请输入正确的邮箱，以便后期找回密码</div>
+        </div>
+        <div class="l_dl">
+          <input type="button" class="l_sub" value="注 册" onclick="ivaccount.register();"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--中间 end--> 
+

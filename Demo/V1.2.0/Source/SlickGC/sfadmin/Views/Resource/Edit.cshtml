@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>资源添加/编辑</title>
+</head>
+<body>
+    <!-- Modal -->
+    <div>
+        <div class="modal-body">
+            <div>
+                <p>
+                    <span class="a_tit">资源名称:</span>
+                    <span><input type="text" id="txtResourceName" class="form-control" style="width:340px;" /></span>
+                </p>
+                <p>
+                    <span class="a_tit">资源类型:</span>
+                    <span>
+                        <select id="ddlResourceTypeID" class="form-control" style="width:340px;">
+                            <option value="default" disabled selected>--请选择--</option>
+                            <option value="1">系统</option>
+                            <option value="2">模块</option>
+                            <option value="3">菜单</option>
+                            <option value="4">表单</option>
+                            <option value="5">按钮</option>
+                            <option value="6">方法</option>
+                        </select>
+                    </span>
+                </p>
+                <p>
+                    <div class="resource-type resource-type-page" style="display:none;">
+                        <span class="a_tit">页面URL:</span>
+                        <span><input type="text" id="txtUrlAction" class="form-control" style="width:340px;" /></span>
+                    </div>
+                </p>
+                <p>
+                    <div class="resource-type resource-type-action" style="display:none;">
+                        <span class="a_tit">数据操作:</span>
+                        <span><input type="text" id="txtDataAction" class="form-control" style="width:340px;" /></span>
+                    </div>
+                </p>
+                <p>
+                    <div class="resource-type resource-type-system">
+                        <span class="a_tit">样式:</span>
+                        <span><input type="text" id="txtStyleClass" class="form-control" style="width:340px;" /></span>
+                    </div>
+                </p>
+                <p>
+                    <span class="a_tit">排序:</span>
+                    <span><input type="text" id="txtOrderNum" class="form-control" style="width:340px;" /></span>
+                </p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" data-dismiss="modal" onclick="resourcelist.saveResource();">保存</button>
+            <button class="btn" data-dismiss="modal" aria-hidden="true">取消</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            resourcelist.loadResource();
+        })
+    </script>
+</body>
+</html>

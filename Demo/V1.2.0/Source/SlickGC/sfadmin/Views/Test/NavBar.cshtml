@@ -1,0 +1,330 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>SlickOne Admin</title>
+    <meta name="description" content="Bootstrap mashable-style 3 column layout. Fixed sidebar and middle column using affix." />
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+
+    <link href="~/Content/bootstrap/bootstrap-3.3.7.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/bootstrap-theme-3.3.7.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="~/Content/bootstrap/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap/bootstrap-datetimepicker.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui/jquery-ui.css" rel="stylesheet" />
+
+    <link href="~/Content/ag-grid/ag-grid.css" rel="stylesheet" />
+    <link href="~/Content/ag-grid/theme-bootstrap.css" rel="stylesheet" />
+
+    <link href="~/Content/ztree/metro.css" rel="stylesheet">
+
+    <link href="~/Content/msgBoxLight.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/layout.css" />
+
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <!-- top bar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="brand" href="http://github.com/besley/slickone">SlickOne</a>
+                <div style="float:right;margin-top:10px;">
+                    <ul class="nav nav-pills">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="glyphicon glyphicon-th"></i>GitHub <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://github.com/besley/slickflow">Slickflow</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://github.com/besley/slickmasterce">SlickMaster</a></li>
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="http://github.com/besley/slickone">SlickOne</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="http://demo.slickflow.com/sfd/" target="view_window_sfd">流程设计器</a></li>
+                        <li><a href="http://demo.slickflow.com/smd/" target="view_window_smd">表单设计器</a></li>
+                        <li><a href="http://www.slickflow.com/demo/index" target="view_window_demo">DEMO示例</a></li>
+                        <li><a href="#">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <!-- left sidebar-->
+        <div id="sidebar-wrapper" class="nav-side-menu" style="margin-top:50px;">
+            <div class="brand"><span>SlickOne 数据管理</span>
+                <a href="#" style="margin-left:30px;" class="btn btn-link btn-sm" data-toggle="collapse" data-target="#menu-content"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            </div>
+            <div class="menu-list">
+                <ul id="menu-content" class="menu-content collapse out">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                        </a>
+                    </li>
+                    <li data-toggle="collapse" data-target="#basic" class="collapsed active">
+                        <a href="#"><i class="fa fa-gift fa-lg"></i> 基础数据管理 <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="basic">
+                        <li><a href="#" class="active" onclick="somain.createTab('User')">用户数据</a></li>
+                        <li><a href="#" onclick="somain.showTab('role')">角色数据</a></li>
+                        <li><a href="#" onclick="somain.showTab('roleusermanage')">角色用户维护</a></li>
+                        <li><a href="#" onclick="somain.showTab('roleuserview')">角色用户视图</a></li>
+                    </ul>
+
+                    <li data-toggle="collapse" data-target="#process" class="collapsed">
+                        <a href="#"><i class="fa fa-globe fa-lg"></i> 流程数据管理 <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="process">
+                        <li><a href="#" onclick="somain.showTab('process')">流程定义</a></li>
+                        <li><a href="#" onclick="somain.showTab('form')">表单定义</a></li>
+                        <li><a href="#" onclick="somain.showTab('processinstance')">流程实例</a></li>
+                        <li><a href="#" onclick="somain.showTab('activityinstance')">活动实例</a></li>
+                        <li><a href="#" onclick="somain.showTab('task')">任务实例</a></li>
+                    </ul>
+
+                    <li data-toggle="collapse" data-target="#log" class="collapsed">
+                        <a href="#"><i class="fa fa-car fa-lg"></i> 系统日志 <span class="arrow"></span></a>
+                    </li>
+                    <ul class="sub-menu collapse" id="log">
+                        <li><a href="#" onclick="somain.showTab('log')">系统日志</a></li>
+                    </ul>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-user fa-lg"></i> Profile
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-users fa-lg"></i> Users
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- page content -->
+        <div id="page-content-wrapper">
+            <div style="float:left;">
+                <button type="button" class="hamburger is-closed" style="margin-top:40px;" data-toggle="offcanvas">
+                    <span class="hamb-top"></span>
+                    <span class="hamb-middle"></span>
+                    <span class="hamb-bottom"></span>
+                </button>
+            </div>
+
+            @*<div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <h1>Fancy Toggle Sidebar Navigation</h1>
+                        <p>Bacon ipsum dolor sit amet tri-tip shoulder tenderloin shankle. Bresaola tail pancetta ball tip doner meatloaf corned beef. Kevin pastrami tri-tip prosciutto ham hock pork belly bacon pork loin salami pork chop shank corned beef tenderloin meatball cow. Pork bresaola meatloaf tongue, landjaeger tail andouille strip steak tenderloin sausage chicken tri-tip. Pastrami tri-tip kielbasa sausage porchetta pig sirloin boudin rump meatball andouille chuck tenderloin biltong shank </p>
+                        <p>Pig meatloaf bresaola, spare ribs venison short loin rump pork loin drumstick jowl meatball brisket. Landjaeger chicken fatback pork loin doner sirloin cow short ribs hamburger shoulder salami pastrami. Pork swine beef ribs t-bone flank filet mignon, ground round tongue. Tri-tip cow turducken shank beef shoulder bresaola tongue flank leberkas ball tip.</p>
+                        <p>Filet mignon brisket pancetta fatback short ribs short loin prosciutto jowl turducken biltong kevin pork chop pork beef ribs bresaola. Tongue beef ribs pastrami boudin. Chicken bresaola kielbasa strip steak biltong. Corned beef pork loin cow pig short ribs boudin bacon pork belly chicken andouille. Filet mignon flank turkey tongue. Turkey ball tip kielbasa pastrami flank tri-tip t-bone kevin landjaeger capicola tail fatback pork loin beef jerky.</p>
+                        <p>Chicken ham hock shankle, strip steak ground round meatball pork belly jowl pancetta sausage spare ribs. Pork loin cow salami pork belly. Tri-tip pork loin sausage jerky prosciutto t-bone bresaola frankfurter sirloin pork chop ribeye corned beef chuck. Short loin hamburger tenderloin, landjaeger venison porchetta strip steak turducken pancetta beef cow leberkas sausage beef ribs. Shoulder ham jerky kielbasa. Pig doner short loin pork chop. Short ribs frankfurter rump meatloaf.</p>
+                        <p>Filet mignon biltong chuck pork belly, corned beef ground round ribeye short loin rump swine. Hamburger drumstick turkey, shank rump biltong pork loin jowl sausage chicken. Rump pork belly fatback ball tip swine doner pig. Salami jerky cow, boudin pork chop sausage tongue andouille turkey.</p>
+                    </div>
+                </div>
+            </div>*@
+            <!-- toolbutton -->
+            <div class="container" style="margin-left:60px;">
+                <!-- 功能操作按钮 -->
+                <div class="top-nav ">
+
+                    <a href="#" class="btn btn-info btn-small" onclick="somain.addrecord(this)"><i class="icon-white icon-plus"></i> 新增</a>
+                    <a href="#" class="btn btn-info btn-small" onclick="somain.editrecord();"><i class="icon-white icon-pencil"></i> 编辑</a>
+                    <a href="#" class="btn btn-info btn-small" onclick="somain.deleterecord();"><i class="icon-white icon-remove"></i> 删除</a>
+                    <a href="#" class="btn btn-info btn-small" onclick="somain.queryrecord();"><i class="icon-white icon-search"></i> 查询</a>
+
+                </div>
+                <!-- tabs bottom -->
+                <!-- Nav tabs -->
+                <div class="tabbable tabs-below">
+                    <div class="tab-pane active" style="height:700px;" id="one_">
+                        <h3>我的工作台</h3>
+                        待办任务列表，事项提醒，便签记录等.
+                        <img  class='img-responsive' style='width:100%;'  src="~/Content/images/sailor.jpg" />
+                    </div>
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#one_">
+                                工作台
+                            </a>
+                        </li>
+                    </ul>
+
+                    @*<ul class="nav nav-tabs" role="tablist" id="myTab">
+                        <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+                        <li><a href="#profile" role="tab" data-toggle="tab">Profile</a></li>
+                        <li><a href="#messages" role="tab" data-toggle="tab">Messages</a></li>
+                        <li><a href="#settings" role="tab" data-toggle="tab">Settings</a></li>
+                        <li class="hidden"><a href="#extra" role="tab" data-toggle="tab">Extra</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home">Home</div>
+                        <div class="tab-pane" id="profile">Profile</div>
+                        <div class="tab-pane" id="messages">Messages</div>
+                        <div class="tab-pane" id="settings">Settings</div>
+                        <div class="tab-pane" id='extra'>Extras</div>
+
+                    </div>*@
+
+                </div>
+
+
+                @*<div class="tabbable tabs-below">
+                    <div id="divTabContentContainer" class="tab-content">
+                        <div class="tab-pane active" style="height:600px;" id="one_">
+                            <h3>我的工作台</h3>
+                            待办任务列表，事项提醒，便签记录等.
+                            <img src="~/Content/images/sailor.jpg" />
+                        </div>
+                        <!-- 基础权限数据 -->
+                        <div id="role_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>角色记录</h4>
+                            <div id="myrolegrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="user_" class="tab-pane" style="height:600px;width:100%;">
+                            <h4>用户记录</h4>
+                            <div id="myUserGrid" class="ag-bootstrap" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="roleusermanage_" class="tab-pane" style="height:600px;width:100%;">
+                            <h4>角色用户维护</h4>
+                            <ul id="myroleusertree" class="ztree" style="overflow:auto;"></ul>
+                        </div>
+                        <div id="roleuserview_" class="tab-pane" style="height:600px;width:100%;">
+                            <h4>角色用户视图</h4>
+                            <div id="myroleusergrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="functionpermission_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>功能权限</h4>
+                            <div id="myfunctionpermissiongrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="datapermission_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>数据权限</h4>
+                            <div id="mydatapermissiongrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="functionquery_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>权限查询</h4>
+                            <div id="myfunctionquerygrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <!-- 组织机构数据 -->
+                        <div id="department_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>部门数据</h4>
+                            <div id="mydepartmentgrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="employee_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>员工数据</h4>
+                            <div id="myemployeegrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="deptemp_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>部门员工视图</h4>
+                            <div id="mydeptempgrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <!-- 流程实例数据 -->
+                        <div id="process_" class="tab-pane hide" style="height:600px;">
+                            <h4>流程记录</h4>
+                            <div id="myprocessgrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="form_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>表单记录</h4>
+                            <div id="myformgrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="processinstance_" class="tab-pane" style="height:600px;width:100%;">
+                            <h4>流程实例</h4>
+                            <div id="myprocessinstancegrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="activityinstance_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>活动实例</h4>
+                            <div id="myactivityinstancegrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="task_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>任务记录</h4>
+                            <div id="mytaskgrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                        <div id="log_" class="tab-pane hide" style="height:600px;width:100%;">
+                            <h4>系统日志</h4>
+                            <div id="myloggrid" class="grid-container" style="width:100%;height:600px;float:left;"></div>
+                        </div>
+                    </div>
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#one_">
+                                工作台
+                            </a>
+                        </li>
+                    </ul>
+                </div>*@
+                <!-- /tabs -->
+            </div>
+
+        </div>
+    </div>
+
+        <!--scripts loaded here-->
+        <script type="text/javascript" src="~/Scripts/jquery/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery/jquery-ui-1.10.3.min.js"></script>
+
+        <script type="text/javascript" src="~/Scripts/jquery/jquery.event.drag-2.2.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery/jquery.msgBox.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootbox.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-progressbar.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+        <script type="text/javascript" src="~/Scripts/handlebars.js"></script>
+        <script type="text/javascript" src="~/Scripts/jshelper.js"></script>
+
+        <!-- ag-grid -->
+        <script src="~/Scripts/ag-grid/ag-grid.js"></script>
+        <!-- ztree -->
+        <script src="~/Scripts/ztree/jquery.ztree.all-3.5.min.js"></script>
+
+        <script type="text/javascript" src="~/ViewJS/somain.js"></script>
+        <script type="text/javascript" src="~/ViewJS/processlist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/rolelist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/userlist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/userlistdialog.js"></script>
+        <script type="text/javascript" src="~/ViewJS/roleuserlist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/roleusertree.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+
+            var trigger = $('.hamburger'),
+                overlay = $('.overlay'),
+                isClosed = false;
+
+            trigger.click(function () {
+                hamburger_cross();
+            });
+
+            function hamburger_cross() {
+
+                if (isClosed == true) {
+                    overlay.hide();
+                    trigger.removeClass('is-open');
+                    trigger.addClass('is-closed');
+                    isClosed = false;
+                } else {
+                    overlay.show();
+                    trigger.removeClass('is-closed');
+                    trigger.addClass('is-open');
+                    isClosed = true;
+                }
+            }
+
+            $('[data-toggle="offcanvas"]').click(function () {
+                $('#wrapper').toggleClass('toggled');
+            });
+        });
+        </script>
+
+    @RenderBody()
+</body>
+</html>

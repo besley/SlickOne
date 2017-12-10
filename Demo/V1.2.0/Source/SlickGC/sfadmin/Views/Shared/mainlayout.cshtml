@@ -1,0 +1,145 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Slickflow Admin</title>
+    <meta name="description" content="Bootstrap mashable-style 3 column layout. Fixed sidebar and middle column using affix." />
+    <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Codeply">
+
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap-3.3.7.min.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap-theme-3.3.7.min.css"/>
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap-dialog.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap/font-awesome.min.css" >
+
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap-progressbar-3.3.4.min.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="~/Content/jquery-ui/jquery-ui.css" />
+
+    <link rel="stylesheet" href="~/Content/ag-grid/ag-grid.css" />
+    <link rel="stylesheet" href="~/Content/ag-grid/theme-bootstrap.css" />
+
+    <link rel="stylesheet" href="~/Content/ztree/metro.css" />
+
+    <link rel="stylesheet" href="~/Content/msgBoxLight.css" />
+    <link rel="stylesheet" href="~/Content/layout.css" />
+
+    <style type="text/css">
+    </style>
+</head>
+<body>
+    <!-- top bar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="brand" href="#">SfAdmin</a>
+                <div style="float:right;margin-top:10px;">
+                    <ul class="nav nav-pills">
+                        <li><a href="~/Account/Logout">退出</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrapper">
+        <div class="overlay"></div>
+        <!-- left sidebar-->
+        <div id="sidebar-wrapper" class="nav-side-menu" style="margin-top:50px;">
+            <div class="brand">
+                <span>Slickflow 数据管理</span>
+                <a href="#" style="margin-left:30px;" class="btn btn-link btn-sm" data-toggle="collapse" data-target="#menu-content" aria-expanded="true"><span class="glyphicon glyphicon-chevron-down"></span></a>
+            </div>
+            <div class="menu-list">
+                <ul id="menu-content" class="menu-content out">
+                    <li>
+                        <a href="#" onclick="somain.showTab('mydashboard')">
+                            <i class="fa fa-dashboard fa-lg"></i> Dashboard
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- page content -->
+        <div id="page-content-wrapper">
+            <div style="float:left;">
+                <button type="button" class="hamburger is-closed" style="margin-top:40px;" data-toggle="offcanvas">
+                    <span class="hamb-top"></span>
+                    <span class="hamb-middle"></span>
+                    <span class="hamb-bottom"></span>
+                </button>
+            </div>
+            <!-- toolbutton -->
+            <div class="container" style="margin-left:60px;">
+                <!-- tabs bottom -->
+                <!-- Nav tabs -->
+                <div class="tabbable tabs-below">
+                   <div id="divTabContentContainer" class="tab-content">
+                        <div class="tab-pane active" style="height:700px;" id="one_">
+                            <h3>我的工作台</h3>
+                            <img class='img-responsive' style='width:100%;' src="~/Content/images/sailor.jpg" />
+                        </div>
+                    </div>
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a data-toggle="tab" href="#one_">
+                                工作台
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /tabs -->
+                </div>
+
+            </div>
+        </div>
+
+        <img src="~/Content/images/ajax-loader.gif" id="loading-indicator" style="position: fixed; left: 50%; top: 40%; display: none;" />
+
+        <!--scripts loaded here-->
+        <script type="text/javascript" src="~/Scripts/jquery/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery/jquery-ui-1.10.3.min.js"></script>
+
+        <script type="text/javascript" src="~/Scripts/jquery/jquery.event.drag-2.2.js"></script>
+        <script type="text/javascript" src="~/Scripts/jquery/jquery.msgBox.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootbox.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-dialog.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-progressbar.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/bootstrap/bootstrap-datetimepicker.zh-CN.js"></script>
+        <script type="text/javascript" src="~/Scripts/handlebars.js"></script>
+        <script type="text/javascript" src="~/Scripts/jshelper.js"></script>
+        <script type="text/javascript" src="~/Scripts/localhelper.js"></script>
+        <script type="text/javascript" src="~/Scripts/slick.event.js"></script>
+
+        <!-- ag-grid -->
+        <script src="~/Scripts/ag-grid/ag-grid.js"></script>
+        <!-- ztree -->
+        <script src="~/Scripts/ztree/jquery.ztree.all-3.5.min.js"></script>
+        <!--
+        <script type="text/javascript" src="~/ViewJS/somain.min.js"></script>
+        -->
+
+        <script type="text/javascript" src="~/ViewJS/somain.js"></script>
+        <script type="text/javascript" src="~/ViewJS/processlist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/companylist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/formlist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/rolelist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/userlist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/userlistdialog.js"></script>
+        <script type="text/javascript" src="~/ViewJS/roleusertree.js"></script>
+        <script type="text/javascript" src="~/ViewJS/resourcelist.js"></script>
+        <script type="text/javascript" src="~/ViewJS/loglist.js"></script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                somain.init();
+            });
+        </script>
+
+        @RenderBody()
+    </body>
+    </html>

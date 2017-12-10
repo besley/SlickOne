@@ -1,0 +1,16 @@
+﻿<div>
+    <div id="myrolepermissiongrid" class="ag-bootstrap" style="width:30%;height:700px;float:left;"></div>
+    <div id="treeContainerRoleResource" style="display:none;width:75%;height:700px;">
+        <div id="myroleresourcetree" class="ztree sotree"></div>
+        <div id="btnContainerRoleResource" style="float:left;margin-left:5px;">
+            <button class="btn btn-primary" onclick="rolepermissionlist.save();">保存</button>
+            <button class="btn" onclick="rolepermissionlist.cancel();">取消</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        rolepermissionlist.getRoleList();
+    });
+</script>

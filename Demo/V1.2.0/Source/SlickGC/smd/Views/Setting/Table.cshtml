@@ -1,0 +1,34 @@
+﻿@{
+    Layout = null;
+}
+
+<!-- the beginning of Adjust columns dialog-->
+<div id="dialog-form-number-column">
+    <div class="modal-body" style="padding:10px 40px 0 40px; min-height:150px;">
+        <form>
+            <label for="numberColumn">列数: <span id="numberColumn">1</span></label>
+            <div id="sliderNumberColumn"></div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-success" data-dismiss="modal" onclick="tableManager.appendTable();">插入</a>
+        <a href="#" class="btn" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //#region initialize the slider parameter
+        $("#sliderNumberColumn").slider({
+            min: 1,
+            max: 4,
+            value: 1,
+            slide: function (event, ui) {
+                $("#numberColumn").html(ui.value);
+            }
+        });
+        $("#numberColumn").html($("#sliderNumberColumn").slider("value"));
+        //#endregion
+    });
+</script>
+<!-- end of Adjust columns dialog-->
+
