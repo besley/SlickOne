@@ -15,21 +15,21 @@ SlickOne 企业级Web快速开发框架，技术体系描述如下：Bootstrap3/
 
 SlickOne--DEMO地址：
 
-http://gc.slickflow.com/sfadmin/ 
-用户名和密码：admin/123456
-
-流程设计器：http://gc.slickflow.com/sfd/ 
-表单设计器：http://gc.slickflow.com/smd/ 
+1. 演示地址：http://gc.slickflow.com/sfadmin/ 
+2. 用户名和密码：admin/123456
+3. 流程设计器：http://gc.slickflow.com/sfd/ 
+4. 表单设计器：http://gc.slickflow.com/smd/ 
 
 设计介绍：
 
-http://www.cnblogs.com/slickflow/p/7867712.html
+1. 博客文章：http://www.cnblogs.com/slickflow/p/7867712.html
+
 
 说明：
 
-Demo仅作为功能演示使用，如需获取产品完整源代码和开发文档，请申请企业版商业授权。
-QQ群：151650479
-EMail: sales@ruochisoft.com
+1. Demo仅作为功能演示使用，如需获取产品完整源代码和开发文档，请申请企业版商业授权。
+2. QQ群：151650479
+3. EMail: sales@ruochisoft.com
 
 
 
