@@ -813,15 +813,15 @@ namespace SlickOne.Data
         /// <summary>
         /// 批量删除
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="ids"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">类型</typeparam>
+        /// <param name="ids">主键ID列表</param>
+        /// <returns>删除结果</returns>
         public int DeleteBatch<T>(IDbConnection conn, IEnumerable<dynamic> ids, IDbTransaction transaction = null) where T : class
         {
             var tblName = GetTableName<T>();
             var idsin = string.Join(",", ids.ToArray<dynamic>());
             var sql = string.Format("DELETE FROM dbo.{0} WHERE ID in (@ids)", tblName);
-            var result = SqlMapper.Execute(conn, sql, new { ids = idsin });
+            var result = SqlMapper.Execute(conn, sql, new { ids = idsin }, transaction);
 
             return result;
         }
