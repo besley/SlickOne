@@ -1,5 +1,27 @@
 ﻿# SlickOne
 
+SlickOne is a basic library for an enterprise information system or website project. Some new features have been 
+implemenmted in the solution. The solution is designed for 3-tier distributed system, SOA based system, Repository pattern, POCO entity pattern, plugin architecture and asp.net mvc/web api architecture. There are some details  described here:
+
+1. The 3-tier distributed layer include: data access layer, buisiness logic layer and web presentation layer.
+2. Using micro-ORMapping framework Dapper/DapperExtension for database operation.
+3. Using Generic repository pattern to convert data entity and business entity.
+4. Using Asp.net MVC WebAPI to implement service layer/business layer, webapi is a restful style service, we make it
+   to replacte wcf, the reason is that wcf would make you spend much time to maintain xml config in both server and 
+   client sides.
+5. All business logic are implemented from Interface, it makes concept not depended on the concrete class instance.
+6. The IRepository class can be used to implement EF, NHerbinate framework which the user prefered to them.
+7. MSSQL, MySQL, Oracle and other database supported by Dapper.
+ 
+The SlickOne.Web project would give you a full tutorial how to use the SlickOne library and webapi to create a rich mvc web
+application. Similarily, there are serveral key features to describe here:
+
+1. Bootstrap3/Mvc(WebApi)/Dapper.
+2. AG-Grid/zTree/Bootstrap-Dialog.
+3. NavBar in top and left side.
+4. Rich page demos in solution.
+
+
 SlickOne 企业级Web快速开发框架，技术体系描述如下：
 1. Bootstrap3/Mvc(WebApi)；
 2. AG-Grid、zTree优秀开源组件；
@@ -75,27 +97,6 @@ http://demo.slickflow.com/smd/
 
 QQ交流群：
 151650479
-
-SlickOne is a basic library for an enterprise information system or website project. Some new features have been 
-implemenmted in the solution. The solution is designed for 3-tier distributed system, SOA based system, Repository pattern, POCO entity pattern, plugin architecture and asp.net mvc/web api architecture. There are some details  described here:
-
-1. The 3-tier distributed layer include: data access layer, buisiness logic layer and web presentation layer.
-2. Using micro-ORMapping framework Dapper/DapperExtension for database operation.
-3. Using Generic repository pattern to convert data entity and business entity.
-4. Using Asp.net MVC WebAPI to implement service layer/business layer, webapi is a restful style service, we make it
-   to replacte wcf, the reason is that wcf would make you spend much time to maintain xml config in both server and 
-   client sides.
-5. All business logic are implemented from Interface, it makes concept not depended on the concrete class instance.
-6. The IRepository class can be used to implement EF, NHerbinate framework which the user prefered to them.
-7. MSSQL, MySQL, Oracle and other database supported by Dapper.
- 
-The SlickOne.Web project would give you a full tutorial how to use the SlickOne library and webapi to create a rich mvc web
-application. Similarily, there are serveral key features to describe here:
-
-1. Bootstrap3/Mvc(WebApi)/Dapper.
-2. AG-Grid/zTree/Bootstrap-Dialog.
-3. NavBar in top and left side.
-4. Rich page demos in solution.
 
   
 
