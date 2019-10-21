@@ -5,8 +5,8 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using ServiceStack.Text;
 using SlickOne.WebUtility.Security;
+using Newtonsoft.Json;
 
 namespace SlickOne.WebUtility
 {
@@ -29,11 +29,19 @@ namespace SlickOne.WebUtility
         private const string WebApiRequestHeaderNameHashed = "BASIC-HASHED";
 
         private static readonly HttpClient HttpClient;
+
+        /// <summary>
+        /// URL 属性
+        /// </summary>
         private string URL
         {
             get;
             set;
         }
+
+        /// <summary>
+        /// 构造方法
+        /// </summary>
         static HttpClientHelper()
         {
             HttpClient = new System.Net.Http.HttpClient();
@@ -43,8 +51,8 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 创建基本HttpClientHelper类
         /// </summary>
-        /// <param name="url"></param>
-        /// <returns></returns>
+        /// <param name="url">URL</param>
+        /// <returns>帮助类</returns>
         public static HttpClientHelper CreateHelper(string url)
         {
             var helper = new HttpClientHelper();
@@ -60,7 +68,7 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 返回请求结果
         /// </summary>
-        /// <returns></returns>
+        /// <returns>字符串</returns>
         public string Get()
         {
             var response = HttpClient.GetAsync(URL).Result;
@@ -72,14 +80,14 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 获取
         /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T1">类型</typeparam>
+        /// <returns>对象</returns>
         public T1 Get<T1>()
             where T1 : class
         {
             var response = HttpClient.GetAsync(URL).Result;
             var message = response.Content.ReadAsStringAsync().Result;
-            var result = JsonSerializer.DeserializeFromString<T1>(message);
+            var result = JsonConvert.DeserializeObject<T1>(message);
 
             return result;
         }
@@ -87,19 +95,19 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 提交
         /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2"></typeparam>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <typeparam name="T1">类型1</typeparam>
+        /// <typeparam name="T2">类型2</typeparam>
+        /// <param name="t">对象t</param>
+        /// <returns>对象</returns>
         public T2 Post<T1, T2>(T1 t)
             where T1 : class
             where T2 : class
         {
-            string jsonValue = JsonSerializer.SerializeToString<T1>(t);
+            string jsonValue = JsonConvert.SerializeObject(t);
             StringContent content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
             var response = HttpClient.PostAsync(URL, content).Result;
             var message = response.Content.ReadAsStringAsync().Result;
-            var result = JsonSerializer.DeserializeFromString<T2>(message);
+            var result = JsonConvert.DeserializeObject<T2>(message);
 
             return result;
         }
@@ -107,20 +115,20 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// Post获取分页数据
         /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2"></typeparam>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <typeparam name="T1">类型1</typeparam>
+        /// <typeparam name="T2">类型2</typeparam>
+        /// <param name="t">对象t</param>
+        /// <returns>对象</returns>
         public List<T2> Query<T1, T2>(T1 t)
             where T1 : class
             where T2 : class
         {
-            string jsonValue = JsonSerializer.SerializeToString<T1>(t);
+            string jsonValue = JsonConvert.SerializeObject(t);
             StringContent content = new StringContent(jsonValue, Encoding.UTF8, "application/json");
             var resp = HttpClient.PostAsync(URL, content);
             var response = resp.Result;
             var message = response.Content.ReadAsStringAsync().Result;
-            var result = JsonSerializer.DeserializeFromString<ResponseResult<List<T2>>>(message);
+            var result = JsonConvert.DeserializeObject<ResponseResult<List<T2>>>(message);
 
             return result.Entity;
         }
@@ -128,19 +136,19 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 插入
         /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2"></typeparam>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <typeparam name="T1">类型1</typeparam>
+        /// <typeparam name="T2">类型2</typeparam>
+        /// <param name="t">对象t</param>
+        /// <returns>对象</returns>
         public T2 Insert<T1, T2>(T1 t)
             where T1 : class
             where T2 : class
         {
-            string jsonValue = JsonSerializer.SerializeToString<T1>(t);
+            string jsonValue = JsonConvert.SerializeObject(t);
             StringContent content = new System.Net.Http.StringContent(jsonValue, Encoding.UTF8, "application/json");
             var response = HttpClient.PostAsync(URL, content).Result;
             var message = response.Content.ReadAsStringAsync().Result;
-            var result = JsonSerializer.DeserializeFromString<T2>(message);
+            var result = JsonConvert.DeserializeObject<T2>(message);
 
             return result;
         }
@@ -148,19 +156,19 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 更新
         /// </summary>
-        /// <typeparam name="T1"></typeparam>
-        /// <typeparam name="T2"></typeparam>
-        /// <param name="t"></param>
-        /// <returns></returns>
+        /// <typeparam name="T1">类型1</typeparam>
+        /// <typeparam name="T2">类型2</typeparam>
+        /// <param name="t">对象t</param>
+        /// <returns>对象</returns>
         public T2 Update<T1, T2>(T1 t)
             where T1 : class
             where T2 : class
         {
-            string jsonValue = JsonSerializer.SerializeToString<T1>(t);
+            string jsonValue = JsonConvert.SerializeObject(t);
             StringContent content = new System.Net.Http.StringContent(jsonValue, Encoding.UTF8, "application/json");
             var response = HttpClient.PutAsync(URL, content).Result;
             var message = response.Content.ReadAsStringAsync().Result;
-            var result = JsonSerializer.DeserializeFromString<T2>(message);
+            var result = JsonConvert.DeserializeObject<T2>(message);
 
             return result;
         }
@@ -168,8 +176,7 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 对请求的Api消息，用登录用户的安全key(密码)进行签名
         /// </summary>
-        /// <param name="secret"></param>
-        /// <returns></returns>
+        /// <param name="user">用户</param>
         public void SignatureMessage(Credentials user)
         {
             var hashString = string.Empty;

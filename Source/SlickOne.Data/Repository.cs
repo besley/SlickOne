@@ -1,9 +1,9 @@
 ﻿/*
-* SlickOne 企业级Web快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
+* Slickflow 工作流引擎遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 * 
 The Slickflow project.
-Copyright (C) 2016  .NET Web Framwork Library
+Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -138,19 +138,15 @@ namespace SlickOne.Data
         /// <summary>
         /// 根据多个Id获取多个实体
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="ids"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="ids">ID列表</param>
+        /// <returns>实体列表</returns>
         public IEnumerable<T> GetByIds<T>(IList<dynamic> ids) where T : class
         {
-            var tblName = GetTableName<T>();
-            var idsin = string.Join(",", ids.ToArray<dynamic>());
-            var sql = string.Format("SELECT * FROM dbo.{0} WHERE Id in (@ids)", tblName);
-
             IDbConnection conn = SessionFactory.CreateConnection();
             try
             {
-                IEnumerable<T> dataList = SqlMapper.Query<T>(conn, sql, new { ids = idsin });
+                var dataList = GetByIds<T>(conn, ids);
                 return dataList;
             }
             catch
@@ -161,6 +157,25 @@ namespace SlickOne.Data
             {
                 conn.Close();
             }
+        }
+
+        /// <summary>
+        /// 根据多个Id获取多个实体
+        /// </summary>
+        /// <typeparam name="T">泛型</typeparam>
+        /// <param name="conn">链接</param>
+        /// <param name="ids">ID列表</param>
+        /// <param name="trans">事务</param>
+        /// <param name="buffered">缓存</param>
+        /// <returns>实体列表</returns>
+        public IEnumerable<T> GetByIds<T>(IDbConnection conn, IList<dynamic> ids, IDbTransaction trans = null, bool buffered = true) where T : class
+        {
+            var tblName = GetTableName<T>();
+            var idsin = string.Join(",", ids.ToArray<dynamic>());
+            var sql = string.Format("SELECT * FROM dbo.{0} WHERE Id in (@ids)", tblName);
+
+            IEnumerable<T> dataList = SqlMapper.Query<T>(conn, sql, new { ids = idsin }, trans);
+            return dataList;
         }
 
         /// <summary>
@@ -196,15 +211,24 @@ namespace SlickOne.Data
         /// <returns></returns>
         public T GetFirst<T>(string sql, dynamic param = null, bool buffered = true) where T : class
         {
-            using (IDbConnection conn = SessionFactory.CreateConnection())
+            T entity = null;
+            IDbConnection conn = SessionFactory.CreateConnection();
+            try
             {
-                T entity = null;
                 var list = SqlMapper.Query<T>(conn, sql, param as object, null, buffered).ToList();
                 if (list != null && list.Count() > 0)
                 {
                     entity = list[0];
                 }
                 return entity;
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
@@ -459,20 +483,6 @@ namespace SlickOne.Data
         /// <param name="sql"></param>
         /// <param name="param"></param>
         /// <returns></returns>
-        public int Execute(string sql, dynamic param = null)
-        {
-            using (IDbConnection conn = SessionFactory.CreateConnection())
-            {
-                return conn.Execute(sql, param as object);
-            }
-        }
-
-        /// <summary>
-        /// 执行sql操作
-        /// </summary>
-        /// <param name="sql"></param>
-        /// <param name="param"></param>
-        /// <returns></returns>
         public int Execute(IDbConnection conn, string sql, dynamic param = null, IDbTransaction transaction = null)
         {
             return conn.Execute(sql, param as object, transaction);
@@ -488,6 +498,7 @@ namespace SlickOne.Data
         {
             return cmd.ExecuteNonQuery();
         }
+
 
         /// <summary>
         /// 执行存储过程
@@ -519,6 +530,21 @@ namespace SlickOne.Data
         /// 存储过程执行方法
         /// </summary>
         /// <typeparam name="T"></typeparam>
+        /// <param name="conn"></param>
+        /// <param name="procName"></param>
+        /// <param name="param"></param>
+        /// <returns></returns>
+        public IList<T> ExecProcQuery<T>(IDbConnection conn, string procName, DynamicParameters param)
+            where T : class
+        {
+            IList<T> list = conn.Query<T>(procName, param, null, false, null, CommandType.StoredProcedure).ToList<T>();
+            return list;
+        }
+
+        /// <summary>
+        /// 存储过程执行方法
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
         /// <param name="procName"></param>
         /// <param name="param"></param>
         /// <returns></returns>
@@ -530,21 +556,6 @@ namespace SlickOne.Data
                 IList<T> list = conn.Query<T>(procName, param, null, false, null, CommandType.StoredProcedure).ToList<T>();
                 return list;
             }
-        }
-
-        /// <summary>
-        /// 存储过程执行方法
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="conn"></param>
-        /// <param name="procName"></param>
-        /// <param name="param"></param>
-        /// <returns></returns>
-        public IList<T> ExecProcQuery<T>(IDbConnection conn, string procName, DynamicParameters param)
-            where T : class
-        {
-            IList<T> list = conn.Query<T>(procName, param, null, false, null, CommandType.StoredProcedure).ToList<T>();
-            return list;
         }
 
         /// <summary>
@@ -735,36 +746,7 @@ namespace SlickOne.Data
         /// <param name="entityList"></param>
         public void InsertBatch<T>(IDbConnection conn, IEnumerable<T> entityList, IDbTransaction transaction = null) where T : class
         {
-            //var tblName = string.Format("dbo.{0}", typeof(T).Name);
-            //var conn = (SqlConnection)_session.Connection;
-            //var tran = (SqlTransaction)transaction;
-            //using (var bulkCopy = new SqlBulkCopy(conn, SqlBulkCopyOptions.TableLock, tran))
-            //{
-            //    bulkCopy.BatchSize = entityList.Count();
-            //    bulkCopy.DestinationTableName = tblName;
-            //    var table = new DataTable();
-            //    var props = TypeDescriptor.GetProperties(typeof(T))
-            //                                .Cast<PropertyDescriptor>()
-            //                                .Where(propertyInfo => propertyInfo.PropertyType.Namespace.Equals("System"))
-            //                                .ToArray();
-            //    foreach (var propertyInfo in props)
-            //    {
-            //        bulkCopy.ColumnMappings.Add(propertyInfo.Name, propertyInfo.Name);
-            //        table.Columns.Add(propertyInfo.Name, Nullable.GetUnderlyingType(propertyInfo.PropertyType) ?? propertyInfo.PropertyType);
-            //    }
-            //    var values = new object[props.Length];
-            //    foreach (var itemm in entityList)
-            //    {
-            //        for (var i = 0; i < values.Length; i++)
-            //        {
-            //            values[i] = props[i].GetValue(itemm);
-            //        }
-            //        table.Rows.Add(values);
-            //    }
-            //    bulkCopy.WriteToServer(table);
-            //}
-            #region 补全 过滤Ignore字段(可以过滤mapping类里面设置的ignore)
-            var tblName = string.Format("dbo.{0}", typeof(T).Name);
+			var tblName = string.Format("dbo.{0}", typeof(T).Name);
             var tran = (SqlTransaction)transaction;
             using (var bulkCopy = new SqlBulkCopy(conn as SqlConnection, SqlBulkCopyOptions.TableLock, tran))
             {
@@ -773,7 +755,7 @@ namespace SlickOne.Data
                 var table = new DataTable();
                 DapperExtensions.Sql.ISqlGenerator sqlGenerator = new SqlGeneratorImpl(new DapperExtensionsConfiguration());
                 var classMap = sqlGenerator.Configuration.GetMap<T>();
-                var props = classMap.Properties.Where(x => x.Ignored == false).ToArray();
+                var props = classMap.Properties.Where(x=>x.Ignored == false).ToArray();
                 foreach (var propertyInfo in props)
                 {
                     bulkCopy.ColumnMappings.Add(propertyInfo.Name, propertyInfo.Name);
@@ -790,7 +772,6 @@ namespace SlickOne.Data
                 }
                 bulkCopy.WriteToServer(table);
             }
-            #endregion
         }
 
         /// <summary>
@@ -813,15 +794,15 @@ namespace SlickOne.Data
         /// <summary>
         /// 批量删除
         /// </summary>
-        /// <typeparam name="T">类型</typeparam>
-        /// <param name="ids">主键ID列表</param>
-        /// <returns>删除结果</returns>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="ids"></param>
+        /// <returns></returns>
         public int DeleteBatch<T>(IDbConnection conn, IEnumerable<dynamic> ids, IDbTransaction transaction = null) where T : class
         {
             var tblName = GetTableName<T>();
             var idsin = string.Join(",", ids.ToArray<dynamic>());
             var sql = string.Format("DELETE FROM dbo.{0} WHERE ID in (@ids)", tblName);
-            var result = SqlMapper.Execute(conn, sql, new { ids = idsin }, transaction);
+            var result = SqlMapper.Execute(conn, sql, new { ids = idsin });
 
             return result;
         }

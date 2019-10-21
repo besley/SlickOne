@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
+
 namespace SlickOne.WebUtility.Security
 {
     /// <summary>
@@ -13,7 +14,7 @@ namespace SlickOne.WebUtility.Security
     public enum EnumHashProvider
     {
         MD5CryptoServiceProvider = 1,
-        RIPEMD160Managed,
+        //RIPEMD160Managed,             //not exist in .net core
         SHA1CryptoServiceProvider,
         SHA1Managed,
         SHA256Managed,
@@ -51,9 +52,9 @@ namespace SlickOne.WebUtility.Security
                 case EnumHashProvider.MD5CryptoServiceProvider:
                     hashAlgorithm = new MD5CryptoServiceProvider();
                     break;
-                case EnumHashProvider.RIPEMD160Managed:
-                    hashAlgorithm = new RIPEMD160Managed();
-                    break;
+                //case EnumHashProvider.RIPEMD160Managed:                //not exist in .net core
+                //    hashAlgorithm = RIPEMD160Managed();
+                //    break;
                 case EnumHashProvider.SHA1CryptoServiceProvider:
                     hashAlgorithm = new SHA1CryptoServiceProvider();
                     break;

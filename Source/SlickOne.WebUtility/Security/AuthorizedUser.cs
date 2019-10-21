@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.Mvc;
-using SlickOne.WebUtility;
+﻿
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace SlickOne.WebUtility.Security
 {
@@ -14,13 +10,27 @@ namespace SlickOne.WebUtility.Security
     public class AuthorizedUser
     {
         /// <summary>
+        /// 获取当前会话
+        /// </summary>
+        /// <returns>会话</returns>
+        private ISession GetSession()
+        {
+            var session = HttpContextHelper.GetCurrentSession();
+            return session;
+        }
+
+        /// <summary>
         /// 用户权限列表
         /// </summary>
         public UserAuthModel[] UserAuthList
         {
             get
             {
-                return HttpContext.Current.Session["USER_AUTHORITIES"] as UserAuthModel[];
+                var session = GetSession();
+                var auths = session.GetString("USER_AUTHORITIES");
+                var authModels = JsonConvert.DeserializeObject<UserAuthModel[]>(auths);
+
+                return authModels;
             }
         }
 
@@ -31,16 +41,19 @@ namespace SlickOne.WebUtility.Security
         {
             get
             {
-                if (HttpContext.Current.Session["USER_LOGON_TICKET"] != null)
-                    return HttpContext.Current.Session["USER_LOGON_TICKET"].ToString();
+                var session = GetSession();
+                var logonTicket = session.GetString("USER_LOGON_TICKET");
+                if (!string.IsNullOrEmpty(logonTicket))
+                    return logonTicket;
                 else
                 {
-                    var cookie = HttpContext.Current.Request.Cookies[FormsAuthentication.FormsCookieName];
+                    var httpContext = HttpContextHelper.GetCurrentContext();
+                    var cookie = httpContext.Request.Cookies["USER_LOGON_TICKET"];
                     if (cookie != null)
                     {
                         //Cookie未过期时，读取cookie，重新写Session
-                        HttpContext.Current.Session["USER_LOGON_TICKET"] = cookie.Value;
-                        return cookie.Value;
+                        session.SetString("USER_LOGON_TICKET", cookie.ToString());
+                        return cookie.ToString();
                     }
                     else
                     {

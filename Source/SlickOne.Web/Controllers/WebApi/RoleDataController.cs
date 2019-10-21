@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using SlickOne.Data;
 using SlickOne.WebUtility;
 using SlickOne.Module.AuthImpl.Entity;
 using SlickOne.Module.AuthImpl.Service;
@@ -14,7 +14,7 @@ namespace SlickOne.Web.Controllers.WebApi
     /// <summary>
     /// 资源权限控制器
     /// </summary>
-    public class RoleDataController : ApiController
+    public class RoleDataController : Controller
     {
         /// <summary>
         /// 获取所有角色数据集

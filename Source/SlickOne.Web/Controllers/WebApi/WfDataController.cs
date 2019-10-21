@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using SlickOne.WebUtility;
-using SlickOne.Biz.Entity;
-using SlickOne.Biz.Service;
+using SlickOne.Module.ProcessImpl.Entity;
+using SlickOne.Module.ProcessImpl.Service;
 
 namespace SlickOne.Web.Controllers.WebApi
 {
     /// <summary>
     /// 流程数据接口控制器
     /// </summary>
-    public class WfDataController : ApiController
+    public class WfDataController : Controller
     {
         /// <summary>
         /// 获取流程记录列表

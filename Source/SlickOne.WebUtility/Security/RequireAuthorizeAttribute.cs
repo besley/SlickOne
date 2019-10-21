@@ -4,15 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Mvc;
-using System.Web.Security;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc.Controllers;
+using System.Security.Cryptography;
 
 namespace SlickOne.WebUtility.Security
 {
     /// <summary>
     /// 权限验证属性类
     /// </summary>
-    public class RequireAuthorizeAttribute : AuthorizeAttribute
+    public class RequireAuthorizeAttribute : Attribute, IAuthorizationFilter
+
     {
         /// <summary>
         /// 用户权限列表
@@ -36,31 +40,31 @@ namespace SlickOne.WebUtility.Security
             }
         }
 
-        public override void OnAuthorization(AuthorizationContext filterContext)
+        public void OnAuthorization(AuthorizationFilterContext filterContext)
         {
-            base.OnAuthorization(filterContext);
-
             ////验证是否是登录用户
+            ControllerActionDescriptor actionDescriptor = null;
             var identity = filterContext.HttpContext.User.Identity;
             if (identity.IsAuthenticated)
             {
-                var actionName = filterContext.ActionDescriptor.ActionName;
-                var controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+                actionDescriptor = (ControllerActionDescriptor)filterContext.ActionDescriptor;
+                var controllerName = actionDescriptor.ControllerName;
+                var actionName = actionDescriptor.ActionName;
 
                 //验证用户操作是否在权限列表中
                 if (HasActionQulification(actionName, controllerName, identity.Name))
                     if (string.IsNullOrEmpty(UserLoginTicket))
                         //用户的Session, Cookie都过期，需要重新登录
                         filterContext.HttpContext.Response.Redirect("~/Account/Login", false);
-                else
-                    //虽然是登录用户，但没有该Action的权限，跳转到“未授权访问”页面
-                    filterContext.HttpContext.Response.Redirect("~/Home/UnAuthorized", true);
+                    else
+                        //虽然是登录用户，但没有该Action的权限，跳转到“未授权访问”页面
+                        filterContext.HttpContext.Response.Redirect("~/Home/UnAuthorized", true);
             }
             else
             {
                 //未登录用户，则判断是否是匿名访问
-                var attr = filterContext.ActionDescriptor.GetCustomAttributes(true).OfType<AllowAnonymousAttribute>();
-                bool isAnonymous = attr.Any(a => a is AllowAnonymousAttribute);
+                var actionAttributes = actionDescriptor.MethodInfo.GetCustomAttributes(inherit: true);
+                bool isAnonymous = actionAttributes.Any(a => a is AllowAnonymousFilter);
 
                 if (!isAnonymous)
                     //未验证（登录）的用户, 而且是非匿名访问，则转向登录页面

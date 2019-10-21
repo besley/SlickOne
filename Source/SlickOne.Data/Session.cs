@@ -1,9 +1,9 @@
 ﻿/*
-* SlickOne 企业级Web快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
+* Slickflow 工作流引擎遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 * 
 The Slickflow project.
-Copyright (C) 2016  .NET Web Framwork Library
+Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -72,7 +72,7 @@ namespace SlickOne.Data
         /// 构造方法
         /// </summary>
         /// <param name="conn">连接</param>
-        public DbSession(IDbConnection conn)
+        internal DbSession(IDbConnection conn)
         {
             _connection = conn;
         }
@@ -82,7 +82,7 @@ namespace SlickOne.Data
         /// </summary>
         /// <param name="conn">连接</param>
         /// <param name="trans">事务</param>
-        public DbSession(IDbConnection conn, IDbTransaction trans)
+        internal DbSession(IDbConnection conn, IDbTransaction trans)
         {
             _connection = conn;
             _transaction = trans;
@@ -135,63 +135,6 @@ namespace SlickOne.Data
                 _connection = null;
             }
             GC.SuppressFinalize(this);
-        }
-    }
-
-    /// <summary>
-    /// Session 创建类
-    /// </summary>
-    public class SessionFactory
-    {
-        /// <summary>
-        /// 根据Provider类型，创建数据库连接
-        /// </summary>
-        /// <returns></returns>
-        private static IDbConnection CreateConnectionByProvider()
-        {
-            var connStringSetting = ConfigurationManager.ConnectionStrings["SlickOneDBConnectionString"];
-            IDbConnection conn = new SqlConnection(connStringSetting.ConnectionString);
-
-            return conn;
-        }
-
-        /// <summary>
-        /// 创建数据库连接
-        /// </summary>
-        /// <returns></returns>
-        public static IDbConnection CreateConnection()
-        {
-            IDbConnection conn = CreateConnectionByProvider();
-
-            if (conn.State == ConnectionState.Closed)
-            {
-                conn.Open();
-            }
-            return conn;
-        }
-
-        /// <summary>
-        /// 创建数据库连接会话
-        /// </summary>
-        /// <returns></returns>
-        public static IDbSession CreateSession()
-        {
-            IDbConnection conn = CreateConnection();
-            IDbSession session = new DbSession(conn);
-
-            return session;
-        }
-
-        /// <summary>
-        /// 创建数据库事务会话
-        /// </summary>
-        /// <param name="conn"></param>
-        /// <param name="trans"></param>
-        /// <returns></returns>
-        public static IDbSession CreateSession(IDbConnection conn, IDbTransaction trans)
-        {
-            IDbSession session = new DbSession(conn, trans);
-            return session;
         }
     }
 }

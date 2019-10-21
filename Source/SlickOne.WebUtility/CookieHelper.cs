@@ -4,33 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using System.Web.Mvc;
-using System.Web.Security;
+using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
 namespace SlickOne.WebUtility
 {
+    /// <summary>
+    /// Cookie帮助类
+    /// </summary>
     public class CookieHelper
     {
-        public static void AddCookie(HttpResponseBase response, object userObject, string cookieName, int days)
+        /// <summary>
+        /// 添加Cookie
+        /// </summary>
+        /// <param name="response">http响应</param>
+        /// <param name="userObject">用户对象</param>
+        /// <param name="cookieName">Cookie名称</param>
+        /// <param name="days">天数</param>
+        public static void AddCookie(HttpResponse response, object userObject, string cookieName, int days)
         {
             var json = JsonConvert.SerializeObject(userObject);
-            var userCookie = new HttpCookie(cookieName, json);
+            var cookieOptions = new CookieOptions();
+            cookieOptions.Expires = DateTime.Now.AddDays(days);
 
-            userCookie.Expires.AddDays(days);
-            response.Cookies.Add(userCookie);
+            response.Cookies.Append(cookieName, json, cookieOptions);
         }
 
-        public static void RemoveCookie(HttpContextBase context,  string cookieName)
+        /// <summary>
+        /// 删除Cookie
+        /// </summary>
+        /// <param name="context">Http上下文</param>
+        /// <param name="cookieName">Cookie名称</param>
+        public static void RemoveCookie(HttpContext context,  string cookieName)
         {
             if (context.Request.Cookies[cookieName] != null)
             {
-                var user = new HttpCookie(cookieName)
-                {
-                    Expires = DateTime.Now.AddDays(-1),
-                    Value = null
-                };
-                context.Response.Cookies.Add(user);
+                var cookieOptions = new CookieOptions();
+                cookieOptions.Expires = DateTime.Now.AddDays(-1);
+                context.Response.Cookies.Delete(cookieName, cookieOptions);
             }
         }
     }

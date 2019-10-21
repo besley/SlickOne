@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+
 
 namespace SlickOne.WebUtility.Security
 {
@@ -20,8 +21,8 @@ namespace SlickOne.WebUtility.Security
             var identity = filterContext.HttpContext.User.Identity;
             if (identity.IsAuthenticated)
             {
-                var actionName = filterContext.ActionDescriptor.ActionName;
-                var controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
+                var actionName = filterContext.ActionDescriptor.DisplayName;
+                var controllerName = filterContext.Controller.ToString();
 
                 if (identity.Name.ToLower() != "ivadmin")
                 {

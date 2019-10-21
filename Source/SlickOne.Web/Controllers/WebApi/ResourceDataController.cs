@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNet.SignalR;
 using SlickOne.WebUtility;
 using SlickOne.Module.AuthImpl.Entity;
 using SlickOne.Module.AuthImpl.Service;
@@ -13,7 +12,7 @@ namespace SlickOne.Web.Controllers.WebApi
     /// <summary>
     /// 资源权限数据服务类
     /// </summary>
-    public class ResourceDataController : ApiController
+    public class ResourceDataController : Controller
     {
         /// <summary>
         /// 获取所有资源数据集
@@ -26,7 +25,7 @@ namespace SlickOne.Web.Controllers.WebApi
             try
             {
                 var resourceService = new ResourceService();
-                var resourceList = resourceService.GetResourceAll().ToList();
+                var resourceList = resourceService.GetResourceAll();
 
                 result = ResponseResult<List<ResourceEntity>>.Success(resourceList);
             }
@@ -100,6 +99,29 @@ namespace SlickOne.Web.Controllers.WebApi
             {
                 var resourceService = new ResourceService();
                 resourceService.SaveResource(entity);
+
+                result = ResponseResult.Success();
+            }
+            catch (System.Exception ex)
+            {
+                result = ResponseResult.Error(string.Format("保存资源数据失败!{0}", ex.Message));
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 保存资源数据
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ResponseResult SaveRoleResource(RoleResourcePermissionEntity entity)
+        {
+            var result = ResponseResult.Default();
+            try
+            {
+                var resourceService = new ResourceService();
+                //resourceService.SaveResource(entity);
 
                 result = ResponseResult.Success();
             }

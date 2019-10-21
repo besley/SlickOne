@@ -1,9 +1,9 @@
 ﻿/*
-* SlickOne 企业级Web快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
+* Slickflow 工作流引擎遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 * 
 The Slickflow project.
-Copyright (C) 2016  .NET Web Framwork Library
+Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -36,16 +36,16 @@ namespace SlickOne.Data
         /// <summary>
         /// Repository 属性
         /// </summary>
-        private IRepository _repository;
+        private IRepository _quickRepository;
         public IRepository QuickRepository
         {
             get
             {
-                if (_repository == null)
+                if (_quickRepository == null)
                 {
-                    _repository = new Repository();
+                    _quickRepository = new Repository();
                 }
-                return _repository;
+                return _quickRepository;
             }
         }
     }

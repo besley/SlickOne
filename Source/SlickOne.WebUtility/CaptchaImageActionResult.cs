@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -18,7 +18,8 @@ namespace SlickOne.WebUtility
         public Color RandomTextColor { get; set; }
         public string RandomWord { get; set; }
 
-        public override void ExecuteResult(ControllerContext context)
+
+        public override void ExecuteResult(ActionContext context)
         {
             Bitmap bmp = new Bitmap(150, 60);
             Graphics graph = Graphics.FromImage(bmp);
@@ -53,7 +54,13 @@ namespace SlickOne.WebUtility
             }
 
             context.HttpContext.Response.ContentType = "image/GF";
-            bmp.Save(context.HttpContext.Response.OutputStream, ImageFormat.Gif);
+
+            //in asp.net version
+            //context.HttpContext.Response.OutputStream
+            //not tested, should be test in later.
+            //2019-07-17
+            bmp.Save(context.HttpContext.Response.Body, ImageFormat.Gif);
+
             font.Dispose();
             graph.Dispose();
             bmp.Dispose();

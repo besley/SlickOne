@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ServiceStack.Text;
+using Newtonsoft.Json;
 
 namespace SlickOne.WebUtility
 {
@@ -111,19 +111,24 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// 解析返回结果中的状态标志位
         /// </summary>
-        /// <param name="message"></param>
-        /// <returns></returns>
+        /// <param name="message">消息</param>
+        /// <returns>是否反序列化</returns>
         public static bool Parse(string message)
         {
-            var result = JsonSerializer.DeserializeFromString<ResponseResult>(message);
+            var result = JsonConvert.DeserializeObject<ResponseResult>(message);
             var success = result.Status == 1;
 
             return success;
         }
 
+        /// <summary>
+        /// 反序列化
+        /// </summary>
+        /// <param name="message">消息</param>
+        /// <returns>结果</returns>
         public static ResponseResult Deserialize(string message)
         {
-            var result = JsonSerializer.DeserializeFromString<ResponseResult>(message);
+            var result = JsonConvert.DeserializeObject<ResponseResult>(message);
             return result;
         }
     }
@@ -252,11 +257,11 @@ namespace SlickOne.WebUtility
         /// <summary>
         /// Http 响应消息反序列化类
         /// </summary>
-        /// <param name="result"></param>
-        /// <returns></returns>
+        /// <param name="message">消息</param>
+        /// <returns>结果对象</returns>
         public static ResponseResult<T> Deserialize(string message)
         {
-            var response = JsonSerializer.DeserializeFromString<ResponseResult<T>>(message);
+            var response = JsonConvert.DeserializeObject<ResponseResult<T>>(message);
             return response;
         }
     }

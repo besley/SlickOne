@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Drawing2D;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
 namespace SlickOne.WebUtility
 {
@@ -27,10 +28,10 @@ namespace SlickOne.WebUtility
             return filePath;
         }
 
-        public static byte[] GetFileContent(HttpPostedFileBase file)
+        public static byte[] GetFileContent(IFormFile file)
         {
             byte[] content;
-            using (Stream inputStream = file.InputStream)
+            using (Stream inputStream = file.OpenReadStream())
             {
                 MemoryStream memoryStream = inputStream as MemoryStream;
                 if (memoryStream == null)
@@ -43,7 +44,7 @@ namespace SlickOne.WebUtility
             return content;
         }
 
-        public static byte[] ResizeImage(HttpPostedFileBase file)
+        public static byte[] ResizeImage(IFormFile file)
         {
              //得到处理后的图片
             byte[] fileContent = GetFileContent(file);

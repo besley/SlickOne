@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SlickOne.Web.Controllers.Mvc
 {
-    [OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
     public abstract class BaseMvcController : Controller
     {
     }

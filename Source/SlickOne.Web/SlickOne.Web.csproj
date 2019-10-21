@@ -1,608 +1,727 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>
-    </ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{CB8E4382-2B8F-43A7-9773-BAF599FA0C29}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SlickOne.Web</RootNamespace>
-    <AssemblyName>SlickOne.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
-    <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
+    <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.SignalR.Client, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Client.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Client.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Abstractions" />
-    <Reference Include="System.Web.Routing" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http">
-    </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Net.Http.WebRequest">
-    </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Optimization">
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="WebGrease">
-      <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <Private>True</Private>
-      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
+    <Compile Remove="wwwroot\Content\croneditor\**" />
+    <Content Remove="wwwroot\Content\croneditor\**" />
+    <EmbeddedResource Remove="wwwroot\Content\croneditor\**" />
+    <None Remove="wwwroot\Content\croneditor\**" />
   </ItemGroup>
+
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
+    <None Include="wwwroot\Content\ag-grid\ag-grid.css" />
+    <None Include="wwwroot\Content\ag-grid\theme-bootstrap.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-3.3.7.min.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-datetimepicker.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-datetimepicker.min.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-dialog.min.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-progressbar-3.3.4.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-progressbar-3.3.4.min.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-theme-3.3.7.min.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap-theme.min.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap.css" />
+    <None Include="wwwroot\Content\bootstrap\bootstrap.min.css" />
+    <None Include="wwwroot\Content\bpmnjs\bpmn-font\css\app.css" />
+    <None Include="wwwroot\Content\bpmnjs\bpmn-font\css\bpmn-embedded.css" />
+    <None Include="wwwroot\Content\bpmnjs\bpmn-font\css\bpmn.css" />
+    <None Include="wwwroot\Content\bpmnjs\bpmn-font\font\bpmn.eot" />
+    <None Include="wwwroot\Content\bpmnjs\bpmn-font\font\bpmn.svg" />
+    <None Include="wwwroot\Content\bpmnjs\bpmn-font\font\bpmn.ttf" />
+    <None Include="wwwroot\Content\bpmnjs\bpmn-font\font\bpmn.woff" />
+    <None Include="wwwroot\Content\bpmnjs\diagram-js.css" />
+    <None Include="wwwroot\Content\fineuploader\continue.gif" />
+    <None Include="wwwroot\Content\fineuploader\edit.gif" />
+    <None Include="wwwroot\Content\fineuploader\fine-uploader.min.css" />
+    <None Include="wwwroot\Content\fineuploader\loading.gif" />
+    <None Include="wwwroot\Content\fineuploader\not_available-generic.png" />
+    <None Include="wwwroot\Content\fineuploader\pause.gif" />
+    <None Include="wwwroot\Content\fineuploader\processing.gif" />
+    <None Include="wwwroot\Content\fineuploader\retry.gif" />
+    <None Include="wwwroot\Content\fineuploader\trash.gif" />
+    <None Include="wwwroot\Content\fineuploader\waiting-generic.png" />
+    <None Include="wwwroot\Content\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="wwwroot\Content\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\Content\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="wwwroot\Content\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="wwwroot\Content\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\Content\images\ajax-loader.gif" />
+    <None Include="wwwroot\Content\images\bpmn-icons.gif" />
+    <None Include="wwwroot\Content\images\buttonicon.gif" />
+    <None Include="wwwroot\Content\images\circle.png" />
+    <None Include="wwwroot\Content\images\delete.png" />
+    <None Include="wwwroot\Content\images\diamond.png" />
+    <None Include="wwwroot\Content\images\ellipse.png" />
+    <None Include="wwwroot\Content\images\jsplumb-grid.png" />
+    <None Include="wwwroot\Content\images\logo.png" />
+    <None Include="wwwroot\Content\images\rectangle.png" />
+    <None Include="wwwroot\Content\images\sprite.png" />
+    <None Include="wwwroot\Content\images\triangle.png" />
+    <None Include="wwwroot\Content\images\triangle_90.png" />
+    <None Include="wwwroot\Content\img\glyphicons-halflings-white.png" />
+    <None Include="wwwroot\Content\img\glyphicons-halflings.png" />
+    <None Include="wwwroot\Content\img\jsPlumb-Connector-Components.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\2.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ajax-loader.gif" />
+    <None Include="wwwroot\Content\jquery-ui\images\alert.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\arrow.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\arrowex.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\Batch-1_01.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\Batch-1_03.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\Batch-1_05.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\Batch-1_07.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\blue.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\buttonicon.gif" />
+    <None Include="wwwroot\Content\jquery-ui\images\calendar.gif" />
+    <None Include="wwwroot\Content\jquery-ui\images\chosebtn.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\chosedialog1_03.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\confirm.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\datagrid_title_bg.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\dd.html" />
+    <None Include="wwwroot\Content\jquery-ui\images\empty.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\error.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\exit.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\exit1.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\expend.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\fieldset.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\fieldset1.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\gray.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\hightlight.jpg" />
+    <None Include="wwwroot\Content\jquery-ui\images\info.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\jiantou.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\jsplumb-grid.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\listicon.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\listicon1.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\liulan_03.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\liulan_05.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\logo.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\message.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\message1.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\msgBoxBackGround.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\myui-header.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\openfile.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\relogin.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\relogin1.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\search.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\tick.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\tick2.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\toolbarwin7.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_2694e8_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_3d80b3_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_454545_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_72a7cf_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_888888_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\upload.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\user.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\user1.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\user2.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\user_online.gif" />
+    <None Include="wwwroot\Content\jquery-ui\images\web_ui_lanrensc_01_03.png" />
+    <None Include="wwwroot\Content\jquery-ui\images\web_ui_lanrensc_03.png" />
+    <None Include="wwwroot\Content\jquery-ui\jquery-ui-1.8.16.custom.css" />
+    <None Include="wwwroot\Content\jquery-ui\jquery-ui.css" />
+    <None Include="wwwroot\Content\msgBoxLight.css" />
+    <None Include="wwwroot\Content\splitter.css" />
+    <None Include="wwwroot\Content\superfish.css" />
+    <None Include="wwwroot\Content\themes\base\images\animated-overlay.gif" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\jquery-ui.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.accordion.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.all.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.autocomplete.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.base.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.button.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.core.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.datepicker.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.dialog.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.menu.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.progressbar.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.resizable.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.selectable.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.slider.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.spinner.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.tabs.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.theme.css" />
+    <None Include="wwwroot\Content\themes\base\jquery.ui.tooltip.css" />
+    <None Include="wwwroot\Content\themes\base\minified\images\animated-overlay.gif" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery-ui.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.accordion.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.button.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.core.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.dialog.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.menu.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.resizable.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.selectable.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.slider.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.spinner.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.tabs.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <None Include="wwwroot\Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <None Include="wwwroot\Content\ui\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <None Include="wwwroot\Content\ui\images\ui-icons_2694e8_256x240.png" />
+    <None Include="wwwroot\Content\ui\images\ui-icons_2e83ff_256x240.png" />
+    <None Include="wwwroot\Content\ui\images\ui-icons_3d80b3_256x240.png" />
+    <None Include="wwwroot\Content\ui\images\ui-icons_72a7cf_256x240.png" />
+    <None Include="wwwroot\Content\ui\images\ui-icons_ffffff_256x240.png" />
+    <None Include="wwwroot\Content\ui\jquery-ui.css" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-icons_2694e8_256x240.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-icons_2e83ff_256x240.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-icons_3d80b3_256x240.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-icons_72a7cf_256x240.png" />
+    <None Include="wwwroot\Content\ui\minified\images\ui-icons_ffffff_256x240.png" />
+    <None Include="wwwroot\Content\ui\minified\jquery-ui.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.accordion.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.autocomplete.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.button.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.core.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.datepicker.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.dialog.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.menu.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.progressbar.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.resizable.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.selectable.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.slider.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.spinner.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.tabs.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.theme.min.css" />
+    <None Include="wwwroot\Content\ui\minified\jquery.ui.tooltip.min.css" />
+    <None Include="wwwroot\Content\ztree\img\diy\1_close.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\1_open.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\2.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\3.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\4.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\5.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\6.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\7.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\8.png" />
+    <None Include="wwwroot\Content\ztree\img\diy\9.png" />
+    <None Include="wwwroot\Content\ztree\img\line_conn.gif" />
+    <None Include="wwwroot\Content\ztree\img\line_conn.png" />
+    <None Include="wwwroot\Content\ztree\img\loading.gif" />
+    <None Include="wwwroot\Content\ztree\img\metro.gif" />
+    <None Include="wwwroot\Content\ztree\img\metro.png" />
+    <None Include="wwwroot\Content\ztree\metro.css" />
+    <None Include="wwwroot\favicon.ico" />
+    <None Include="wwwroot\Scripts\ag-grid\ag-grid.js" />
+    <None Include="wwwroot\Scripts\ag-grid\ag-grid.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootbox.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap-datetimepicker.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap-datetimepicker.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap-datetimepicker.zh-CN.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap-dialog.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap-progressbar.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap-progressbar.min.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap.js" />
+    <None Include="wwwroot\Scripts\bootstrap\bootstrap.min.js" />
+    <None Include="wwwroot\Scripts\croneditor\script.js" />
+    <None Include="wwwroot\Scripts\fineuploader\fine-uploader.min.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery-1.10.2.intellisense.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery-1.10.2.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery-1.10.2.min.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery-1.10.2.min.map" />
+    <None Include="wwwroot\Scripts\jquery\jquery-1.8.3.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery-ui-1.10.3.min.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.event.drag-2.2.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.msgBox.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.validate-vsdoc.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.validate.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.validate.min.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.validate.unobtrusive.min.js" />
+    <None Include="wwwroot\Scripts\jquery\jquery.ztree.all-3.5.min.js" />
+    <None Include="wwwroot\Scripts\jquery\jstree.js" />
+    <None Include="wwwroot\Scripts\jquery\ui\jquery-ui-1.8.16.custom.min.js" />
+    <None Include="wwwroot\Scripts\jquery\ui\jquery.ui.core.js" />
+    <None Include="wwwroot\Scripts\jquery\ui\jquery.ui.mouse.js" />
+    <None Include="wwwroot\Scripts\jquery\ui\jquery.ui.resizable.js" />
+    <None Include="wwwroot\Scripts\jquery\ui\jquery.ui.sortable.js" />
+    <None Include="wwwroot\Scripts\jquery\ui\jquery.ui.widget.js" />
+    <None Include="wwwroot\Scripts\jshelper.js" />
+    <None Include="wwwroot\Scripts\later.min.js" />
+    <None Include="wwwroot\Scripts\modernizr-2.6.2.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\css\common.css" />
+    <None Include="wwwroot\Scripts\mxGraph\src\css\explorer.css" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\diagrameditor.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\editor-commons.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\keyhandler-commons.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\keyhandler-minimal.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\layouteditor.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\processeditor.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\wfeditor-commons.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\wfgraph-commons.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\wftoolbar-commons.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\workfloweditor-readonly.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\config\workfloweditor.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\css\process.css" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\css\wordpress.css" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\diagrams\empty.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\diagrams\swimlanes.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\diagrams\travel-booking.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\diagrams\withdrawal.xml" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\help\index-all.html" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\help\index.html" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\actor.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\alignbottom.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\aligncenter.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\alignleft.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\alignmiddle.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\alignright.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\aligntop.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\arrow.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\bell.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\bg.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\block_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\block_start.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\bold.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\bottom.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\box.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\camera.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\center.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\classic_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\classic_start.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\cloud.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\cmp-bg.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\collapse.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\connect.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\connector.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\console.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\copy.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\cube_green.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\cut.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\cylinder.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\delete.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\diagram.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\diamond_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\diamond_start.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\doubleellipse.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\down.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\draw\drawbg.jpg" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\draw\drawbgcolor.jpg" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\draw\drawfooter.jpg" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\draw\drawheader.jpg" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\draw\mxlogo.jpg" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\dude3.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\earth.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\ellipse.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\entity.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\expand.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\fillcolor.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\fit.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\font.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\fontcolor.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\gear.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\gear.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\grid.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\group.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\help.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\hexagon.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\hline.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\house.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\house.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\image.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\italic.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\left.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\linecolor.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\link.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\loading.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\middle.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\new.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\open.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\open_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\open_start.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\outline.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\oval_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\oval_start.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\check.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\error.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\flash.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\forbidden.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\help.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\house.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\information.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\lightbulb_on.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\pencil.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\printer.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\user3.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\users3.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\overlays\workplace.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\package.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\pan.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\paste.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\plain.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\preferences.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\press.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\preview.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\print.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\printer.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\properties.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\rectangle.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\redo.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\refresh.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\rhombus.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\right.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\rounded.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\save.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\saveas.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\script.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\select.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\server.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\straight.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\swimlane.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\cancel_end.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\cancel_intermediate.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\end_event_timer.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\error.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\event.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\event_end.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\event_intermediate.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\fork.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\inclusive.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\link.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\merge.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\message.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\message_end.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\message_intermediate.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\multiple.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\multiple_instance_task.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\rule.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\samll_activity_looping.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\samll_intermediate_event_message.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\samll_multiple_instance_task.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_cancel_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_cancel_intermediate.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_end_event_message.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_end_event_timer.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_error.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_event.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_event_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_event_intermediate.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_fork.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_gateway_and.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_gateway_or.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_gateway_xor.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_inclusive.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_intermediate_event_timer.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_intermediate_event_timer2222.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_link.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_looping_subprocess.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_merge.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_message.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_message_end.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_message_intermediate.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_multiple.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_multiple_instance_task.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_rule.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_start_event_message.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_start_event_timer.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_subprocess.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_subprocess.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_terminate.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\small_timer.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\start_event_timer.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\subprocess.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\terminate.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\symbols\timer.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\tasks.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\text.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\toback.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\tofront.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\toolbar.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\top.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\tree.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\triangle.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\underline.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\undo.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\ungroup.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\up.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\vertical.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\workplace.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\wrench.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\zoom.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\zoomactual.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\zoomin.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\images\zoomout.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\resources\app.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\resources\app_de.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\editor\resources\app_zh.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\button.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\close.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\collapsed.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\error.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\expanded.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\maximize.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\minimize.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\normalize.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\point.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\resize.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\separator.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\submenu.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\transparent.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\warning.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\warning.png" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\window-title.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\images\window.gif" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\editor\mxDefaultKeyHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\editor\mxDefaultPopupMenu.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\editor\mxDefaultToolbar.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\editor\mxEditor.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxCellHighlight.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxCellMarker.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxCellTracker.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxConnectionHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxConstraintHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxEdgeHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxEdgeSegmentHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxElbowEdgeHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxGraphHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxHandle.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxKeyHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxPanningHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxPopupMenuHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxRubberband.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxSelectionCellsHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxTooltipHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\handler\mxVertexHandler.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\index.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxCellCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxChildChangeCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxCodecRegistry.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxDefaultKeyHandlerCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxDefaultPopupMenuCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxDefaultToolbarCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxEditorCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxGenericChangeCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxGraphCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxGraphViewCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxModelCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxObjectCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxRootChangeCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxStylesheetCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\io\mxTerminalChangeCodec.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\model\mxGraphAbstractHierarchyCell.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\model\mxGraphHierarchyEdge.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\model\mxGraphHierarchyModel.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\model\mxGraphHierarchyNode.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\model\mxSwimlaneModel.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\mxHierarchicalLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\mxSwimlaneLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\stage\mxCoordinateAssignment.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\stage\mxHierarchicalLayoutStage.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\stage\mxMedianHybridCrossingReduction.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\stage\mxMinimumCycleRemover.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\hierarchical\stage\mxSwimlaneOrdering.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxCircleLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxCompactTreeLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxCompositeLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxEdgeLabelLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxFastOrganicLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxGraphLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxParallelEdgeLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxPartitionLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxRadialTreeLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\layout\mxStackLayout.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\model\mxCell.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\model\mxCellPath.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\model\mxGeometry.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\model\mxGraphModel.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\mxClient.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxActor.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxArrow.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxArrowConnector.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxCloud.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxConnector.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxCylinder.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxDoubleEllipse.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxEllipse.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxHexagon.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxImageShape.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxLabel.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxLine.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxMarker.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxPolyline.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxRectangleShape.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxRhombus.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxShape.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxStencil.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxStencilRegistry.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxSwimlane.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxText.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\shape\mxTriangle.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxAbstractCanvas2D.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxAnimation.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxAutoSaveManager.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxClipboard.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxConstants.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxDictionary.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxDivResizer.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxDragSource.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxEffects.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxEvent.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxEventObject.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxEventSource.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxForm.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxGuide.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxImage.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxImageBundle.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxImageExport.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxLog.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxMorphing.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxMouseEvent.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxObjectIdentity.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxPanningManager.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxPoint.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxPopupMenu.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxRectangle.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxResources.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxSvgCanvas2D.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxToolbar.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxUndoableEdit.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxUndoManager.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxUrlConverter.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxUtils.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxVmlCanvas2D.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxWindow.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxXmlCanvas2D.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\util\mxXmlRequest.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxCellEditor.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxCellOverlay.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxCellRenderer.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxCellState.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxCellStatePreview.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxConnectionConstraint.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxEdgeStyle.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxGraph.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxGraphSelectionModel.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxGraphView.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxLayoutManager.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxMultiplicity.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxOutline.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxPerimeter.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxPrintPreview.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxStyleRegistry.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxStylesheet.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxSwimlaneManager.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\js\view\mxTemporaryCellStates.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\mxClient.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\mxClient.min.js" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\app.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\app_de.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\app_zh.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\editor.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\editor_de.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\editor_zh.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\graph.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\graph_de.txt" />
+    <None Include="wwwroot\Scripts\mxGraph\src\resources\graph_zh.txt" />
+    <None Include="wwwroot\Scripts\respond.js" />
+    <None Include="wwwroot\Scripts\respond.min.js" />
+    <None Include="wwwroot\Scripts\slick.event.js" />
+    <None Include="wwwroot\Scripts\vkbeautify.js" />
+    <None Include="wwwroot\Scripts\xmlhelper.js" />
+    <None Include="wwwroot\Scripts\XMLWriter-1.0.0-min.js" />
+    <None Include="wwwroot\Scripts\_references.js" />
+    <None Include="wwwroot\ViewJS\activityproperty.js" />
+    <None Include="wwwroot\ViewJS\cronmanager.js" />
+    <None Include="wwwroot\ViewJS\kloader.js" />
+    <None Include="wwwroot\ViewJS\kmain.js" />
+    <None Include="wwwroot\ViewJS\kmodel.js" />
+    <None Include="wwwroot\ViewJS\kmx.min.js" />
+    <None Include="wwwroot\ViewJS\mxconfig.js" />
+    <None Include="wwwroot\ViewJS\mxfile.js" />
+    <None Include="wwwroot\ViewJS\mxtoolkit.js" />
+    <None Include="wwwroot\ViewJS\processlist.js" />
+    <None Include="wwwroot\ViewJS\rolelist.js" />
+    <None Include="wwwroot\ViewJS\transitionproperty.js" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Mvc\BaseMvcController.cs" />
-    <Compile Include="Controllers\Mvc\DemoController.cs" />
-    <Compile Include="Controllers\Mvc\FormController.cs" />
-    <Compile Include="Controllers\Mvc\HomeController.cs" />
-    <Compile Include="Controllers\Mvc\LogController.cs" />
-    <Compile Include="Controllers\Mvc\MessageController.cs" />
-    <Compile Include="Controllers\Mvc\PermissionController.cs" />
-    <Compile Include="Controllers\Mvc\ResourceController.cs" />
-    <Compile Include="Controllers\Mvc\RoleController.cs" />
-    <Compile Include="Controllers\Mvc\RoleUserController.cs" />
-    <Compile Include="Controllers\Mvc\TestController.cs" />
-    <Compile Include="Controllers\Mvc\UserController.cs" />
-    <Compile Include="Controllers\Mvc\WorkflowController.cs" />
-    <Compile Include="Controllers\WebApi\HelloWorldController.cs" />
-    <Compile Include="Controllers\WebApi\InMemoryStreamProvider.cs" />
-    <Compile Include="Controllers\WebApi\ResourceDataController.cs" />
-    <Compile Include="Controllers\WebApi\RoleDataController.cs" />
-    <Compile Include="Controllers\WebApi\WfDataController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="Content\ag-grid\ag-grid.css" />
-    <Content Include="Content\ag-grid\theme-bootstrap.css" />
-    <Content Include="Content\bootstrap\bootstrap-3.3.7.min.css" />
-    <Content Include="Content\bootstrap\bootstrap-dialog.min.css" />
-    <Content Include="Content\bootstrap\bootstrap-progressbar-3.3.4.css" />
-    <Content Include="Content\bootstrap\bootstrap-progressbar-3.3.4.min.css" />
-    <Content Include="Content\bootstrap\bootstrap-theme-3.3.7.min.css" />
-    <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap\font-awesome.min.css" />
-    <Content Include="Content\bpmnjs\bpmn-font\css\app.css" />
-    <Content Include="Content\bpmnjs\bpmn-font\css\bpmn-embedded.css" />
-    <Content Include="Content\bpmnjs\bpmn-font\css\bpmn.css" />
-    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.svg" />
-    <Content Include="Content\bpmnjs\diagram-js.css" />
-    <Content Include="Content\fineuploader\continue.gif" />
-    <Content Include="Content\fineuploader\edit.gif" />
-    <Content Include="Content\fineuploader\fine-uploader.min.css" />
-    <Content Include="Content\fineuploader\loading.gif" />
-    <Content Include="Content\fineuploader\not_available-generic.png" />
-    <Content Include="Content\fineuploader\pause.gif" />
-    <Content Include="Content\fineuploader\processing.gif" />
-    <Content Include="Content\fineuploader\retry.gif" />
-    <Content Include="Content\fineuploader\trash.gif" />
-    <Content Include="Content\fineuploader\waiting-generic.png" />
-    <Content Include="Content\images\circle.png" />
-    <Content Include="Content\images\diamond.png" />
-    <Content Include="Content\images\ellipse.png" />
-    <Content Include="Content\images\rectangle.png" />
-    <Content Include="Content\images\sailor.jpg" />
-    <Content Include="Content\images\triangle.png" />
-    <Content Include="Content\images\triangle_90.png" />
-    <Content Include="Content\jsplumb\ico-jsplumb.svg" />
-    <Content Include="Content\jsplumb\jsPlumb-demo.css" />
-    <Content Include="Content\jsplumb\jsPlumbToolkit-defaults.css" />
-    <Content Include="Content\jsplumb\jsPlumbToolkit-demo.css" />
-    <Content Include="Content\jsplumb\jsPlumb-main.css" />
-    <Content Include="Content\layout.css" />
-    <Content Include="Content\prettify.css" />
-    <Content Include="Scripts\ag-grid\ag-grid.js" />
-    <Content Include="Scripts\ag-grid\ag-grid.min.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-dialog.min.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-progressbar.js" />
-    <Content Include="Scripts\codepretty.js" />
-    <Content Include="Scripts\fineuploader\fine-uploader.min.js" />
-    <Content Include="Scripts\handlebars.js" />
-    <Content Include="Scripts\jquery.signalR-2.2.2.js" />
-    <Content Include="Scripts\jquery.signalR-2.2.2.min.js" />
-    <Content Include="Scripts\jsplumb\jsPlumb-2.2.8-min.js" />
-    <Content Include="Scripts\jsplumb\jsPlumb-2.2.8.js" />
+    <PackageReference Include="Microsoft.AspNet.SignalR" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Client" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Razor" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Content Include="Content\bootstrap\bootstrap-datetimepicker.css" />
-    <Content Include="Content\bootstrap\bootstrap-datetimepicker.min.css" />
-    <Content Include="Content\bootstrap\bootstrap.css" />
-    <Content Include="Content\bootstrap\bootstrap.min.css" />
-    <Content Include="Content\images\ajax-loader.gif" />
-    <Content Include="Content\images\bpmn-icons.gif" />
-    <Content Include="Content\images\buttonicon.gif" />
-    <Content Include="Content\images\delete.png" />
-    <Content Include="Content\images\jsplumb-grid.png" />
-    <Content Include="Content\images\logo.png" />
-    <Content Include="Content\images\sprite.png" />
-    <Content Include="Content\img\glyphicons-halflings-white.png" />
-    <Content Include="Content\img\glyphicons-halflings.png" />
-    <Content Include="Content\img\jsPlumb-Connector-Components.png" />
-    <Content Include="Content\jquery-ui\images\2.png" />
-    <Content Include="Content\jquery-ui\images\ajax-loader.gif" />
-    <Content Include="Content\jquery-ui\images\alert.png" />
-    <Content Include="Content\jquery-ui\images\arrow.png" />
-    <Content Include="Content\jquery-ui\images\arrowex.png" />
-    <Content Include="Content\jquery-ui\images\Batch-1_01.png" />
-    <Content Include="Content\jquery-ui\images\Batch-1_03.png" />
-    <Content Include="Content\jquery-ui\images\Batch-1_05.png" />
-    <Content Include="Content\jquery-ui\images\Batch-1_07.png" />
-    <Content Include="Content\jquery-ui\images\blue.png" />
-    <Content Include="Content\jquery-ui\images\buttonicon.gif" />
-    <Content Include="Content\jquery-ui\images\calendar.gif" />
-    <Content Include="Content\jquery-ui\images\chosebtn.png" />
-    <Content Include="Content\jquery-ui\images\chosedialog1_03.png" />
-    <Content Include="Content\jquery-ui\images\confirm.png" />
-    <Content Include="Content\jquery-ui\images\datagrid_title_bg.png" />
-    <Content Include="Content\jquery-ui\images\dd.html" />
-    <Content Include="Content\jquery-ui\images\empty.png" />
-    <Content Include="Content\jquery-ui\images\error.png" />
-    <Content Include="Content\jquery-ui\images\exit.png" />
-    <Content Include="Content\jquery-ui\images\exit1.png" />
-    <Content Include="Content\jquery-ui\images\expend.png" />
-    <Content Include="Content\jquery-ui\images\fieldset.png" />
-    <Content Include="Content\jquery-ui\images\fieldset1.png" />
-    <Content Include="Content\jquery-ui\images\gray.png" />
-    <Content Include="Content\jquery-ui\images\hightlight.jpg" />
-    <Content Include="Content\jquery-ui\images\info.png" />
-    <Content Include="Content\jquery-ui\images\jiantou.png" />
-    <Content Include="Content\jquery-ui\images\jsplumb-grid.png" />
-    <Content Include="Content\jquery-ui\images\listicon.png" />
-    <Content Include="Content\jquery-ui\images\listicon1.png" />
-    <Content Include="Content\jquery-ui\images\liulan_03.png" />
-    <Content Include="Content\jquery-ui\images\liulan_05.png" />
-    <Content Include="Content\jquery-ui\images\logo.png" />
-    <Content Include="Content\jquery-ui\images\message.png" />
-    <Content Include="Content\jquery-ui\images\message1.png" />
-    <Content Include="Content\jquery-ui\images\msgBoxBackGround.png" />
-    <Content Include="Content\jquery-ui\images\myui-header.png" />
-    <Content Include="Content\jquery-ui\images\openfile.png" />
-    <Content Include="Content\jquery-ui\images\relogin.png" />
-    <Content Include="Content\jquery-ui\images\relogin1.png" />
-    <Content Include="Content\jquery-ui\images\search.png" />
-    <Content Include="Content\jquery-ui\images\tick.png" />
-    <Content Include="Content\jquery-ui\images\tick2.png" />
-    <Content Include="Content\jquery-ui\images\toolbarwin7.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_flat_15_cd0a0a_40x100.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_glass_100_e4f1fb_1x400.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_glass_50_3baae3_1x400.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_glass_80_d7ebf9_1x400.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_highlight-hard_70_000000_1x100.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
-    <Content Include="Content\jquery-ui\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_2694e8_256x240.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_3d80b3_256x240.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_72a7cf_256x240.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\jquery-ui\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\jquery-ui\images\upload.png" />
-    <Content Include="Content\jquery-ui\images\user.png" />
-    <Content Include="Content\jquery-ui\images\user1.png" />
-    <Content Include="Content\jquery-ui\images\user2.png" />
-    <Content Include="Content\jquery-ui\images\user_online.gif" />
-    <Content Include="Content\jquery-ui\images\web_ui_lanrensc_01_03.png" />
-    <Content Include="Content\jquery-ui\images\web_ui_lanrensc_03.png" />
-    <Content Include="Content\jquery-ui\jquery-ui-1.8.16.custom.css" />
-    <Content Include="Content\jquery-ui\jquery-ui.css" />
-    <Content Include="Content\msgBoxLight.css" />
-    <Content Include="Content\splitter.css" />
-    <Content Include="Content\superfish.css" />
-    <Content Include="Content\themes\base\images\animated-overlay.gif" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.menu.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.spinner.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\themes\base\jquery.ui.tooltip.css" />
-    <Content Include="Content\themes\base\minified\images\animated-overlay.gif" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.menu.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.spinner.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
-    <Content Include="Content\ui\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
-    <Content Include="Content\ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\ui\images\ui-bg_flat_15_cd0a0a_40x100.png" />
-    <Content Include="Content\ui\images\ui-bg_glass_100_e4f1fb_1x400.png" />
-    <Content Include="Content\ui\images\ui-bg_glass_50_3baae3_1x400.png" />
-    <Content Include="Content\ui\images\ui-bg_glass_80_d7ebf9_1x400.png" />
-    <Content Include="Content\ui\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
-    <Content Include="Content\ui\images\ui-bg_highlight-hard_70_000000_1x100.png" />
-    <Content Include="Content\ui\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
-    <Content Include="Content\ui\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
-    <Content Include="Content\ui\images\ui-icons_2694e8_256x240.png" />
-    <Content Include="Content\ui\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\ui\images\ui-icons_3d80b3_256x240.png" />
-    <Content Include="Content\ui\images\ui-icons_72a7cf_256x240.png" />
-    <Content Include="Content\ui\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\ui\jquery-ui.css" />
-    <Content Include="Content\ui\minified\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_flat_15_cd0a0a_40x100.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_glass_100_e4f1fb_1x400.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_glass_50_3baae3_1x400.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_glass_80_d7ebf9_1x400.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_highlight-hard_70_000000_1x100.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
-    <Content Include="Content\ui\minified\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
-    <Content Include="Content\ui\minified\images\ui-icons_2694e8_256x240.png" />
-    <Content Include="Content\ui\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\ui\minified\images\ui-icons_3d80b3_256x240.png" />
-    <Content Include="Content\ui\minified\images\ui-icons_72a7cf_256x240.png" />
-    <Content Include="Content\ui\minified\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="Content\ui\minified\jquery-ui.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.menu.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.spinner.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.theme.min.css" />
-    <Content Include="Content\ui\minified\jquery.ui.tooltip.min.css" />
-    <Content Include="Content\ztree\img\diy\1_close.png" />
-    <Content Include="Content\ztree\img\diy\1_open.png" />
-    <Content Include="Content\ztree\img\diy\2.png" />
-    <Content Include="Content\ztree\img\diy\3.png" />
-    <Content Include="Content\ztree\img\diy\4.png" />
-    <Content Include="Content\ztree\img\diy\5.png" />
-    <Content Include="Content\ztree\img\diy\6.png" />
-    <Content Include="Content\ztree\img\diy\7.png" />
-    <Content Include="Content\ztree\img\diy\8.png" />
-    <Content Include="Content\ztree\img\diy\9.png" />
-    <Content Include="Content\ztree\img\line_conn.gif" />
-    <Content Include="Content\ztree\img\line_conn.png" />
-    <Content Include="Content\ztree\img\loading.gif" />
-    <Content Include="Content\ztree\img\metro.gif" />
-    <Content Include="Content\ztree\img\metro.png" />
-    <Content Include="Content\ztree\metro.css" />
-    <Content Include="favicon.ico" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="Global.asax" />
-    <Content Include="Scripts\bootstrap\bootbox.min.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.min.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-datetimepicker.zh-CN.js" />
-    <Content Include="Scripts\bootstrap\bootstrap-progressbar.min.js" />
-    <Content Include="Scripts\bootstrap\bootstrap.js" />
-    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
-    <Content Include="Content\jsplumb\ico-jsplumb.eot" />
-    <Content Include="Content\jsplumb\ico-jsplumb.ttf" />
-    <Content Include="Content\jsplumb\ico-jsplumb.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.eot" />
-    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.ttf" />
-    <Content Include="Content\bpmnjs\bpmn-font\font\bpmn.woff" />
-    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
-    <Content Include="Content\fonts\fontawesome-webfont.woff" />
-    <None Include="Properties\PublishProfiles\MPDiagram.pubxml" />
-    <None Include="Properties\PublishProfiles\sfd.pubxml" />
-    <None Include="Properties\PublishProfiles\soweb.pubxml" />
-    <None Include="Scripts\jquery\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery\jquery-1.8.3.js" />
-    <Content Include="Scripts\jquery\jquery-ui-1.10.3.min.js" />
-    <Content Include="Scripts\jquery\jquery.event.drag-2.2.js" />
-    <Content Include="Scripts\jquery\jquery.msgBox.js" />
-    <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery\jquery.validate.js" />
-    <Content Include="Scripts\jquery\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\jquery\jquery.ztree.all-3.5.min.js" />
-    <Content Include="Scripts\jquery\jstree.js" />
-    <Content Include="Scripts\jquery\ui\jquery-ui-1.8.16.custom.min.js" />
-    <Content Include="Scripts\jquery\ui\jquery.ui.core.js" />
-    <Content Include="Scripts\jquery\ui\jquery.ui.mouse.js" />
-    <Content Include="Scripts\jquery\ui\jquery.ui.resizable.js" />
-    <Content Include="Scripts\jquery\ui\jquery.ui.sortable.js" />
-    <Content Include="Scripts\jquery\ui\jquery.ui.widget.js" />
-    <Content Include="Scripts\jshelper.js" />
-    <Content Include="Scripts\localhelper.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\slick.event.js" />
-    <Content Include="Scripts\xmlhelper.js" />
-    <Content Include="Scripts\XMLWriter-1.0.0-min.js" />
-    <Content Include="Scripts\ztree\jquery.ztree.all-3.5.min.js" />
-    <Content Include="ViewJS\filelist.js" />
-    <Content Include="ViewJS\loglist.js" />
-    <Content Include="ViewJS\permissionlist.js" />
-    <Content Include="ViewJS\processlist.js" />
-    <Content Include="ViewJS\productlist.js" />
-    <Content Include="ViewJS\resourcelist.js" />
-    <Content Include="ViewJS\rolelist.js" />
-    <Content Include="ViewJS\roleusertree.js" />
-    <Content Include="ViewJS\soconfig.js" />
-    <Content Include="ViewJS\somain.js" />
-    <Content Include="ViewJS\tasklist.js" />
-    <Content Include="ViewJS\userlist.js" />
-    <Content Include="ViewJS\userlistdialog.js" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Views\Web.config" />
-    <Content Include="Scripts\jquery\jquery-1.10.2.min.map" />
-    <Content Include="Views\Demo\Index.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\Tree.cshtml" />
-    <Content Include="Views\Process\List.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Role\Edit.cshtml" />
-    <Content Include="Views\Shared\mainlayout.cshtml" />
-    <Content Include="Views\User\Edit.cshtml" />
-    <Content Include="Views\User\List.cshtml" />
-    <Content Include="Views\Test\Index.cshtml" />
-    <Content Include="Views\Test\SideBar.cshtml" />
-    <Content Include="Views\Test\NavBar.cshtml" />
-    <Content Include="Views\Resource\Edit.cshtml" />
-    <Content Include="Views\Resource\Authorize.cshtml" />
-    <Content Include="Views\Permission\List.cshtml" />
-    <Content Include="Views\Role\List.cshtml" />
-    <Content Include="Views\User\Dialog.cshtml" />
-    <Content Include="Views\RoleUser\List.cshtml" />
-    <Content Include="Views\Resource\List.cshtml" />
-    <Content Include="Views\Workflow\Process.cshtml" />
-    <Content Include="Views\Workflow\ProcessInstance.cshtml" />
-    <Content Include="Views\Workflow\ActivityInstance.cshtml" />
-    <Content Include="Views\Workflow\EntityDef.cshtml" />
-    <Content Include="Views\Log\List.cshtml" />
-    <Content Include="Views\Message\Popup.cshtml" />
-    <Content Include="Views\Message\Messenger.cshtml" />
-    <Content Include="Views\Message\Dialog.cshtml" />
+    <ProjectReference Include="..\Dapper\Dapper.csproj" />
+    <ProjectReference Include="..\SlickOne.Data\SlickOne.Data.csproj" />
+    <ProjectReference Include="..\SlickOne.Module.AuthImpl\SlickOne.Module.AuthImpl.csproj" />
+    <ProjectReference Include="..\SlickOne.Module.MessageImpl\SlickOne.Module.MessageImpl.csproj" />
+    <ProjectReference Include="..\SlickOne.Module.ProcessImpl\SlickOne.Module.ProcessImpl.csproj" />
+    <ProjectReference Include="..\SlickOne.Module\SlickOne.Module.csproj" />
+    <ProjectReference Include="..\SlickOne.WebUtility\SlickOne.WebUtility.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Mvc\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Dapper\Dapper.csproj">
-      <Project>{4da6306b-b9f0-4e06-aca0-2a1400dd9bd0}</Project>
-      <Name>Dapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlickOne.Biz\SlickOne.Biz.csproj">
-      <Project>{79d7a322-276a-4fb5-b509-5219f3e80f63}</Project>
-      <Name>SlickOne.Biz</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlickOne.Data\SlickOne.Data.csproj">
-      <Project>{e0a4fc43-54af-49b3-a227-0ce9db503903}</Project>
-      <Name>SlickOne.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlickOne.Module.AuthImp\SlickOne.Module.AuthImpl.csproj">
-      <Project>{80d57a25-341c-49e7-8803-62ee6fc6c35d}</Project>
-      <Name>SlickOne.Module.AuthImpl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlickOne.Module\SlickOne.Module.csproj">
-      <Project>{8193b232-c188-4f62-a571-81660e3a9b93}</Project>
-      <Name>SlickOne.Module</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SlickOne.WebUtility\SlickOne.WebUtility.csproj">
-      <Project>{b90de653-f768-465a-bb23-3b5b4d89c96c}</Project>
-      <Name>SlickOne.WebUtility</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
-  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
-    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
-  </Target>
-  <ProjectExtensions>
-    <VisualStudio>
-      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
-        <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>17364</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/soweb</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
-        </WebProjectProperties>
-      </FlavorProperties>
-    </VisualStudio>
-  </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target> -->
+
 </Project>

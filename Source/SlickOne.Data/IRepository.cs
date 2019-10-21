@@ -1,9 +1,9 @@
 ﻿/*
-* SlickOne 企业级Web快速开发框架遵循LGPL协议，也可联系作者商业授权并获取技术支持；
+* Slickflow 工作流引擎遵循LGPL协议，也可联系作者商业授权并获取技术支持；
 * 除此之外的使用则视为不正当使用，请您务必避免由此带来的商业版权纠纷。
 * 
 The Slickflow project.
-Copyright (C) 2016  .NET Web Framwork Library
+Copyright (C) 2014  .NET Workflow Engine Library
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -48,6 +48,7 @@ namespace SlickOne.Data
         T GetFirst<T>(string sql, dynamic param = null, bool buffered = true) where T : class;
         T GetFirst<T>(IDbConnection conn, string sql, dynamic param = null, IDbTransaction trans = null, bool buffered = true) where T : class;
         IEnumerable<T> GetByIds<T>(IList<dynamic> ids) where T : class;
+        IEnumerable<T> GetByIds<T>(IDbConnection conn, IList<dynamic> ids, IDbTransaction trans = null, bool buffered = true) where T : class;
         IEnumerable<T> GetAll<T>() where T : class;
         IEnumerable<T> Query<T>(string sql, dynamic param = null, bool buffered = true) where T : class;
         IEnumerable<T> Query<T>(IDbConnection conn, string sql, dynamic param = null, IDbTransaction trans = null, bool buffered = true) where T : class;
@@ -76,13 +77,12 @@ namespace SlickOne.Data
         IEnumerable<T> GetPaged<T>(IDbConnection conn, Pager pager, bool buffered = false) where T : class;
 
         //execute
-        Int32 Execute(string sql, dynamic param = null);
         Int32 Execute(IDbConnection conn, string sql, dynamic param = null, IDbTransaction transaction = null);
         Int32 ExecuteCommand(IDbCommand cmd);
         Int32 ExecuteProc(string procName, DynamicParameters param = null);
         Int32 ExecuteProc(IDbConnection conn, string procName, DynamicParameters param = null);
-        IList<T> ExecProcQuery<T>(string procName, DynamicParameters param) where T : class;
         IList<T> ExecProcQuery<T>(IDbConnection conn, string procName, DynamicParameters param) where T : class;
+        IList<T> ExecProcQuery<T>(string procName, DynamicParameters param) where T : class;
 
         //insert, update, delete
         dynamic Insert<T>(T entity) where T : class;
