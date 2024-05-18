@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using Microsoft.AspNetCore.Http;
-using Newtonsoft.Json;
 
 namespace SlickOne.WebUtility
 {
@@ -18,16 +12,27 @@ namespace SlickOne.WebUtility
         /// 添加Cookie
         /// </summary>
         /// <param name="response">http响应</param>
-        /// <param name="userObject">用户对象</param>
+        /// <param name="value">用户对象</param>
         /// <param name="cookieName">Cookie名称</param>
         /// <param name="days">天数</param>
-        public static void AddCookie(HttpResponse response, object userObject, string cookieName, int days)
+        public static void AddCookie(HttpResponse response, string cookieName, string value, int days)
         {
-            var json = JsonConvert.SerializeObject(userObject);
             var cookieOptions = new CookieOptions();
             cookieOptions.Expires = DateTime.Now.AddDays(days);
 
-            response.Cookies.Append(cookieName, json, cookieOptions);
+            response.Cookies.Append(cookieName, value, cookieOptions);
+        }
+
+        /// <summary>
+        /// 读取Cookie
+        /// </summary>
+        /// <param name="request">Http请求</param>
+        /// <param name="cookieName">Cookie名称</param>
+        /// <returns>Cookie值</returns>
+        public static string GetCookie(HttpRequest request, string cookieName)
+        {
+            var value = request.Cookies[cookieName];
+            return value;
         }
 
         /// <summary>

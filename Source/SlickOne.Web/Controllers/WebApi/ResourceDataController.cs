@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.SignalR;
 using SlickOne.WebUtility;
 using SlickOne.Module.AuthImpl.Entity;
 using SlickOne.Module.AuthImpl.Service;

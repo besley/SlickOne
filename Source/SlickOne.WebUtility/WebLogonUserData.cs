@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace SlickOne.WebUtility
 {
     /// <summary>
-    /// Web用户
+    /// 扩展数据集
     /// </summary>
-    public class WebLogonUser
+    public class WebLogonUserData
     {
         public int UserID { get; set; }
         public string LoginName { get; set; }
-        public string Ticket { get; set; }
+        public string Password { get; set; }
     }
 }

@@ -64,6 +64,27 @@ namespace SlickOne.WebUtility
             return helper;
         }
 
+        /// <summary>
+        /// 创建HttpClientHelper类
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="ticket"></param>
+        /// <returns></returns>
+        public static HttpClientHelper CreateHelper(string url, string ticket)
+        {
+            var helper = new HttpClientHelper();
+            helper.URL = url;
+
+            var authStr = WebApiRequestHeaderNamePrefix + ticket;
+            
+            if (!HttpClient.DefaultRequestHeaders.Contains(WebApiRequestHeaderAuthorization))
+            {
+                HttpClient.DefaultRequestHeaders.Add(WebApiRequestHeaderAuthorization, authStr);
+            }
+
+            return helper;
+        }
+
 
         /// <summary>
         /// 返回请求结果
@@ -88,6 +109,20 @@ namespace SlickOne.WebUtility
             var response = HttpClient.GetAsync(URL).Result;
             var message = response.Content.ReadAsStringAsync().Result;
             var result = JsonConvert.DeserializeObject<T1>(message);
+
+            return result;
+        }
+
+        /// <summary>
+        /// 获取列表
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <returns></returns>
+        public List<T1> GetList<T1>()
+        {
+            var response = HttpClient.GetAsync(URL).Result;
+            var message = response.Content.ReadAsStringAsync().Result;
+            var result = JsonConvert.DeserializeObject<List<T1>>(message);
 
             return result;
         }

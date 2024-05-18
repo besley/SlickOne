@@ -7,18 +7,27 @@
       "sslPort": 0
     },
     "iisExpress": {
-      "applicationUrl": "http://localhost:50598/",
-      "sslPort": 0
+      "applicationUrl": "http://localhost:55415",
+      "sslPort": 44383
     }
   },
+  "$schema": "http://json.schemastore.org/launchsettings.json",
   "profiles": {
     "IIS Express": {
       "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "http://localhost/soweb2/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Slickflow.WebTest": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": "true",
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }
   }
 }

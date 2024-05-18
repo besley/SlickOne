@@ -14,12 +14,13 @@ namespace SlickOne.WebUtility
     /// </summary>
     public class SessionManager
     {
-        private const string WEB_LOGON_USER = "IVWEB_LOGON_USER";
-        private const string WEB_LOGON_USER_ID = "IVWEB_LOGON_USER_ID";
-        private const string WEB_LOGON_SESSION_GUID = "IVWEB_LOGON_SESSION_GUID";
-        private const string WEB_LOGIN_IMAGE_TEXT = "IVWEB_LOGIN_IMAGE_TEXT";
-        private const string WEB_LOGON_USER_TICKET = "IVWEB_LOGON_USER_TICKET";
-        private const string WEB_LOGON_USER_ACCOUNT_TYPE = "IVWEB_LOGON_USER_ACCOUNT_TYPE";
+        private const string WEB_LOGON_USER = "SLICKONE_WEB_LOGON_USER";
+        private const string WEB_LOGON_USER_ID = "SLICKONE_WEB_LOGON_USER_ID";
+        private const string WEB_LOGON_SESSION_GUID = "SLICKONE_WEB_LOGON_SESSION_GUID";
+        private const string WEB_LOGIN_IMAGE_TEXT = "SLICKONE_WEB_LOGIN_IMAGE_TEXT";
+        private const string WEB_LOGON_USER_TICKET = "SLICKONE_WEB_LOGON_USER_TICKET";
+        private const string WEB_LOGON_USER_ACCOUNT_TYPE = "SLICKONE_WEB_LOGON_USER_ACCOUNT_TYPE";
+        private const string WEB_LOGON_USER_PERMISSION_LIST = "SLICKONE_WEB_LOGON_USER_PERMISSION_LIST";
 
         /// <summary>
         /// 写入session
@@ -76,9 +77,39 @@ namespace SlickOne.WebUtility
         /// 保存登录用户Session的GUID
         /// </summary>
         /// <param name="session">会话</param>
-        public static void SaveLogonSessionGUID(ISession session)
+        public static string SaveLogonSessionGUID(ISession session)
         {
-            Save(session, WEB_LOGON_SESSION_GUID, Guid.NewGuid());
+            string newSessionGUID = Guid.NewGuid().ToString();
+            Save(session, WEB_LOGON_SESSION_GUID, newSessionGUID);
+            return newSessionGUID;
+        }
+
+        /// <summary>
+        /// 保存用户身份凭证信息
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="loginName"></param>
+        /// <param name="ticket"></param>
+        public static string SaveLogonUserInfo(ISession session, int userID, string loginName, string ticket)
+        {
+            SaveLogonUserID(session, userID);
+            string sessionGUID = SaveLogonSessionGUID(session);
+            SaveLogonUserTicket(session, ticket);
+
+            var webUser = new WebLogonUser { UserID = userID, LoginName = loginName, Ticket = ticket };
+            SaveLogonUser(session, webUser);
+
+            return sessionGUID;
+        }
+
+        /// <summary>
+        /// 保存用户资源数据
+        /// </summary>
+        /// <param name="session">会话</param>
+        /// <param name="permissionList">权限列表</param>
+        public static void SaveLogonUserPermission(ISession session, object permissionList)
+        {
+            Save(session, WEB_LOGON_USER_PERMISSION_LIST, permissionList);
         }
 
         /// <summary>
@@ -109,7 +140,7 @@ namespace SlickOne.WebUtility
         /// <param name="session">会话</param>
         /// <param name="key">键</param>
         /// <returns>类型</returns>
-        public static T Get<T>(ISession session, string key) where T:class
+        public static T Get<T>(ISession session, string key) where T : class
         {
             var value = session.GetString(key);
 
